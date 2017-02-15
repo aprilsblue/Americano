@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215100520) do
+ActiveRecord::Schema.define(version: 20170215111808) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20170215100520) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "chapter_connections", force: :cascade do |t|
+    t.integer  "superchapter_id"
+    t.integer  "subchapter_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["subchapter_id"], name: "index_chapter_connections_on_subchapter_id"
+    t.index ["superchapter_id"], name: "index_chapter_connections_on_superchapter_id"
   end
 
   create_table "chapters", force: :cascade do |t|
