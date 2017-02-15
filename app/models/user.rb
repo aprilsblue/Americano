@@ -8,5 +8,7 @@ class User < ApplicationRecord
   has_many :chapters
   has_many :opinions
   has_many :quotes
+  has_many :likes
+  has_many :like_opinions, through: :likes, source: :opinion
 
 end
