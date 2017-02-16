@@ -13,128 +13,133 @@
   </head>
 
   <body>
-    <!--Navbar-->
-    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <strong>Americano</strong>
-        </a>
-        <div class="collapse navbar-collapse text-right" id="navbarNav1">
-          <!-- Nav Menu -->
-          <!--
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+    <% if params[:controller] == "books" and params[:action] == "index" %>
+      <!--Navbar index page-->
+      <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <strong>Americano</strong>
+          </a>
+          <div class="collapse navbar-collapse text-right" id="navbarNav1">
+            <!-- Nav Menu -->
+            <!--
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
               <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
               <a class="nav-link">Features</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
               <a class="nav-link">Pricing</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
               <a class="nav-link">About</a>
-            </li>
-          </ul>
-          -->
-          <%= form_tag books_path, class: "form-login form-inline waves-effect waves-light" do %>
-            <%= text_field_tag :email, "",  class: "form-control", placeholder: "EMAIL" %>
-            <%= text_field_tag :password, "", class: "form-control", placeholder: "PASSWORD" %>
-          <% end %>
+              </li>
+              </ul>
+            -->
+            <%= form_tag books_path, class: "form-login form-inline waves-effect waves-light" do %>
+              <%= text_field_tag :email, "",  class: "form-control", placeholder: "EMAIL" %>
+              <%= text_field_tag :password, "", class: "form-control", placeholder: "PASSWORD" %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </nav>
-    <!--/.Navbar-->
+      </nav>
+    <% else %>
+      <!--/.Navbar-->
+      <!--Navbar show page-->
+      <nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <strong>Americano</strong>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav1">
+            <!--
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Pricing</a>
+              </li>
+              <li class="nav-item dropdown btn-group">
+                <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline waves-effect waves-light">
+              <input class="form-control" type="text" placeholder="Search">
+            </form>
+          </div>
+            -->
+        </div>
+      </nav>
+      <!--/.Navbar-->
+
+    <% end %>
 
     <%= yield %>
 
     <!--Footer-->
     <footer class="page-footer center-on-small-only">
 
-        <!--Footer Links-->
-        <div class="container-fluid">
-            <div class="row">
+      <!--Footer Links-->
+      <div class="container-fluid">
+        <div class="row">
 
-                <!--First column-->
-                <div class="col-lg-3 offset-lg-1 hidden-lg-down">
-                    <h5 class="title">ABOUT MATERIAL DESIGN</h5>
-                    <p>Material Design (codenamed Quantum Paper) is a design language developed by Google. </p>
-
-                    <p>Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>
+               <!--First column-->
+                <div class="col-12 col-md-3 text-center">
+                  <p>Agreement</p>
                 </div>
                 <!--/.First column-->
 
                 <hr class="hidden-md-up">
 
                 <!--Second column-->
-                <div class="col-lg-2 col-md-4 offset-lg-1">
-                    <h5 class="title">First column</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
+                <div class="col-12 col-md-3 text-center">
+                  <p>Policy</p>
                 </div>
                 <!--/.Second column-->
 
                 <hr class="hidden-md-up">
 
                 <!--Third column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Second column</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
+                <div class="col-12 col-md-3 text-center">
+                  <p>Advertisement</p>
                 </div>
                 <!--/.Third column-->
 
                 <hr class="hidden-md-up">
 
                 <!--Fourth column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Third column</h5>
-                    <ul>
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
+                <div class="col-12 col-md-3 text-center">
+                  <p>Feedback</p>
                 </div>
                 <!--/.Fourth column-->
 
-            </div>
-        </div>
-        <!--/.Footer Links-->
+          <hr class="hidden-md-up">
 
-        <hr>
-
-        <!--Call to action-->
-        <div class="call-to-action">
-            <h4>Material Design for Bootstrap</h4>
-            <ul>
-                <li>
-                    <h5>Get our UI KIT for free</h5></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-danger">Sign up!</a></li>
-                <li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default">Learn more</a></li>
-            </ul>
-        </div>
-        <!--/.Call to action-->
-
-        <!--Copyright-->
+       <!--Copyright-->
         <div class="footer-copyright">
             <div class="container-fluid">
                 © 2015 Copyright: <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
 
-            </div>
         </div>
-        <!--/.Copyright-->
+      </div>
+      <!--/.Copyright-->
 
     </footer>
     <!--/.Footer-->

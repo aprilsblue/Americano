@@ -6075,6 +6075,7 @@ i.btn-danger {
   background: #CC0000 !important; }
 
 .card {
+  margin-bottom: 1rem;
   border: 0; }
   .card .card-title a {
     color: #424242;
@@ -6282,9 +6283,14 @@ i.btn-danger {
 
 /* MDB HOVER EFFECTS */
 .view {
+  height: 300px;
   overflow: hidden;
   position: relative;
   cursor: default; }
+  .view .img-fluid {
+    height: 100%;
+    width: 100%;
+  }
   .view .mask,
   .view .content {
     width: 100%;
