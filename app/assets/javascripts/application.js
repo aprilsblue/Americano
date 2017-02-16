@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require js/bootstrap.min
+//= require bootstrap.min.js
 //= require js/mdb.min
+//= require main.js
+//= require plugins.js
+//= require vendor/jquery-1.10.2.min.js
+//= require vendor/modernizr-2.6.2.min.js
+//= require wow.min.js
 //= require turbolinks
 //= require_tree .
