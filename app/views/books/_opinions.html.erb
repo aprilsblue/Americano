@@ -1,0 +1,14 @@
+<% opinions.each do |o| %>
+  <div class="row">
+    <div class="col-md-2">
+      <i class="fa fa-coffee" aria-hidden="true"><%= o.likes.count  %></i> 
+    </div>
+    <div class="col-md-8">
+      <h4 class="media-heading"><%= o.user.email %></h4>
+      <span><%= o.content %></span>
+    </div>
+  </div>
+  <hr>
+<% end %>
+
+

@@ -1,0 +1,15 @@
+<% quotes.each do |q| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="reviews">
+        <span>"<%= q.content  %>"</span>
+        <br>
+        <p class="quote-u-name"><%= q.user.email %></p>
+      </div>
+    </div>
+  </div>
+
+  <%= render partial: 'opinions', locals: { opinions: q.opinions } %>
+
+<% end %>
+
