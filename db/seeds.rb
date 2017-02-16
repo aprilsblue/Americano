@@ -28,6 +28,4 @@ Like.create(user_id: 1, opinion_id: 1)
 
 Bookmark.create(reader_id: 1, book_id: 1, quote_id: 1)
 
-puts("시드 심기 성공")
-
-
+puts("Seed Success!!")
