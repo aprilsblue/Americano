@@ -11,13 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-3.1.1.js
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require mdb.js
+//= require tether.min.js
 //= require bootstrap.min.js
-//= require js/mdb.min
-//= require main.js
-//= require plugins.js
-//= require vendor/jquery-1.10.2.min.js
-//= require vendor/modernizr-2.6.2.min.js
-//= require wow.min.js
 //= require turbolinks
 //= require_tree .
+$.turbo.use('turbolinks:load');

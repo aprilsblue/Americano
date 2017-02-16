@@ -1,337 +1,418 @@
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>App plus</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Material Design Bootstrap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Template styles -->
+    <style rel="stylesheet">
+        /* TEMPLATE STYLES */
+        /* Necessary for full page carousel*/
         
-        <!-- Fonts -->
-
-
-
-
-        <!-- CSS -->
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/responsive.css">
+        html,
+        body {
+            height: 100%;
+        }
+        /* Navigation*/
         
+        .navbar {
+            background-color: transparent;
+        }
+        
+        .top-nav-collapse {
+            background-color: #4285F4;
+        }
+        
+        footer.page-footer {
+            background-color: #4285F4;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                background-color: #4285F4;
+            }
+        }
+        
+        .scrolling-navbar {
+            -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+            -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+            transition: background .5s ease-in-out, padding .5s ease-in-out;
+        }
+        /* Carousel*/
+        
+        .carousel {
+            height: 50%;
+        }
+        
+        @media (max-width: 776px) {
+            .carousel {
+                height: 100%;
+            }
+        }
+        
+        .carousel-item,
+        .active {
+            height: 100%;
+        }
+        
+        .carousel-inner {
+            height: 100%;
+        }
+        
+        /*Caption*/
+        
+        .flex-center {
+            color: #fff;
+        }
+    </style>
 
-        <!-- Js -->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script>
-         new WOW(
-            ).init();
-        </script>
+</head>
 
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-57708809-1', 'auto');
-          ga('send', 'pageview');
-
-        </script>
-
-    </head>
-    <body>
+<body>
 
 
-    <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-6 col-sm-3">
-                    <a href="#" class="logo">
-                        <img src="images/logo.png" alt="">
-                    </a>
-                </div>
-                <div class="col-md-6 col-xs-6 col-sm-6">
-                    <div class="menu">
-                        <nav class="navbar navbar-default" role="navigation">
-                            <div class="container-fluid">
-                                <!-- Brand and toggle get grouped for better mobile display -->
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    </button>
-                                </div>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <strong>Navbar</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">About</a>
+                    </li>
+                </ul>
+                <form class="form-inline waves-effect waves-light">
+                    <input class="form-control" type="text" placeholder="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--/.Navbar-->
 
-                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="#banner">Home</a></li>
-                                        <li><a href="#service">Service</a></li>
-                                        <li><a href="#feature">Feature</a></li>
-                                        <li><a href="#utility">Utility</a></li>
-                                        <li><a href="#subscribe">Subscribe</a></li>
-                                    </ul>
-                                  
-                                </div><!-- /.navbar-collapse -->
-                            </div><!-- /.container-fluid -->
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-12 col-sm-3">
-                    <ul class="social-info">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-3" class="carousel slide carousel-fade white-text" data-ride="carousel" data-interval="false">
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-3" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-3" data-slide-to="1"></li>
+            <li data-target="#carousel-example-3" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+
+            <!-- First slide -->
+            <div class="carousel-item active view hm-black-light" style="background-image: url('http://mdbootstrap.com/img/Photos/Slides/img%20(4).jpg'); background-repeat: no-repeat; background-size: cover;">
+
+                <!-- Caption -->
+                <div class="full-bg-img flex-center white-text">
+                    <ul class="animated fadeInUp col-md-12">
+                        <li>
+                            <h1 class="h1-responsive flex-item">Material Design for Bootstrap 4</h1>
+                            <li>
+                                <p class="flex-item">The most powerful and free UI KIT for Bootstrap</p>
+                            </li>
+                            <li>
+                                <a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-primary btn-lg flex-item">Sign up!</a>
+
+                                <a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default btn-lg flex-item">Learn more</a>
+                            </li>
                     </ul>
                 </div>
+                <!-- /.Caption -->
+
             </div>
-        </div>
-    </header>
+            <!-- /.First slide -->
 
-    
+            <!-- Second slide -->
+            <div class="carousel-item view hm-black-light" style="background-image: url('http://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg'); background-repeat: no-repeat; background-size: cover;">
 
-
-    <section id="banner" class="wow fadeInUp">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="block">
-                        <img class="app-img img-responsive" src="images/app.png" alt="">
-                    </div>
-                    
+                <!-- Caption -->
+                <div class="full-bg-img flex-center white-text">
+                    <ul class="animated fadeInUp col-md-12">
+                        <li>
+                            <h1 class="h1-responsive">Lots of tutorials at your disposal</h1>
+                        </li>
+                        <li>
+                            <p>And all of them are FREE!</p>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-primary btn-lg">Start learning</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-6 col-md-offset-1 col-sm-6">
-                    <div class="block">
-                        <h1>
-                            Beautiful, simple and easy to use App Plus.
-                        </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nemo, corporis ipsum soluta nobis ea!
-                        </p>
+                <!-- /.Caption -->
 
-                        <ul class="download-btn">
-                            <li>
-                                <a href="#" class="btn btn-default btn-apple"> <i class="fa fa-apple"></i>App store</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-andriod"><i class="fa fa-android"></i>Play Store</a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-windows"><i class="fa fa-windows"></i>Windows Store</a>
-                            </li>
-                        </ul>
-                        
-
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+            <!-- /.Second slide -->
 
+            <!-- Third slide -->
+            <div class="carousel-item view hm-black-light" style="background-image: url('http://mdbootstrap.com/img/Photos/Slides/img%20(67).jpg'); background-repeat: no-repeat; background-size: cover;">
 
-    <section id="service">
-        <div class="container">
-            <div class="service-wrapper">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="block wow fadeInRight" data-wow-delay="1s">
-                            <div class="icon">
-                               <i class="fa fa-desktop"></i> 
-                            </div>
-                            
-                            <h3>Fully Customizable</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="block wow fadeInRight" data-wow-delay="1.3s">
-                            <div class="icon">
-                                <i class="fa  fa-paper-plane"></i>
-                            </div>
-                            <h3>Gorgeous design</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="block wow fadeInRight" data-wow-delay="1.6s">
-                            <div class="icon">
-                                <i class="fa  fa-file-text"></i>
-                            </div>
-                            <h3>Well documented.</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>
-                        </div>
-                    </div>
-                     <div class="col-md-3 col-sm-6">
-                        <div class="block wow fadeInRight" data-wow-delay="1.9s">
-                            <div class="icon">
-                                <i class="fa  fa-laptop"></i>
-                            </div>
-                            <h3>Responsive Design.</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>
-                        </div>
-                    </div>
+                <!-- Caption -->
+                <div class="full-bg-img flex-center white-text">
+                    <ul class="animated fadeInUp col-md-12">
+                        <li>
+                            <h1 class="h1-responsive">Visit our support forum</h1></li>
+                        <li>
+                            <p>Our community can help you with any question</p>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://mdbootstrap.com/forums/forum/support/" class="btn btn-default btn-lg">Support forum</a>
+                        </li>
+                    </ul>
                 </div>
+                <!-- /.Caption -->
+
             </div>
+            <!-- /.Third slide -->
+            
         </div>
-    </section>
+        <!--/.Slides-->
 
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-3" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-3" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->
 
-   
-    
+    <br>
 
+    <!--Content-->
+    <div class="container">
+        <div class="row">
+            <!--First columnn-->
+            <div class="col-lg-4">
+                <!--Card-->
+                <div class="card">
 
-
-
-
-    <section id="feature">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 wow fadeInRight" data-wow-delay=".8s">
-                    <h2 class="title">Our Focused on Feature</h2>
-
-                    <div class="feature-item">
-
-                        <div class="media">
-                            <div class="pull-left icon" href="#">
-                                <i class="fa fa-paint-brush"></i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Reliable and Secure Platform</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="feature-item">
-
-                        <div class="media">
-                            <div class="pull-left icon" href="#">
-                                <i class="fa fa-qrcode"></i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Everything is perfectly orgainized</h4>
-                                <p>Aipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="feature-item">
-
-                        <div class="media">
-                            <div class="pull-left icon" href="#">
-                                <i class="fa fa-recycle"></i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Rapid customer support</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 wow fadeInLeft" data-wow-delay=".8s">
-                    <div class="block">
-                        <img class="img-responsive" src="images/featured-app.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="utility">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-delay=".8s">
-                    <img class="img-responsive" src="images/mockup.png" alt="">
-                </div>
-                <div class="col-md-6 col-sm-6 wow fadeInDown" data-wow-delay=".8s">
-                    <div class="block">
-                        <h2>Amazing Compatibility.</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="utility-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 wow fadeInLeft" data-wow-delay=".8s">
-                    <div class="block">
-                        <h2>Remarkable Features</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisquam est, 
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 wow fadeInRight" data-wow-delay=".8s">
-                    <img class="img-responsive" src="images/app-screen.png" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="subscribe" >
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 wow fadeInDown" data-wow-delay=".8s">
-                    <div class="block">
-                        <div class="title text-center">
-                            <h2>Stay Connected</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, non!</p>
-                        </div>
-                        
-                        
-
-                        <form class="form-inline text-center col-sm-12 col-xs-12" role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="signup-form" >
-                                
-                                
-                            </div>
-                            <a href="" type="submit" class="btn btn-default btn-signup">
-                                <i class="fa fa-paper-plane"></i>
-                            </a>
-                        </form>
-                    </div>
-                    
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="wow fadeInUp" data-wow-delay=".8s">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-12">
-                        <a class="footer-logo"href="#">
-                            <img class="img-responsive" src="images/footer-logo.png" alt="">
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="http://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(2).jpg" class="img-fluid" alt="">
+                        <a href="#">
+                            <div class="mask"></div>
                         </a>
-                    <p>Copyright © 2014 Themefisher. All rights reserved. Designed & developed by themefisher.com</p>
-                    
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                    <!--/.Card content-->
+
                 </div>
+                <!--/.Card-->
+            </div>
+            <!--First columnn-->
+
+            <!--Second columnn-->
+            <div class="col-lg-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="http://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(4).jpg" class="img-fluid" alt="">
+                        <a href="#">
+                            <div class="mask"></div>
+                        </a>
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Second columnn-->
+
+            <!--Third columnn-->
+            <div class="col-lg-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="http://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(8).jpg" class="img-fluid" alt="">
+                        <a href="#">
+                            <div class="mask"></div>
+                        </a>
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block">
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Read more</a>
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Third columnn-->
+        </div>
+    </div>
+    <!--/.Content-->
+
+
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only">
+
+        <!--Footer Links-->
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--First column-->
+                <div class="col-lg-3 offset-lg-1 hidden-lg-down">
+                    <h5 class="title">ABOUT MATERIAL DESIGN</h5>
+                    <p>Material Design (codenamed Quantum Paper) is a design language developed by Google. </p>
+
+                    <p>Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>
+                </div>
+                <!--/.First column-->
+
+                <hr class="hidden-md-up">
+
+                <!--Second column-->
+                <div class="col-lg-2 col-md-4 offset-lg-1">
+                    <h5 class="title">First column</h5>
+                    <ul>
+                        <li><a href="#!">Link 1</a></li>
+                        <li><a href="#!">Link 2</a></li>
+                        <li><a href="#!">Link 3</a></li>
+                        <li><a href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+
+                <hr class="hidden-md-up">
+
+                <!--Third column-->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="title">Second column</h5>
+                    <ul>
+                        <li><a href="#!">Link 1</a></li>
+                        <li><a href="#!">Link 2</a></li>
+                        <li><a href="#!">Link 3</a></li>
+                        <li><a href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <!--/.Third column-->
+
+                <hr class="hidden-md-up">
+
+                <!--Fourth column-->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="title">Third column</h5>
+                    <ul>
+                        <li><a href="#!">Link 1</a></li>
+                        <li><a href="#!">Link 2</a></li>
+                        <li><a href="#!">Link 3</a></li>
+                        <li><a href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <!--/.Fourth column-->
+
             </div>
         </div>
+        <!--/.Footer Links-->
+
+        <hr>
+
+        <!--Call to action-->
+        <div class="call-to-action">
+            <h4>Material Design for Bootstrap</h4>
+            <ul>
+                <li>
+                    <h5>Get our UI KIT for free</h5></li>
+                <li><a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-danger">Sign up!</a></li>
+                <li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default">Learn more</a></li>
+            </ul>
+        </div>
+        <!--/.Call to action-->
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2015 Copyright: <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
     </footer>
+    <!--/.Footer-->
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
 
 </body>
+
 </html>
