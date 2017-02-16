@@ -13,8 +13,13 @@
 ActiveRecord::Schema.define(version: 20170215111808) do
 
   create_table "bookmarks", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "reader_id"
+    t.integer  "quote_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_bookmarks_on_book_id"
+    t.index ["reader_id"], name: "index_bookmarks_on_reader_id"
   end
 
   create_table "books", force: :cascade do |t|
