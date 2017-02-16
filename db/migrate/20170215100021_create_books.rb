@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :writer
       t.string :publisher
       t.datetime :published_at
+      t.string :picture
 
       t.belongs_to :user, index: true
 

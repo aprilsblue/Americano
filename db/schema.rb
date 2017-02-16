@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170215111808) do
     t.string   "writer"
     t.string   "publisher"
     t.datetime "published_at"
+    t.string   "picture"
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
