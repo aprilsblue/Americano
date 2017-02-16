@@ -18,7 +18,5 @@
 //= require vendor/jquery-1.10.2.min.js
 //= require vendor/modernizr-2.6.2.min.js
 //= require wow.min.js
-//= require less/main.less
-//= require less/responsive.less
 //= require turbolinks
 //= require_tree .
