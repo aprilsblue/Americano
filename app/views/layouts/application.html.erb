@@ -13,29 +13,30 @@
   </head>
 
   <body>
-    <!--Navbar-->
-    <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-          <strong>Americano</strong>
-        </a>
-        <div class="collapse navbar-collapse text-right" id="navbarNav1">
-          <!-- Nav Menu -->
-          <!--
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+    <% if params[:controller] == "books" and params[:action] == "index" %>
+      <!--Navbar index page-->
+      <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <strong>Americano</strong>
+          </a>
+          <div class="collapse navbar-collapse text-right" id="navbarNav1">
+            <!-- Nav Menu -->
+            <!--
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
               <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
               <a class="nav-link">Features</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
               <a class="nav-link">Pricing</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
               <a class="nav-link">About</a>
             </li>
           </ul>
@@ -51,20 +52,60 @@
             <% end %>
           <% end %>
         </div>
-      </div>
-    </nav>
-    <!--/.Navbar-->
+      </nav>
+    <% else %>
+      <!--/.Navbar-->
+      <!--Navbar show page-->
+      <nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+        <div class="container">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <strong>Americano</strong>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav1">
+            <!--
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Pricing</a>
+              </li>
+              <li class="nav-item dropdown btn-group">
+                <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                  <a class="dropdown-item">Action</a>
+                  <a class="dropdown-item">Another action</a>
+                  <a class="dropdown-item">Something else here</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline waves-effect waves-light">
+              <input class="form-control" type="text" placeholder="Search">
+            </form>
+          </div>
+            -->
+        </div>
+      </nav>
+      <!--/.Navbar-->
+
+    <% end %>
 
     <%= yield %>
 
     <!--Footer-->
     <footer class="page-footer center-on-small-only">
 
-        <!--Footer Links-->
-        <div class="container-fluid">
-            <div class="row">
+      <!--Footer Links-->
+      <div class="container-fluid">
+        <div class="row">
 
-                <!--First column-->
+               <!--First column-->
                 <div class="col-12 col-md-3 text-center">
                   <p>Agreement</p>
                 </div>
@@ -94,17 +135,16 @@
                 </div>
                 <!--/.Fourth column-->
 
-            </div>
-        </div>
-        <!--/.Footer Links-->
+          <hr class="hidden-md-up">
 
-        <!--Copyright-->
+       <!--Copyright-->
         <div class="footer-copyright">
           <div class="container-fluid">
             © 2017 Copyright : <a href="http://americano.com"> Americano.com </a>
           </div>
         </div>
-        <!--/.Copyright-->
+      </div>
+      <!--/.Copyright-->
 
     </footer>
     <!--/.Footer-->
