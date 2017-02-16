@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min.js
+//= require js/mdb.min
 //= require main.js
 //= require plugins.js
 //= require vendor/jquery-1.10.2.min.js
