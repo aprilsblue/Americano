@@ -10,14 +10,14 @@ body {
 }
 /* Navigation*/
 .navbar {
-    background-color: transparent;
+  background-color: transparent;
 }
 .form-login {
   float: right;
 }
 
 .top-nav-collapse {
-    background-color: #4285F4;
+  background-color: #4285F4;
 }
 
 .card-title {
@@ -25,7 +25,7 @@ body {
 }
 
 footer.page-footer {
-    background-color: #4285F4;
+  background-color: #4285F4;
 }
 
 @media only screen and (max-width: 768px) {
@@ -42,26 +42,58 @@ footer.page-footer {
 /* Carousel*/
 
 .carousel {
-    height: 50%;
+  height: 50%;
 }
 
 @media (max-width: 776px) {
-    .carousel {
-        height: 100%;
-    }
+  .carousel {
+    height: 100%;
+  }
 }
 
 .carousel-item,
 .active {
-    height: 100%;
+  height: 100%;
 }
 
 .carousel-inner {
-    height: 100%;
+  height: 100%;
 }
 
 /*Caption*/
 
 .flex-center {
-    color: #fff;
+  color: #fff;
+}
+
+//books/show page 관련
+main {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.widget-wrapper {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+.reviews {
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.price {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: -2px;
+}
+
+.price .tag {
+  margin: 0;
 }
