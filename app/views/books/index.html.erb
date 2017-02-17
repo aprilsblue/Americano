@@ -23,7 +23,15 @@
                     <p class="flex-item">Enrich a book with notes.</p>
                   </li>
                   <li>
+<<<<<<< HEAD
                     <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
+=======
+                    <% if user_signed_in? %>
+                      <%= button_tag "LET'S GO!", class: "btn btn-primary btn-lg flex-item", disabled: true %>
+                    <% else %>
+                      <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
+                    <% end %>
+>>>>>>> 51ae3e94502b46f3fd2cdf8eb47299cea4988c94
                   </li>
                 </li>
               </ul>
@@ -46,7 +54,15 @@
                 <p>Asking costs nothing.</p>
               </li>
               <li>
+<<<<<<< HEAD
                 <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
+=======
+                <% if user_signed_in? %>
+                  <%= button_tag "LET'S GO!", class: "btn btn-primary btn-lg flex-item", disabled: true %>
+                <% else %>
+                  <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
+                <% end %>
+>>>>>>> 51ae3e94502b46f3fd2cdf8eb47299cea4988c94
               </li>
             </ul>
           </div>
@@ -68,7 +84,15 @@
                   <p>It is good to learn something to teach someone.</p>
                 </li>
                 <li>
+<<<<<<< HEAD
                   <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
+=======
+                  <% if user_signed_in? %>
+                    <%= button_tag "LET'S GO!", class: "btn btn-primary btn-lg flex-item", disabled: true %>
+                  <% else %>
+                    <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
+                  <% end %>
+>>>>>>> 51ae3e94502b46f3fd2cdf8eb47299cea4988c94
                 </li>
               </ul>
             </div>
@@ -100,10 +124,10 @@
     <div class="col-md-8 offset-md-2">
       <%= form_tag books_path, method: "GET" do %>
         <div class="row">
-          <div class="col-8">
+          <div class="col-6 col-lg-8">
             <%= text_field_tag :title, "", class: "form-control" %>
           </div>
-          <div class="col-4">
+          <div class="col-6 col-lg-4">
             <%= submit_tag "Search", class: "btn btn-primary btn-lg flex-item" %>
           </div>
         </div>
@@ -130,9 +154,9 @@
             <% else %>
               <%= image_tag b.pictuer.url, class: "img-fluid", alt: "" %>
             <% end %>
-            <a href="#">
-                <div class="mask"></div>
-            </a>
+            <%= link_to book_path(b) do %>
+              <div class="mask"></div>
+            <% end %>
           </div>
           <!--/.Card image-->
 
@@ -155,5 +179,3 @@
   </div>
 </div>
 <!--/.Content-->
-
-
