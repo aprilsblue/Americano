@@ -17,3 +17,9 @@
  *= require_self
  */
 
+div.navbar {
+  width: 100%;
+}
+div.footer-copyright{
+  width: 100%;
+}

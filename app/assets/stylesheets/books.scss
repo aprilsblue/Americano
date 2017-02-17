@@ -12,8 +12,21 @@ body {
 .navbar {
   background-color: transparent;
 }
+.collapse > span.email {
+  font-size: 16px;
+  padding: {
+    top: 0.5rem;
+  }
+  margin: {
+    right: 1rem;
+  }
+}
 .form-login {
   float: right;
+  input.btn-sm {
+    height: 100%;
+    font-size: 0.8rem;
+  }
 }
 
 .top-nav-collapse {
@@ -97,3 +110,10 @@ main {
 .price .tag {
   margin: 0;
 }
+
+.quote-u-name{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+

@@ -1,0 +1,15 @@
+<% quotes.each do |q| %>
+  <div class="row">
+    <div class="col-md-10 reviews">
+      <span>"<%= q.content  %>"</span>
+      <br>
+    </div>
+    <div class="col-md-2 reviews">
+      <span>궁금 / 해결</span>
+    </div>
+  </div>
+
+  <%= render partial: 'opinions/index', locals: { opinions: q.opinions } %>
+
+<% end %>
+
