@@ -48,7 +48,7 @@
             <%= form_for(resource, url: session_path(resource_name), html: {class: "form-login form-inline waves-effect waves-light"}) do |f| %>
               <%= f.text_field :email, class: "form-control", placeholder: "EMAIL" %>
               <%= f.password_field :password, class: "form-control", placeholder: "PASSWORD" %>
-              <%= f.submit "Login", class: "btn btn-primary btn-sm flex-item" %>
+              <%= f.submit "Login", class: "btn btn-default btn-sm flex-item" %>
             <% end %>
           <% end %>
         </div>
