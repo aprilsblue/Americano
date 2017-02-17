@@ -1,3 +1,21 @@
 // Place all the styles related to the quotes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+.quote-new {
+  color: $second-color;
+  margin: {
+    bottom: 0.3rem;
+    left: auto;
+  }
+}
+.quote-content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+}
+.quote-opinions {
+  color: $second_color;
+}

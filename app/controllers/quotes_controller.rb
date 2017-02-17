@@ -12,6 +12,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new
 
     respond_to do |format|
+      format.js # new.js.erb
       format.html # new.html.erb
       format.xml  { render xml: @quote }
     end

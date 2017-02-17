@@ -26,8 +26,8 @@
     </div>
     <!--/.Sidebar-->
     <!--Main column quotes & opinion-->
-    <div class="col-lg-8">
-      <%= render partial: 'quotes/show', locals: { quotes: @book.chapters.first.quotes } %>
+    <div class="col-lg-9">
+      <%= render partial: 'quotes/index', locals: { quotes: @quotes } %>
     </div>
     <!--/.Main column-->
 
