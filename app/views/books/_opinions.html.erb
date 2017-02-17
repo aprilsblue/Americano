@@ -1,6 +1,7 @@
 <% opinions.each do |o| %>
   <div class="row">
     <div class="col-md-2">
+      <img src="<%= asset_path("coffee.png") %>"r>
       <i class="fa fa-coffee" aria-hidden="true"><%= o.likes.count  %></i> 
     </div>
     <div class="col-md-8">
