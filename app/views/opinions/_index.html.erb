@@ -1,12 +1,18 @@
 <% opinions.each do |o| %>
   <div class="row">
-    <div class="col-md-2">
-      <img src="<%= asset_path("coffee.png") %>"r>
-      <i class="fa fa-coffee" aria-hidden="true"><%= o.likes.count  %></i> 
+    <div class="col-lg-1">
+      <div class="n-coffee">
+        <img src="<%= asset_path("coffee.png") %>"r>
+        <br>
+        <span> <%= o.likes.count  %> </span>
+      </div>
     </div>
-    <div class="col-md-8">
-      <h4 class="media-heading"><%= o.user.email %></h4>
+    <div class="col-lg-11">
       <span><%= o.content %></span>
+      <br>
+      <div class="user-info">
+        <span><%= o.user.email %></span>
+      </div>
     </div>
   </div>
   <hr>
