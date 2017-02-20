@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170220064155) do
 
-  create_table "bookmarks", force: :cascade do |t|
-    t.integer  "book_id"
-    t.integer  "reader_id"
-    t.integer  "quote_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_bookmarks_on_book_id"
-    t.index ["reader_id"], name: "index_bookmarks_on_reader_id"
-  end
-
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "writer"
@@ -34,46 +24,6 @@ ActiveRecord::Schema.define(version: 20170220064155) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
-  create_table "chapter_connections", force: :cascade do |t|
-    t.integer  "superchapter_id"
-    t.integer  "subchapter_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["subchapter_id"], name: "index_chapter_connections_on_subchapter_id"
-    t.index ["superchapter_id"], name: "index_chapter_connections_on_superchapter_id"
-  end
-
-  create_table "chapters", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "ch_no"
-    t.integer  "user_id"
-    t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_chapters_on_book_id"
-    t.index ["user_id"], name: "index_chapters_on_user_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "opinion_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["opinion_id"], name: "index_likes_on_opinion_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "opinions", force: :cascade do |t|
-    t.text     "content"
-    t.string   "category"
-    t.integer  "user_id"
-    t.integer  "quote_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["quote_id"], name: "index_opinions_on_quote_id"
-    t.index ["user_id"], name: "index_opinions_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string   "content"
     t.integer  "page"
@@ -83,16 +33,6 @@ ActiveRecord::Schema.define(version: 20170220064155) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_posts_on_book_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "quotes", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "chapter_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chapter_id"], name: "index_quotes_on_chapter_id"
-    t.index ["user_id"], name: "index_quotes_on_user_id"
   end
 
   create_table "replies", force: :cascade do |t|
