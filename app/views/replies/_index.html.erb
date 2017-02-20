@@ -1,12 +1,8 @@
 <% replies.each do |o| %>
   <div class="row">
-    <div class="col-lg-11">
-      <span><%= o.content %></span>
-      <br>
-      <div class="user-info">
-        <span><%= o.user.email %></span>
-      </div>
-    </div>
+    <span><%= o.content %></span>
+    <br>
+    <span><%= o.user.email %></span>
+    <hr>
   </div>
-  <hr>
 <% end %>
