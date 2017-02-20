@@ -4,15 +4,32 @@
 <main>
 
   <!--Main layout-->
-  <div class="container">
-    <div class="row">
+  <div class="container main">
 
+    <div class="row">
+      <div class="offset-lg-1 col-lg-10">
+        <%= form_tag posts_path, method: 'POST', remote: true, class: 'form-group' do %>
+          <div class="row">
+            <div class="col-4">
+              <%= text_field_tag :content, "", class: 'form-control', placeholder: "검색" %>
+            </div>
+            <div class="col-3">
+              <%= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
+            </div>
+            <div class="col-5">
+              <%= submit_tag "검색", class: 'btn btn-default' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
       <!--Main column quotes & opinion-->
       <div class="offset-lg-1 col-lg-10">
         <%= render partial: 'posts/index', locals: { posts: @posts } %>
       </div>
       <!--/.Main column-->
-
     </div>
   </div>
   <!--/.Main layout-->
