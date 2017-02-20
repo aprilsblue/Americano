@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :replies
+  resources :posts
   root 'books#index'
 
   devise_for :users

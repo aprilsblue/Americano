@@ -1,0 +1,3 @@
+$("#quotes-index").prepend(
+  "<%= escape_javascript(render partial: 'new', locals: { quote: @quote }) %>"
+);
