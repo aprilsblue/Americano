@@ -3,7 +3,6 @@
     <%= link_to "+ New Post", new_post_path, remote: true %>
   </div>
 </div>
-<<<<<<< HEAD
 <div id="quotes-index" class="row quotes-index">
   <table class="table table-hover">
     <tbody>
@@ -17,18 +16,3 @@
     </tbody>
   </table>
 </div>
-=======
-  <div id="quotes-index" class="row quotes-index">
-    <table class="table table-hover">
-      <tbody>
-        <% posts.each do |q| %>
-          <tr>
-            <td class="quote-content" style="width:80%;"><%= q.content %></td>
-            <td class="quote-opinions text-center" style="width:10%;"><i class="fa fa-comments-o"></i> &nbsp; <%= q.replies.count %> </td>
-            <td class="text-center"><i class="fa fa-question-circle"></i> &nbsp;&nbsp; <i class="fa fa-exclamation-circle"></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
->>>>>>> b5829a4d4299a9197cfb12bf00523128dcbc4262
