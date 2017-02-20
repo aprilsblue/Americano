@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration[5.0]
 
       t.string :content
       t.integer :page
-      t.reference :user
-      t.reference :book
+      t.references :user
+      t.references :book
 
       t.timestamps
     end

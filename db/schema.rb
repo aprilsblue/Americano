@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215111808) do
+ActiveRecord::Schema.define(version: 20170220064155) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "book_id"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20170215111808) do
     t.index ["user_id"], name: "index_opinions_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "page"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_posts_on_book_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "quotes", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
@@ -82,6 +93,16 @@ ActiveRecord::Schema.define(version: 20170215111808) do
     t.datetime "updated_at", null: false
     t.index ["chapter_id"], name: "index_quotes_on_chapter_id"
     t.index ["user_id"], name: "index_quotes_on_user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_replies_on_post_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

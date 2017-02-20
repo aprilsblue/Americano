@@ -3,8 +3,8 @@ class CreateReplies < ActiveRecord::Migration[5.0]
     create_table :replies do |t|
 
       t.string :content
-      t.reference :post
-      t.reference :user
+      t.references :post
+      t.references :user
 
       t.timestamps
     end
