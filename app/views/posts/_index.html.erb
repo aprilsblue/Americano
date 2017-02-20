@@ -6,7 +6,7 @@
   <div id="quotes-index" class="row quotes-index">
     <table class="table table-hover">
       <tbody>
-        <% quotes.each do |q| %>
+        <% posts.each do |q| %>
           <tr>
             <td class="quote-content" style="width:80%;"><%= q.content %></td>
             <td class="quote-opinions text-center" style="width:10%;"><i class="fa fa-comments-o"></i> &nbsp; <%= q.opinions.count %> </td>

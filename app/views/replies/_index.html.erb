@@ -1,12 +1,5 @@
-<% opinions.each do |o| %>
+<% replies.each do |o| %>
   <div class="row">
-    <div class="col-lg-1">
-      <div class="n-coffee">
-        <img src="<%= asset_path("coffee.png") %>"r>
-        <br>
-        <span> <%= o.likes.count  %> </span>
-      </div>
-    </div>
     <div class="col-lg-11">
       <span><%= o.content %></span>
       <br>
