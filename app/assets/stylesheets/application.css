@@ -12,7 +12,8 @@
  *
  *= require bootstrap.css
  *= require mdb.css
- *= reqruie _hover-effects.css
+ *= reqrire _hover-effects.css
+ *= require font-awesome.css
  *= require_tree .
  *= require_self
  */
