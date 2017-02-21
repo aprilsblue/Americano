@@ -1,0 +1,9 @@
+<div class="card card-reply">
+  <div class="card-block">
+    <%= form_for reply, remote: true, class: "form-group" do |f| %>
+      <%= f.text_area :content, class: "form-control" %>
+      <%= link_to "Cancel", replies_back_path(reply), remote: true, class: "btn btn-primary submit-reply" %>
+      <%= f.submit "Submit", class: "btn btn-default submit-reply" %>
+    <% end %>
+  </div>
+</div>

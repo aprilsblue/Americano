@@ -8,11 +8,15 @@
   }
 }
 
-.new-comment {
+.new-reply {
   float: right;
 }
 
-.delete-comment, .edit-comment {
+.submit-reply {
+  float: right;
+}
+
+.delete-post, .edit-post {
   float: right;
   margin: {
     right: 1rem;

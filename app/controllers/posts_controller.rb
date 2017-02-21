@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def new
     @book = Book.find(params[:book_id])
-    @post = Post.new
+    @post = Post.new(page: params[:page])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(book_path(@post.book)) }
+        format.html { redirect_to(book_path(@post.book, page: @post.page)) }
         format.xml  { render xml: @post, status: :created, location: @post }
       else
         format.html { render action: 'new' }

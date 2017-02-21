@@ -1,0 +1,4 @@
+var reply_var = $("#reply_" + <%= @reply.id %>);
+reply_var.html(
+  "<%= escape_javascript(render partial: 'edit', locals: { reply: @reply }) %>"
+);
