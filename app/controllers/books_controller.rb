@@ -34,8 +34,14 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @posts = @book.posts.all.order(:page)
+    posts = @book.posts.all.order(:page)
     @reply = Reply.new # for reply new
+    @pages = posts.where("page IS NOT NULL").pluck(:page).uniq
+    if params[:page].nil?
+      @posts = Post.where(page: @pages[0]).all.reverse
+    else
+      @posts = Post.where(page: params[:page]).all.reverse
+    end
 
     respond_to do |format|
       format.html # show.html.erb
