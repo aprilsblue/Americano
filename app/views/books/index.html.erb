@@ -140,7 +140,7 @@
             <% if b.picture.nil? %>
               <%= image_tag asset_path("book.png"), class: "img-fluid", alt: "" %>
             <% else %>
-              <%= image_tag b.pictuer.url, class: "img-fluid", alt: "" %>
+              <%= image_tag b.picture, class: "img-fluid", alt: "" %>
             <% end %>
             <%= link_to book_path(b) do %>
               <div class="mask"></div>
@@ -161,6 +161,7 @@
 
         </div>
         <!--/.Card-->
+
       </div>
       <!-- columnns -->
     <% end %>
