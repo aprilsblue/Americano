@@ -1,14 +1,19 @@
 <div class="row">
   <div class="quote-new">
-    <%= link_to "+ New Post", new_post_path, remote: true %>
+    <%= link_to "+ New Post", new_post_path %>
   </div>
 </div>
-<% posts.each do |q| %>
-  <div class="row">
-    <div class="col-lg-11">
-      <%= q.content %>
+<br>
+<% posts.each do |p| %>
+  <div class="card">
+    <div class="card-block">
+      <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= p.user.email %></span> &nbsp;&nbsp;
+      <br><br>
+      <span class="light-blue-text"><i class="fa fa-book"></i> &nbsp; <%= p.page %></span> &nbsp;&nbsp;
+      <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>
+      <br><br>
+      <%= simple_format(p.content) %>
     </div>
-    <div class="col-lg-1"><i class="fa fa-comments-o"></i> &nbsp; <%= q.replies.count %></div>
   </div>
-  <%= render partial: 'replies/index', locals: { replies: q.replies } %>
+  <%= render partial: 'replies/index', locals: { replies: p.replies } %>
 <% end %>
