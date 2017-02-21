@@ -3,29 +3,45 @@
   <!--Main layout-->
   <div class="container main">
     <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <%= form_tag book_posts_path(@book), method: 'POST', remote: true, class: 'form-group' do %>
-          <div class="row">
-            <div class="col-4">
-              <%= text_field_tag :content, "", class: 'form-control', placeholder: "검색" %>
-            </div>
-            <div class="col-3">
-              <%= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
-            </div>
-            <div class="col-5">
-              <%= submit_tag "검색", class: 'btn btn-default' %>
-            </div>
-          </div>
+      <div class="col-2 col-lg-2 offset-lg-1">
+        <!-- Page Slide -->
+        <% @pages.each do |p| %>
+          <% if params[:page].to_i == p %>
+            <%= link_to book_path(@book, page: p), class: "lime-text" do %>
+              <h4><b><%= p %></b></h4>
+            <% end %>
+            <br>
+          <% else %>
+            <%= link_to p, book_path(@book, page: p), class: "grey-text" %><br><br>
+          <% end %>
         <% end %>
       </div>
-    </div>
-
-    <div class="row">
-      <!--Main column quotes & opinion-->
-      <div class="col-lg-10 offset-lg-1">
-        <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
+      <div class="col-10 col-lg-8">
+        <div class="row">
+          <div class="col-12">
+            <%= form_tag book_posts_path(@book), method: 'POST', remote: true, class: 'form-group' do %>
+              <div class="row">
+                <div class="col-4">
+                  <%= text_field_tag :content, "", class: 'form-control', placeholder: "검색" %>
+                </div>
+                <div class="col-3">
+                  <%= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
+                </div>
+                <div class="col-5">
+                  <%= submit_tag "검색", class: 'btn btn-default' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <!--Main column quotes & opinion-->
+          <div class="col-12">
+            <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
+          </div>
+          <!--/.Main column-->
+        </div>
       </div>
-      <!--/.Main column-->
     </div>
   </div>
   <!--/.Main layout-->
