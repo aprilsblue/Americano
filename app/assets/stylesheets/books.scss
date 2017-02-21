@@ -38,8 +38,26 @@ main {
   background-color: #4285F4;
 }
 
+.book-info {
+  position: absolute;
+  text-align: center;
+  margin: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  display: none;
+}
+
 .card-title {
   color: $first_color;
+}
+
+.book-info {
+  padding: {
+    top: 2.5rem;
+  }
+  background-color: #111;
+  opacity: 0.8;
 }
 
 footer.page-footer {
@@ -121,4 +139,5 @@ main {
   right: 20px;
   bottom: 20px;
 }
+
 

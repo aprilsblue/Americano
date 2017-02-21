@@ -133,7 +133,7 @@
     <% @books.each do |b| %>
       <div class="col-lg-4">
         <!--Card-->
-        <div class="card">
+        <div class="card card-book">
 
           <!--Card image-->
           <div class="view overlay hm-white-slight">
@@ -142,20 +142,20 @@
             <% else %>
               <%= image_tag b.picture, class: "img-fluid", alt: "" %>
             <% end %>
-            <%= link_to book_path(b) do %>
               <div class="mask"></div>
-            <% end %>
           </div>
           <!--/.Card image-->
 
           <!--Card content-->
-          <div class="card-block">
+          <div class="book-info">
             <!--Title-->
-            <h5 class="card-title"><strong><%= b.title %></strong></h5>
+            <h5 class="card-title light-blue-text"><strong><%= b.title %></strong></h5>
+            <br>
             <!--Text-->
-            <p class="card-text">Writer : <%= b.writer %></p>
-            <p class="card-text">Publihser : <%= b.publisher %></p>
-            <p class="card-text">Year : <%= b.published_at.strftime("%Y-%m-%d") %></p>
+            <p class="card-text white-text">Writer : <%= b.writer %></p>
+            <p class="card-text white-text">Publihser : <%= b.publisher %></p>
+            <p class="card-text white-text">Year : <%= b.published_at.strftime("%Y-%m-%d") %></p>
+            <%= link_to "R E A D", book_path(b), class: "btn btn-default" %>
           </div>
           <!--/.Card content-->
 
@@ -167,4 +167,5 @@
     <% end %>
   </div>
 </div>
+
 <!--/.Content-->

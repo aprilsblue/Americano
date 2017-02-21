@@ -20,3 +20,4 @@
 //= require turbolinks
 //= require_tree .
 $.turbo.use('turbolinks:load');
+
