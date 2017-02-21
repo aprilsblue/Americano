@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   #callbacks
   after_create do
     post = Post.find_by(id: self.id)
-    hashtags = self.content.scan(/#\w+/)
+    hashtags = self.content.scan(/#[a-zA-Z0-9가-힣]+/)
     hashtags.uniq.map do |hashtag|
       tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
       post.tags << tag
@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   before_update do
     post = Post.find_by(id: self.id)
     post.tags.clear
-    hashtags = self.content.scan(/#\w+/)
+    hashtags = self.content.scan(/#[a-zA-Z0-9가-힣]+/)
     hashtags.uniq.map do |hashtag|
       tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
       post.tags << tag

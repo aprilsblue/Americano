@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+
+  #index is in Book#show
 
   def new
     @book = Book.find(params[:book_id])
@@ -67,7 +70,9 @@ class PostsController < ApplicationController
 
   def hashtag
     tag = Tag.find_by(name: params[:name])
-    @posts = tag.posts.where(book_id: params[:id])
+    @posts = tag.posts.where(book_id: params[:book_id].to_i)
+    @book = Book.find_by(id: params[:book_id].to_i)
+    render "/books/show"
   end
 
   private

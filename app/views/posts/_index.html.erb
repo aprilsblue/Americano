@@ -12,7 +12,7 @@
       <span class="light-blue-text"><i class="fa fa-book"></i> &nbsp; <%= p.page %></span> &nbsp;&nbsp;
       <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>
       <br><br>
-      <%= simple_format(p.content) %>
+      <%= render_with_hashtags(p.content, book.id) %>
     </div>
   </div>
   <%= render partial: 'replies/index', locals: { replies: p.replies } %>
