@@ -2,7 +2,7 @@
 <div class="container main">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
-      <%= form_for @post, class: "form-group" do |f| %>
+      <%= form_for [@book, @post], class: "form-group" do |f| %>
         <%= f.text_area :content, class: "form-control" %>
         <%= f.submit "SUBMIT", class: "btn btn-default" %>
       <% end %>
