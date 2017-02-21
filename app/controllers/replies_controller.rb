@@ -1,29 +1,37 @@
 class RepliesController < ApplicationController
   def index
-    @replies = Reply.all
+    @post_id = params[:post_id]
+    @post = Post.find(@post_id)
+    @replies = @post.replies.all
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js # index.js.erb
       format.xml  { render xml: @repliess }
     end
   end
 
   def new
     @reply = Reply.new
+    @post_id = params[:post_id]
+    @post = Post.find(@post_id)
 
     respond_to do |format|
+      format.js # new.js.erb
       format.html # new.html.erb
       format.xml  { render xml: @reply }
     end
   end
 
   def create
-    @reply = Reply.new(reply_params)
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.new(reply_params)
+    @reply.user_id = current_user.id
 
     respond_to do |format|
       if @reply.save
         flash[:notice] = 'Reply was successfully created.'
-        format.html { redirect_to(@reply) }
+        format.html { redirect_to book_path(@post.book) }
         format.xml  { render xml: @reply, status: :created, location: @reply }
       else
         format.html { render action: 'new' }
@@ -72,7 +80,7 @@ class RepliesController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:content, :user_id, :post_id)
+  def reply_params
+    params.require(:reply).permit(:content, :user_id, :post_id)
   end
 end

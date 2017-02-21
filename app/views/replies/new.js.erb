@@ -1,0 +1,11 @@
+var post_var = $("#post_" + <%= @post_id %> + "_new");
+
+if(post_var.attr("class") == "active-reply-new") {
+  post_var.html("");
+  post_var.removeClass("active-reply-new");
+} else {
+  post_var.html(
+    "<%= escape_javascript(render partial: 'new', locals: { reply: @reply, post: @post }) %>"
+  );
+  post_var.addClass("active-reply-new");
+}

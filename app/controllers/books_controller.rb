@@ -35,6 +35,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @posts = @book.posts.all.order(:page)
+    @reply = Reply.new # for reply new
 
     respond_to do |format|
       format.html # show.html.erb
