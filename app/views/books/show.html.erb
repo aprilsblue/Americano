@@ -5,9 +5,8 @@
 
   <!--Main layout-->
   <div class="container main">
-
     <div class="row">
-      <div class="offset-lg-1 col-lg-10">
+      <div class="col-lg-10 offset-lg-1">
         <%= form_tag book_posts_path(@book), method: 'POST', remote: true, class: 'form-group' do %>
           <div class="row">
             <div class="col-4">
@@ -26,7 +25,7 @@
 
     <div class="row">
       <!--Main column quotes & opinion-->
-      <div class="offset-lg-1 col-lg-10">
+      <div class="col-lg-10 offset-lg-1">
         <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
       </div>
       <!--/.Main column-->
