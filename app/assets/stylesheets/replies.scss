@@ -9,6 +9,12 @@
 }
 
 .new-comment {
-  position: absolute;
-  right: 20px;
+  float: right;
+}
+
+.delete-comment, .edit-comment {
+  float: right;
+  margin: {
+    right: 1rem;
+  }
 }
