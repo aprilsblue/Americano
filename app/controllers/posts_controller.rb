@@ -1,12 +1,7 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
+  before_action :authenticate_user!, except: [:show]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @posts }
-    end
-  end
+  #index is in Book#show
 
   def new
     @book = Book.find(params[:book_id])
@@ -71,6 +66,13 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def hashtag
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts.where(book_id: params[:book_id].to_i)
+    @book = Book.find_by(id: params[:book_id].to_i)
+    render "/books/show"
   end
 
   private
