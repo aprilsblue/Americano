@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to(book_path(@post.book, page: @post.page)) }
         format.xml  { head :ok }
       else
         format.html { render action: 'edit' }
@@ -60,10 +60,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    page = @post.page
+    book = @post.book
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to(posts_url) }
+      format.html { redirect_to(book_path(book, page: page)) }
       format.xml  { head :ok }
     end
   end

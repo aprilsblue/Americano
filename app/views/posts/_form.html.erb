@@ -1,0 +1,5 @@
+<%= form_for [book, post], class: "form-group" do |f| %>
+  <%= f.number_field :page, class: "form-control", placeholder: "PAGE" %>
+  <%= f.text_area :content, class: "form-control", placeholder: "내용을 입력해주세요.", row: 50 %>
+  <%= f.submit "SUBMIT", class: "btn btn-default" %>
+<% end %>

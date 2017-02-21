@@ -3,7 +3,7 @@
   <!--Main layout-->
   <div class="container main">
     <div class="row">
-      <div class="col-2 col-lg-2 offset-lg-1">
+      <div class="col-2 col-lg-2 offset-lg-1 text-center">
         <!-- Page Slide -->
         <% @pages.each do |p| %>
           <% if params[:page].to_i == p %>
@@ -21,13 +21,15 @@
           <div class="col-12">
             <%= form_tag book_posts_path(@book), method: 'POST', remote: true, class: 'form-group' do %>
               <div class="row">
-                <div class="col-4">
+                <div class="col-6" style="padding-right:0">
                   <%= text_field_tag :content, "", class: 'form-control', placeholder: "검색" %>
                 </div>
+                <!--
                 <div class="col-3">
-                  <%= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
+                  <%#= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
                 </div>
-                <div class="col-5">
+                -->
+                <div class="col-6">
                   <%= submit_tag "검색", class: 'btn btn-default' %>
                 </div>
               </div>
