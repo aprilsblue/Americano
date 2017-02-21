@@ -155,7 +155,7 @@
             <p class="card-text white-text">Writer : <%= b.writer %></p>
             <p class="card-text white-text">Publihser : <%= b.publisher %></p>
             <p class="card-text white-text">Year : <%= b.published_at.strftime("%Y-%m-%d") %></p>
-            <%= link_to "R E A D", book_path(b), class: "btn btn-default" %>
+            <%= link_to "R E A D", book_path(b, page: b.posts.order(:page).pluck(:page).uniq[0] ), class: "btn btn-default" %>
           </div>
           <!--/.Card content-->
 
