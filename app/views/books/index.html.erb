@@ -129,25 +129,36 @@
 <!--Content-->
 <div class="container">
   <div class="row">
-    <!-- columnns -->
-    <% @books.each do |b| %>
-      <div class="col-lg-3 col-md-6">
+
+    <!-- columnns new book -->
+    <% if user_signed_in?  %>
+      <div class="col-lg-4 col-md-6 book-margin">
         <!--Card-->
-        <div class="card card-book">
+        <%= link_to new_book_path, class: "new-btn" do %>
+          <div class="card-book-new book-size">
+            <h4><i class="fa fa-plus-square-o" aria-hidden="true"></i> NEW BOOK </h4>
+          </div>
+        <% end %>
+        <!--/.Card-->
+      </div>
+      <!-- columnns new book-->
+    <% end %>
+
+    <% @books.each do |b| %>
+      <div class="col-lg-4 col-md-6 book-margin">
+        <!--Card-->
+        <div class="card card-book book-size">
 
           <!--Card image-->
-          <div class="view overlay hm-white-slight">
-            <% if b.picture.nil? %>
-              <%= image_tag asset_path("book.png"), class: "img-fluid", alt: "" %>
-            <% else %>
-              <%= image_tag b.picture, class: "img-fluid", alt: "" %>
-            <% end %>
-              <div class="mask"></div>
-          </div>
+          <% if b.picture.nil? %>
+            <%= image_tag asset_path("book.png"), class: "book-size", alt: "" %>
+          <% else %>
+            <%= image_tag b.picture, class: "book-size", alt: "" %>
+          <% end %>
           <!--/.Card image-->
 
           <!--Card content-->
-          <div class="book-info">
+          <div class="book-info book-size">
             <!--Title-->
             <h5 class="card-title light-blue-text"><strong><%= b.title %></strong></h5>
             <br>

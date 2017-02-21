@@ -13,6 +13,8 @@ User.create(email: "user2@test.com", password: "123412", password_confirmation: 
 
 Book.create(title: "Do It! 안드로이드 앱 프로그래밍", writer: "정재곤", publisher: "이지스퍼블리싱", published_at: "20170222", user_id: 1, picture: "http://misc.ridibooks.com/cover/754018350/xxlarge")
 Book.create(title: "퍼펙트 루비 온 레일즈", writer: "야마다 요시히로", publisher: "제이펍", published_at: "20151230", user_id: 1, picture: "http://cfile29.uf.tistory.com/image/2674A84156C7E7FB266073" )
+Book.create(title: "퍼펙트 루비 온 레일즈 2", writer: "야마다 요시히로", publisher: "제이펍", published_at: "20151230", user_id: 1, picture: "http://cfile29.uf.tistory.com/image/2674A84156C7E7FB266073" )
+Book.create(title: "퍼펙트 루비 온 레일즈 3", writer: "야마다 요시히로", publisher: "제이펍", published_at: "20151230", user_id: 1, picture: "http://cfile29.uf.tistory.com/image/2674A84156C7E7FB266073" )
 
 Post.create(book_id: "1", content: "안드로이드 7.0 누가버젼이 최신 버젼입니다.", user_id: "1", page: "1")
 Post.create(book_id: "1", content: "인텐트는 무엇인가", user_id: "2", page: "1")

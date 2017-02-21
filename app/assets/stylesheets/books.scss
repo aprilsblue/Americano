@@ -41,10 +41,9 @@ main {
 .book-info {
   position: absolute;
   text-align: center;
-  margin: 0;
+  margin: auto;
   left: 0;
   right: 0;
-  height: 300px;
   display: none;
 }
 
@@ -54,10 +53,26 @@ main {
 
 .book-info {
   padding: {
-    top: 2.5rem;
+    top: 7rem;
   }
   background-color: #111;
   opacity: 0.8;
+}
+
+.book-size{
+  margin: auto;
+  width: 300px;
+  height: 424px;
+}
+
+.card-book-new {
+  border: dashed 2px lightblue;
+  text-align: center;
+  padding: 185px 10px;
+}
+
+.book-margin {
+  margin-bottom: 20px;
 }
 
 footer.page-footer {
