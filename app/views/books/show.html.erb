@@ -1,32 +1,32 @@
 <main>
 
   <!--Main layout-->
-  <div class="container">
+  <div class="container main">
+
     <div class="row">
-
-      <!--Sidebar-->
-      <div class="col-lg-3">
-
-        <div class="widget-wrapper">
-          <h4>목차</h4>
-          <br>
-          <div class="list-group">
-            <a href="#" class="list-group-item active">Woman</a>
-            <a href="#" class="list-group-item">Man</a>
-            <a href="#" class="list-group-item">Shoes</a>
-            <a href="#" class="list-group-item">T-shirt</a>
-            <a href="#" class="list-group-item">Jewellery</a>
+      <div class="offset-lg-1 col-lg-10">
+        <%= form_tag book_posts_path(@book), method: 'POST', remote: true, class: 'form-group' do %>
+          <div class="row">
+            <div class="col-4">
+              <%= text_field_tag :content, "", class: 'form-control', placeholder: "검색" %>
+            </div>
+            <div class="col-3">
+              <%= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
+            </div>
+            <div class="col-5">
+              <%= submit_tag "검색", class: 'btn btn-default' %>
+            </div>
           </div>
-        </div>
-
+        <% end %>
       </div>
-      <!--/.Sidebar-->
+    </div>
+
+    <div class="row">
       <!--Main column quotes & opinion-->
-      <div class="col-lg-9">
-        <%= render partial: 'posts/index', locals: { posts: @posts } %>
+      <div class="offset-lg-1 col-lg-10">
+        <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
       </div>
       <!--/.Main column-->
-
     </div>
   </div>
   <!--/.Main layout-->

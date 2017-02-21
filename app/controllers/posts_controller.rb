@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   def new
+    @book = Book.find(params[:book_id])
     @post = Post.new
 
     respond_to do |format|
@@ -10,12 +11,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @book = Book.find(params[:book_id])
+    @post = @book.posts.new(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to(book_path(@post.book)) }
         format.xml  { render xml: @post, status: :created, location: @post }
       else
         format.html { render action: 'new' }

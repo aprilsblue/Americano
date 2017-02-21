@@ -1,12 +1,15 @@
 <% replies.each do |o| %>
-  <div class="row">
-    <div class="col-lg-11">
-      <span><%= o.content %></span>
-      <br>
-      <div class="user-info">
-        <span><%= o.user.email %></span>
-      </div>
-    </div>
+  <div class="col-lg-2">
   </div>
+  <div class="col-lg-10">
+    <%= o.user.email %>
+    <div class="card-data">
+      <ul>
+        <li class="comment-date"><i class="fa fa-clock-o"></i> 17/10/2015</li>
+      </ul>
+    </div>
+    <p class="comment-text"><%= o.content %>
+  </p>
   <hr>
+</div>
 <% end %>
