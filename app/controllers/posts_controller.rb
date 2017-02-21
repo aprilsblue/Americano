@@ -1,12 +1,4 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @posts }
-    end
-  end
 
   def new
     @post = Post.new
@@ -68,6 +60,11 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def hashtag
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts.where(book_id: params[:id])
   end
 
   private
