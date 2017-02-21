@@ -1,10 +1,8 @@
-<div class="container main">
-  <div class="row">
-    <div class="col-lg-10 offset-lg-1">
-      <%= form_for [@post, @reply], class: "form-group" do |f| %>
-        <%= f.text_area :content, class: "form-control" %>
-        <%= f.submit "SUBMIT", class: "btn btn-default" %>
-      <% end %>
-    </div>
+<div class="card card-reply">
+  <div class="card-block">
+    <%= form_for [post, reply], class: "form-group" do |f| %>
+      <%= f.text_area :content, class: "form-control" %>
+      <%= f.submit "SUBMIT", class: "btn btn-default" %>
+    <% end %>
   </div>
 </div>
