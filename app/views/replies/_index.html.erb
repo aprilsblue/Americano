@@ -1,15 +1,9 @@
-<% replies.each do |o| %>
-  <div class="col-lg-2">
-  </div>
-  <div class="col-lg-10">
-    <%= o.user.email %>
-    <div class="card-data">
-      <ul>
-        <li class="comment-date"><i class="fa fa-clock-o"></i> 17/10/2015</li>
-      </ul>
+<% replies.each do |r| %>
+  <div class="card card-reply blue lighten-5">
+    <div class="card-block">
+      <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= r.user.email %></span>
+      <br><br>
+      <%= simple_format(r.content) %>
     </div>
-    <p class="comment-text"><%= o.content %>
-  </p>
-  <hr>
-</div>
+  </div>
 <% end %>
