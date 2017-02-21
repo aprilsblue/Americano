@@ -9,11 +9,19 @@
     <div class="card-block">
       <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= p.user.email %></span> &nbsp;&nbsp;
       <br><br>
-      <span class="light-blue-text"><i class="fa fa-book"></i> &nbsp; <%= p.page %></span> &nbsp;&nbsp;
-      <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>
-      <br><br>
       <%= render_with_hashtags(p.content, book.id) %>
+      <hr>
+      <%= link_to post_replies_path(p.id), remote: true do %>
+        <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>
+      <% end %>
+      <%= link_to new_post_reply_path(p.id), class: "new-comment", remote: true do %>
+        <i class="fa fa-plus-square" aria-hidden="true"></i> Comment
+      <% end %>
     </div>
   </div>
-  <%= render partial: 'replies/index', locals: { replies: p.replies } %>
+  <!-- reply/new -->
+  <div id="post_<%= p.id %>_new">
+  </div>
+  <div id="post_<%= p.id %>">
+  </div>
 <% end %>
