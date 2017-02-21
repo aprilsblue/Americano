@@ -23,7 +23,7 @@
           <i class="fa fa-plus-square" aria-hidden="true"></i> Comment
         <% end %>
         <% if p.user_id == current_user.id %>
-          <%= link_to "Delete", post_path, method: "DELETE", class: "delete-comment red-text" %>
+          <%= link_to "Delete", post_path(p), method: "DELETE", class: "delete-comment red-text", data: { confirm: "정말 삭제하겠습니까?" } %>
           <%= link_to "Edit", edit_post_path(p), class: "edit-comment green-text" %>
         <% end %>
       </div>
