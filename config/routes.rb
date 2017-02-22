@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
   root 'books#landing'
+
+  mount Ckeditor::Engine => '/ckeditor'
 
   get 'books/landing'
   get 'hashtag/:name' => 'posts#hashtag'
