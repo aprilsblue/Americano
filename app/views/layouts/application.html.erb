@@ -13,141 +13,24 @@
   </head>
 
   <body>
-    <% if params[:controller] == "books" and params[:action] == "index" %>
-      <!--Navbar index page-->
-      <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
-        <div class="container">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <%= link_to root_path, class: "navbar-brand" do %>
-            <strong>Americano</strong>
-          <% end %>
-          <div class="collapse navbar-collapse text-right" id="navbarNav1">
-            <!-- Nav Menu -->
-            <!--
-              <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-              <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link">Features</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link">Pricing</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link">About</a>
-            </li>
-          </ul>
-          -->
-          <% if user_signed_in? %>
-            <span class="navbar-brand email"><%= current_user.email %></span>
-            <%= link_to "Logout", destroy_user_session_path, method: "delete", class: "btn btn-default btn-sm flex-item" %>
-          <% else %>
-            <%= form_for(resource, url: session_path(resource_name), html: {class: "form-login form-inline waves-effect waves-light"}) do |f| %>
-              <%= f.text_field :email, class: "form-control", placeholder: "EMAIL" %>
-              <%= f.password_field :password, class: "form-control", placeholder: "PASSWORD" %>
-              <%= f.submit "Login", class: "btn btn-default btn-sm flex-item" %>
+    <!--Navbar show page-->
+    <header id="main_header" class="cf">
+      <div class="wrapper_wide">
+        <%= link_to "Americano", books_landing_path, id: "logo" %>
+        <nav>
+          <ul>
+            <% if user_signed_in? %>
+              <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+            <% else %>
+              <li><%= link_to "Sign In / Sign Up", new_user_session_path %></li>
             <% end %>
-          <% end %>
-        </div>
-      </nav>
-    <% else %>
-      <!--/.Navbar-->
-      <!--Navbar show page-->
-      <nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
-        <div class="container">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <%= link_to root_path, class: "navbar-brand" do %>
-            <strong>Americano</strong>
-          <% end %>
-          <div class="collapse navbar-collapse" id="navbarNav1">
-            <!--
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Pricing</a>
-              </li>
-              <li class="nav-item dropdown btn-group">
-                <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
-                  <a class="dropdown-item">Action</a>
-                  <a class="dropdown-item">Another action</a>
-                  <a class="dropdown-item">Something else here</a>
-                </div>
-              </li>
-            </ul>
-            <form class="form-inline waves-effect waves-light">
-              <input class="form-control" type="text" placeholder="Search">
-            </form>
-          </div>
-            -->
-        </div>
-      </nav>
-      <!--/.Navbar-->
-
-    <% end %>
-
-    <%= yield %>
-
-    <!--Footer-->
-    <footer class="page-footer center-on-small-only">
-
-      <!--Footer Links-->
-      <div class="container-fluid">
-        <div class="row">
-
-               <!--First column-->
-                <div class="col-12 col-md-3 text-center">
-                  <p>Agreement</p>
-                </div>
-                <!--/.First column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Second column-->
-                <div class="col-12 col-md-3 text-center">
-                  <p>Policy</p>
-                </div>
-                <!--/.Second column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Third column-->
-                <div class="col-12 col-md-3 text-center">
-                  <p>Advertisement</p>
-                </div>
-                <!--/.Third column-->
-
-                <hr class="hidden-md-up">
-
-                <!--Fourth column-->
-                <div class="col-12 col-md-3 text-center">
-                  <p>Feedback</p>
-                </div>
-                <!--/.Fourth column-->
-
-          <hr class="hidden-md-up">
-
-       <!--Copyright-->
-        <div class="footer-copyright">
-          <div class="container-fluid">
-            © 2017 Copyright : <a href="http://americano.com"> Americano.com </a>
-          </div>
-        </div>
+          </ul>
+        </nav>
       </div>
-      <!--/.Copyright-->
-
-    </footer>
-    <!--/.Footer-->
+    </header>
+  <!--/.Navbar-->
+    <%= yield %>
 
   </body>
 </html>

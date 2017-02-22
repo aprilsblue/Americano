@@ -1,6 +1,7 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
 form.new_post {
   i.fa-book {
     font-size: 25px;
@@ -11,3 +12,4 @@ form.new_post {
     text-align: center;
   }
 }
+

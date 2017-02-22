@@ -1,51 +1,43 @@
-<main>
+<div id="book_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1><%= @book.title %> </h1>
+      <p class="description"> <%= @book.writer %> | <%= @book.publisher %> | <%= @book.published_at.strftime("%Y-%m-%d") %> </p>
+    </div>
+  </div>
+  <div id="breadcrumb">
+    <%= link_to "+ New Post", new_book_post_path(@book, page: params[:page]) %>
+  </div>
 
-  <!--Main layout-->
-  <div class="container main">
-    <div class="row">
-      <div class="col-2 col-lg-2 offset-lg-1 text-center">
-        <!-- Page Slide -->
-        <% @pages.each do |p| %>
-          <% if params[:page].to_i == p %>
-            <%= link_to book_path(@book, page: p), class: "lime-text" do %>
-              <h4><b><%= p %></b></h4>
-            <% end %>
-            <br>
-          <% else %>
-            <%= link_to p, book_path(@book, page: p), class: "grey-text" %><br><br>
+<main>
+<!--Main layout-->
+<div class="container main">
+  <div class="row">
+    <div class="col-2 col-lg-2 offset-lg-1 text-center">
+      <!-- Page Slide -->
+      <% @pages.each do |p| %>
+        <% if params[:page].to_i == p %>
+          <%= link_to book_path(@book, page: p), class: "lime-text" do %>
+            <h4><b><%= p %></b></h4>
           <% end %>
+          <br>
+        <% else %>
+          <%= link_to p, book_path(@book, page: p), class: "grey-text" %><br><br>
         <% end %>
-      </div>
-      <div class="col-10 col-lg-8">
-        <div class="row">
-          <div class="col-12">
-            <%= form_tag book_posts_path(@book), method: 'POST', remote: true, class: 'form-group' do %>
-              <div class="row">
-                <div class="col-6" style="padding-right:0">
-                  <%= text_field_tag :content, "", class: 'form-control', placeholder: "검색" %>
-                </div>
-                <!--
-                <div class="col-3">
-                  <%#= number_field_tag :page, "", class: 'form-control', placeholder: "페이지" %>
-                </div>
-                -->
-                <div class="col-6">
-                  <%= submit_tag "검색", class: 'btn btn-default' %>
-                </div>
-              </div>
-            <% end %>
-          </div>
+      <% end %>
+    </div>
+    <div class="col-10 col-lg-8">
+      <div class="row">
+        <!--Main column quotes & opinion-->
+        <div class="col-12">
+          <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
         </div>
-        <div class="row">
-          <!--Main column quotes & opinion-->
-          <div class="col-12">
-            <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
-          </div>
-          <!--/.Main column-->
-        </div>
+        <!--/.Main column-->
       </div>
     </div>
   </div>
-  <!--/.Main layout-->
+</div>
+<!--/.Main layout-->
 
+</div>
 </main>
