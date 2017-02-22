@@ -16,14 +16,14 @@
     <!--Navbar show page-->
     <header id="main_header" class="cf">
       <div class="wrapper_wide">
-        <a href="#" id="logo">Americano</a>
+        <%= link_to "Americano", books_landing_path, id: "logo" %>
         <nav>
           <ul>
             <% if user_signed_in? %>
               <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
             <% else %>
-              <li><a href="#">Sign_In / Sign_Up</a></li>
+              <li><%= link_to "Sign In / Sign Up", new_user_session_path %></li>
             <% end %>
           </ul>
         </nav>

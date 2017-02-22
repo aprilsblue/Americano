@@ -26,10 +26,10 @@
             <div class="collapse navbar-collapse text-right" id="navbarNav1">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link">Sign in</a>
+                  <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link">Explore</a>
+                  <%= link_to "Explore", books_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link">About</a>
@@ -54,8 +54,8 @@
       -->
       <div class="wrapper_skinny">
         <h1>노트 : 책에 <b>깊이</b>를 더하다</h1> 
-        <%= link_to "Sign Up", "#", class: "button button_highlight" %>
-        <%= link_to "Explore", "#", class: "button button_white" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "button button_highlight" %>
+        <%= link_to "Explore", books_path, class: "button button_white" %>
       </div>
     </div><!-- end of div background -->
   </body>

@@ -1,8 +1,12 @@
 <%= form_for book, class: "form-group" do |f| %>
-  <%= f.text_area :title, class: "form-control", placeholder: "title" %>
-  <%= f.text_area :writer, class: "form-control", placeholder: "writer" %>
-  <%= f.text_area :publisher, class: "form-control", placeholder: "publisher" %>
+  <%= f.text_field :title, class: "form-control", placeholder: "title" %>
+  <%= f.text_field :writer, class: "form-control", placeholder: "writer" %>
+  <%= f.text_field :publisher, class: "form-control", placeholder: "publisher" %>
   <%= f.date_field :published_at, class: "form-control" %>
-  <%= f.text_area :picture, class: "form-control", placeholder: "Book img url" %>
-  <%= f.submit "SUBMIT", class: "btn btn-default" %>
+  <%= f.text_field :picture, class: "form-control", placeholder: "Book img url" %>
+  <br>
+  <div class="text-center">
+    <%= f.submit "SUBMIT", class: "btn btn-default" %>
+    <%= link_to "BACK", books_path, class: "btn btn-primary" %>
+  </div>
 <% end %>

@@ -1,9 +1,8 @@
 class BooksController < ApplicationController
-  layout false
-  layout 'application', :except => :landing
+  before_action :authenticate_user!, except: [ :landing, :index ]
 
   def landing
-    render :layout => false
+    render layout: false
   end
 
   def index
