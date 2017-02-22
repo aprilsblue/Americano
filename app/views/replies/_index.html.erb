@@ -1,9 +1,5 @@
 <% replies.each do |r| %>
-  <div class="card card-reply blue lighten-5">
-    <div class="card-block">
-      <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= r.user.email %></span>
-      <br><br>
-      <%= simple_format(r.content) %>
-    </div>
+  <div id="reply_<%= r.id %>">
+    <%= render partial: 'item', locals: { r: r } %>
   </div>
 <% end %>

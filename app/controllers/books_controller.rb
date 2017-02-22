@@ -1,4 +1,10 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [ :landing, :index ]
+
+  def landing
+    render layout: false
+  end
+
   def index
     @books = Book.all
 

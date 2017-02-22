@@ -31,7 +31,7 @@ class RepliesController < ApplicationController
     respond_to do |format|
       if @reply.save
         flash[:notice] = 'Reply was successfully created.'
-        format.html { redirect_to book_path(@post.book) }
+        format.html { redirect_to book_path(@post.book, page: @post.page) }
         format.xml  { render xml: @reply, status: :created, location: @reply }
       else
         format.html { render action: 'new' }
@@ -51,6 +51,10 @@ class RepliesController < ApplicationController
 
   def edit
     @reply = Reply.find(params[:id])
+
+    respond_to do |format|
+      format.js # edit.js.erb
+    end
   end
 
   def update
@@ -59,6 +63,7 @@ class RepliesController < ApplicationController
     respond_to do |format|
       if @reply.update(reply_params)
         flash[:notice] = 'Reply was successfully updated.'
+        format.js # update.js.erb
         format.html { redirect_to(@reply) }
         format.xml  { head :ok }
       else
@@ -70,11 +75,22 @@ class RepliesController < ApplicationController
 
   def destroy
     @reply = Reply.find(params[:id])
+    page = @reply.post.page
+    book = @reply.post.book
     @reply.destroy
 
     respond_to do |format|
-      format.html { redirect_to(replys_url) }
+      format.html { redirect_to(book_path(book, page: page)) }
       format.xml  { head :ok }
+    end
+  end
+
+  def back
+    @reply = Reply.find(params[:id])
+
+    respond_to do |format|
+      format.js  { render 'update.js.erb' }
+      format.xml { head :ok }
     end
   end
 

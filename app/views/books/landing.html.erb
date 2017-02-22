@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title>Americano</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+  </head>
+
+  <body>
+    <div id="background">
+      <header>
+        <nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
+          <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <%= link_to root_path, class: "navbar-brand", id: "logo" do %>
+              <strong>Americano</strong>
+            <% end %>
+            <div class="collapse navbar-collapse text-right" id="navbarNav1">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Explore", books_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">About</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+      </header>
+      <!--
+        <header>
+        <div class="wrapper_wide">
+        <a href="#" id="logo">Americano</a>
+        <nav>
+        <ul>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Sign In</a></li>
+        <li><a href="#">About</a></li>
+        </ul>
+        </nav>
+        </div>
+        </header>
+      -->
+      <div class="wrapper_skinny">
+        <h1>노트 : 책에 <b>깊이</b>를 더하다</h1> 
+        <%= link_to "Sign Up", new_user_registration_path, class: "button button_highlight" %>
+        <%= link_to "Explore", books_path, class: "button button_white" %>
+      </div>
+    </div><!-- end of div background -->
+  </body>
+</html>

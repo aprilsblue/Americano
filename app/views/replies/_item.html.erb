@@ -1,0 +1,12 @@
+<div class="card card-reply blue lighten-5">
+  <div class="card-block">
+    <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= r.user.email %></span>
+    <br><br>
+    <%= simple_format(r.content) %>
+    <% if r.user_id == current_user.id %>
+      <hr>
+      <%= link_to "Delete", reply_path(r), method: "DELETE", class: "delete-post red-text", data: { confirm: "정말 삭제하겠습니까?" } %>
+      <%= link_to "Edit", edit_reply_path(r), remote: true, class: "edit-post green-text" %>
+    <% end %>
+  </div>
+</div>

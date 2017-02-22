@@ -1,10 +1,3 @@
-<div class="row">
-  <div class="quote-new">
-    &nbsp;&nbsp;
-    <%= link_to "+ New Post", new_book_post_path(book) %>
-  </div>
-</div>
-<br>
 <% if posts.empty? %>
   <br>
   <h5 class="text-center light-blue-text">결과가 없습니다.</h5>
@@ -19,12 +12,12 @@
         <%= link_to post_replies_path(p.id), remote: true do %>
           <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>
         <% end %>
-        <%= link_to new_post_reply_path(p.id), class: "new-comment", remote: true do %>
+        <%= link_to new_post_reply_path(p.id), class: "new-reply", remote: true do %>
           <i class="fa fa-plus-square" aria-hidden="true"></i> Comment
         <% end %>
         <% if p.user_id == current_user.id %>
-          <%= link_to "Delete", post_path(p), method: "DELETE", class: "delete-comment red-text", data: { confirm: "정말 삭제하겠습니까?" } %>
-          <%= link_to "Edit", edit_post_path(p), class: "edit-comment green-text" %>
+          <%= link_to "Delete", post_path(p), method: "DELETE", class: "delete-post red-text", data: { confirm: "정말 삭제하겠습니까?" } %>
+          <%= link_to "Edit", edit_post_path(p), class: "edit-post green-text" %>
         <% end %>
       </div>
     </div>

@@ -1,112 +1,4 @@
-<!--Carousel Wrapper-->
-<div id="carousel-example-3" class="carousel slide carousel-fade white-text" data-ride="carousel" data-interval="false">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-3" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-3" data-slide-to="1"></li>
-      <li data-target="#carousel-example-3" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-        <!-- First slide -->
-        <div class="carousel-item active view hm-black-light" style="background-image: url('http://mdbootstrap.com/img/Photos/Slides/img%20(4).jpg'); background-repeat: no-repeat; background-size: cover;">
-
-            <!-- Caption -->
-            <div class="full-bg-img flex-center white-text">
-              <ul class="animated fadeInUp col-md-12">
-                <li>
-                  <h1 class="h1-responsive flex-item">Americano</h1>
-                  <li>
-                    <p class="flex-item">Enrich a book with notes.</p>
-                  </li>
-                  <li>
-                    <% if user_signed_in? %>
-                      <%= button_tag "LET'S GO!", class: "btn btn-primary btn-lg flex-item", disabled: true %>
-                    <% else %>
-                      <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
-                    <% end %>
-                  </li>
-                </li>
-              </ul>
-            </div>
-            <!-- /.Caption -->
-
-        </div>
-        <!-- /.First slide -->
-
-        <!-- Second slide -->
-        <div class="carousel-item view hm-black-light" style="background-image: url('http://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Caption -->
-          <div class="full-bg-img flex-center white-text">
-            <ul class="animated fadeInUp col-md-12">
-              <li>
-                <h1 class="h1-responsive">Study SNS</h1>
-              </li>
-              <li>
-                <p>Asking costs nothing.</p>
-              </li>
-              <li>
-                <% if user_signed_in? %>
-                  <%= button_tag "LET'S GO!", class: "btn btn-primary btn-lg flex-item", disabled: true %>
-                <% else %>
-                  <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-          <!-- /.Caption -->
-
-        </div>
-        <!-- /.Second slide -->
-
-        <!-- Third slide -->
-        <div class="carousel-item view hm-black-light" style="background-image: url('http://mdbootstrap.com/img/Photos/Slides/img%20(67).jpg'); background-repeat: no-repeat; background-size: cover;">
-
-            <!-- Caption -->
-            <div class="full-bg-img flex-center white-text">
-              <ul class="animated fadeInUp col-md-12">
-                <li>
-                  <h1 class="h1-responsive">Notes in whole wolrd</h1>
-                </li>
-                <li>
-                  <p>It is good to learn something to teach someone.</p>
-                </li>
-                <li>
-                  <% if user_signed_in? %>
-                    <%= button_tag "LET'S GO!", class: "btn btn-primary btn-lg flex-item", disabled: true %>
-                  <% else %>
-                    <%= link_to "SIGN UP!", new_user_registration_path, class: "btn btn-primary btn-lg flex-item" %>
-                  <% end %>
-                </li>
-              </ul>
-            </div>
-            <!-- /.Caption -->
-
-        </div>
-        <!-- /.Third slide -->
-
-      </div>
-    <!--/.Slides-->
-
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-3" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-3" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-</div>
-<!--/.Carousel Wrapper-->
-
-<br>
-
+<!--
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
@@ -125,6 +17,10 @@
 </div>
 
 <br>
+-->
+<div id="banner" class="booklist_banner" >
+  <h1>Discover your new favorite book</h1>
+</div>
 
 <!--Content-->
 <div class="container">
@@ -176,6 +72,13 @@
       </div>
       <!-- columnns -->
     <% end %>
+  </div>
+
+  <div class="pagination">
+    <span class="previous_page disabled">Previous</span>
+    <em class="current">1</em>
+    <a href="#">2</a>
+    <a class="next_page" href="#">Next</a>
   </div>
 </div>
 

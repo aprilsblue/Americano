@@ -1,0 +1,168 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap.css
+ *= require mdb.css
+ *= reqrire _hover-effects.css
+ *= require font-awesome.css
+ *= require_tree .
+ *= require_self
+ */
+@import 'variables';
+
+div.navbar {
+  width: 100%;
+}
+div.footer-copyright{
+  width: 100%;
+}
+
+
+.wrapper_wide{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wrapper_skinny{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.cf:before, cf:after{
+  content: " ";
+  display: table;
+}
+
+.button {
+  color: $white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  display: inline-block;
+  min-width: 8.5rem;
+}
+
+.button_highlight {
+  background: $highlight;
+  transition: background .4s ease-in-out;
+  &:hover {
+    color: $white;
+    background: darken($highlight, 7.5%);
+  }
+}
+
+.button_white{
+  background: $white;
+  color: $dark;
+  transition: background .4s ease-in-out;
+  &:hover {
+    color: $dark;
+    background: darken($white, 7.5%);
+  }
+}
+
+#main_header{
+  color: $dark;
+  background: #FFFFFF;
+  padding: 1rem 0 2.5rem 0;
+  #logo {
+    float: left;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $dark;
+    text-decoration: none;
+  }
+  nav{
+    float: right;
+    ul {
+      list-style: none;
+      margin: 0;
+      li {
+        display: inline;
+        margin-left: 1.5rem;
+        a {
+          color: $dark;
+          text-decoration: none;
+        }
+      }
+    }
+  }//end of nav
+}
+
+#banner{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 4rem;
+  h1{
+    text-align: center;
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 4rem 0;
+  }
+}
+.booklist_banner{
+  background: image-url('think')
+}
+
+.pagination:before, .pagination:after{
+  //clearfix
+  content: " ";
+  display: table;
+}
+
+.pagination:after{
+  clear: both;
+}
+
+.pagination {
+  text-align: center;
+  margin: 3rem 0 3rem 0;
+  a, .previous_page, .current, .next_page{
+    padding: 0.74rem 1rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    border-radius: .15rem;
+    line-height: 1.25;
+    text-decoration: none;
+    background: #EDEFF5;
+    font-weight: 700;
+    font-style: normal;
+    color: $dark;
+    &:hover{
+      background: $highlight;
+      color: $white;
+    }
+  }
+  .current{
+    background: $highlight;
+    color: $white;
+  }
+  .disabled{
+    color: #C0C0C0;
+    &:hover{
+      background: #EDEFF5;
+      color: #C0C0C0;
+    }
+  }
+}
