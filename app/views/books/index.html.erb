@@ -132,7 +132,7 @@
 
     <!-- columnns new book -->
     <% if user_signed_in?  %>
-      <div class="col-lg-4 col-md-6 book-margin">
+      <div class="col-lg-3 col-md-6 book-margin">
         <!--Card-->
         <%= link_to new_book_path, class: "new-btn" do %>
           <div class="card-book-new book-size">
@@ -145,9 +145,9 @@
     <% end %>
 
     <% @books.each do |b| %>
-      <div class="col-lg-4 col-md-6 book-margin">
+      <div class="col-lg-3 col-md-6 book-margin">
         <!--Card-->
-        <div class="card card-book book-size">
+        <div class="card card-book">
 
           <!--Card image-->
           <% if b.picture.nil? %>
