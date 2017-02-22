@@ -1,4 +1,11 @@
 class BooksController < ApplicationController
+  layout false
+  layout 'application', :except => :landing
+
+  def landing
+    render :layout => false
+  end
+
   def index
     @books = Book.all
 

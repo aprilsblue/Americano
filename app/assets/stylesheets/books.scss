@@ -15,6 +15,7 @@ main {
 
 /* Navigation*/
 .navbar {
+  padding: 1rem 0;
   background-color: transparent;
 }
 .collapse > span.email {
@@ -35,7 +36,7 @@ main {
 }
 
 .top-nav-collapse {
-  background-color: #4285F4;
+  background-color: $white;
 }
 
 .book-info {
@@ -45,18 +46,16 @@ main {
   left: 0;
   right: 0;
   display: none;
-}
-
-.card-title {
-  color: $first_color;
-}
-
-.book-info {
   padding: {
     top: 7rem;
   }
   background-color: #111;
   opacity: 0.8;
+
+}
+
+.card-title {
+  color: $first_color;
 }
 
 .book-size{
@@ -81,7 +80,10 @@ footer.page-footer {
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    background-color: #4285F4;
+    background-color: transparent;
+  }
+  .navbar-nav{
+    padding: 5vh 1vh 0 0;
   }
 }
 
@@ -123,36 +125,97 @@ main {
   padding-bottom: 2rem;
 }
 
-.widget-wrapper {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 2rem;
-}
-
-.reviews {
-  text-align: center;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-
-.price {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin-top: -2px;
-}
-
-.price .tag {
-  margin: 0;
-}
-
 .quote-u-name{
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
 
+#book_show{
+  #show_banner{
+    background: $dark;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  h1{
+    font-size: 1.5rem;
+    color: $white;
+    font-weight: 300;
+    margin: 0,0, .5rem, 0;
+  }
+  .description{
+    width: 75%;
+    line-height: 1.75;
+    margin: 0 auto 2rem auto;
+    color: lighten($dark, 30%);
+  }
+  .link{
+    font-size: .6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    color: $white;
+    display: inline;
+    background: $highlight;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+    text-decoration: none;
+    &:hover{
+      background: darken($highlight, 10%);
+    }
+  }
+
+  #breadcrumb{
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid lighten($dark, 75%);
+    font-weight: 700;
+    font-size: .7rem;
+    text-decoration: none;
+    a {
+      color:  lighten($dark, 45%);
+      text-decoration: none;
+    }
+  }
+
+  #posts {
+    padding: 3rem 0;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid lighten($dark, 75%);
+        margin-bottom: 3rem;
+        &:last-child {
+          border-bottom: none;
+        }
+        .post_thumbnail {
+          width: 22%;
+          float: left;
+          img {
+            width: 10rem;
+            max-width: 100%;
+            border-radius: .35rem;
+          }
+        }
+        .post_overview{
+          width: 76.5%;
+          float: left;
+          margin-left: 1.5%;
+          h2 {
+            a {
+              color: $dark;
+              text-decoration: none;
+            }
+          }
+          .description{
+            color: lighten($dark, 25%);
+          }
+        }
+      }
+    }
+  }
+}
 

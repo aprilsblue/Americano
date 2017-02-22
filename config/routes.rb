@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'books#index'
+  root 'books#landing'
 
+  get 'books/landing'
   get 'hashtag/:name' => 'posts#hashtag'
   get 'replies/:id/back' => 'replies#back', as: :replies_back
 
