@@ -5,10 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'fog'
 gem 'ckeditor'
-gem 'mini_magick'
 gem 'devise'
 gem 'figaro'
 gem 'jquery-turbolinks'

@@ -1,5 +1,5 @@
 <%= form_for [book, post], class: "form-group new-post" do |f| %>
   <i class="fa fa-book"></i> &nbsp; <%= f.number_field :page, class: "form-control new-post-page" %>
-  <%= f.text_area :content, class: "form-control", placeholder: "내용을 입력해주세요.", row: 50 %>
+  <%= f.cktext_area :content, class: "form-control", placeholder: "내용을 입력해주세요.", rows: 50 %>
   <%= f.submit "SUBMIT", class: "btn btn-default" %>
 <% end %>
