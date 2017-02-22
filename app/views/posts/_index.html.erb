@@ -14,7 +14,8 @@
       <div class="card-block">
         <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= p.user.email %></span> &nbsp;&nbsp;
         <br><br>
-        <%= render_with_hashtags(p.content, book.id) %>
+        <%#= render_with_hashtags(p.content, book.id) %>
+        <%= p.content.html_safe %>
         <hr>
         <%= link_to post_replies_path(p.id), remote: true do %>
           <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root 'books#index'
 
   get 'hashtag/:name' => 'posts#hashtag'
