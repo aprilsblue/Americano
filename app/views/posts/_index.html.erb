@@ -3,27 +3,26 @@
     <div class="card-block">
       <%#= render_with_hashtags(p.content, book.id) %>
       <%= p.content.html_safe %>
-      &nbsp;
-      <% if p.user_id == current_user.id %>
-        <%= link_to post_path(p), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to edit_post_path(p), class: "edit-post" do %>
-           <i class="fa fa-edit" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
       <hr>
-      <div class="etc-post text-right">
-        <div class="tooltip">
+      <div class="etc-post">
+        <% if p.user_id == current_user.id %>
+          <%= link_to post_path(p), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to edit_post_path(p), class: "edit-post" do %>
+             <i class="fa fa-edit" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+        <div class="tooltip user-post">
           <i class="fa fa-user-circle"></i>
           <span class="tooltiptext"><%= p.user.email %></span>
         </div>
         &nbsp;
-        <%= link_to post_replies_path(p.id), remote: true do %>
+        <%= link_to post_replies_path(p.id), class: "index-reply", remote: true do %>
           <i class="fa fa-comments-o"></i> <%= p.replies.count %>
         <% end %>
         &nbsp;
-        <%= link_to new_post_reply_path(p.id), remote: true do %>
+        <%= link_to new_post_reply_path(p.id), class: "new-reply", remote: true do %>
           <i class="fa fa-plus-square" aria-hidden="true"></i>
         <% end %>
       </div>

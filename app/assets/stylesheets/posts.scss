@@ -14,9 +14,17 @@ form.new_post {
   }
 }
 
-.delete-post, .edit-post {
+.user-post {
+  float: right;
   margin: {
-    left: 0.5rem;
+    right: 1rem;
+  }
+}
+
+.delete-post, .edit-post {
+  float: left;
+  margin: {
+    left: 1rem;
   }
   color: $light_dark;
 }
@@ -32,7 +40,8 @@ i.icon-user {
 }
 
 /* Tooltip container */
-.tooltip {
+div.tooltip {
+  font-size: 14px;
   position: relative;
   display: inline-block;
   opacity: 1;

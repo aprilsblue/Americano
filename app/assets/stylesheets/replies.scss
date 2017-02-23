@@ -1,6 +1,8 @@
 // Place all the styles related to the replies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
 .card-reply {
   width: 95%;
   margin: {
@@ -8,8 +10,18 @@
   }
 }
 
-.new-reply {
+.index-reply, .new-reply {
   float: right;
+  margin: {
+    right: 1rem;
+  }
+}
+
+.delete-reply, .edit-reply {
+  margin: {
+    right: 0.5rem;
+  }
+  color: $light_dark;
 }
 
 .submit-reply {
