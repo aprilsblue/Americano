@@ -13,28 +13,34 @@
 <!--Main layout-->
 <div class="container main">
   <div class="row">
-    <div class="col-2 col-lg-1 offset-lg-1 text-center pages">
-      <!-- Page Slide -->
-      <% @pages.each do |p| %>
-        <% if params[:page].to_i == p %>
-          <%= link_to book_path(@book, page: p), class: "lime-text" do %>
-            <h4><b><%= p %></b></h4>
-          <% end %>
-          <br>
-        <% else %>
-          <%= link_to p, book_path(@book, page: p), class: "grey-text" %><br><br>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="col-10 col-lg-9">
-      <div class="row">
-        <!--Main column quotes & opinion-->
-        <div class="col-12">
-          <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
-        </div>
-        <!--/.Main column-->
+    <% if @posts.empty? %>
+      <div class="col-12 col-lg-10 offset-lg-1 text-center">
+        <h5>결과가 없습니다.</h5>
       </div>
-    </div>
+    <% else %>
+      <div class="col-2 col-lg-1 offset-lg-1 text-center pages">
+        <!-- Page Slide -->
+        <% @pages.each do |p| %>
+          <% if params[:page].to_i == p %>
+            <%= link_to book_path(@book, page: p), class: "lime-text" do %>
+              <h4><b><%= p %></b></h4>
+            <% end %>
+            <br>
+          <% else %>
+            <%= link_to p, book_path(@book, page: p), class: "grey-text" %><br><br>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-10 col-lg-9">
+        <div class="row">
+          <!--Main column quotes & opinion-->
+          <div class="col-12">
+            <%= render partial: 'posts/index', locals: { posts: @posts, book: @book } %>
+          </div>
+          <!--/.Main column-->
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 <!--/.Main layout-->
