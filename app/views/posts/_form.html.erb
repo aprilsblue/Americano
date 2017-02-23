@@ -1,5 +1,18 @@
 <%= form_for [book, post], class: "form-group new-post" do |f| %>
   <i class="fa fa-book"></i> &nbsp; <%= f.number_field :page, class: "form-control new-post-page" %>
-  <%= f.cktext_area :content, class: "form-control", placeholder: "내용을 입력해주세요.", rows: 50 %>
-  <%= f.submit "SUBMIT", class: "btn btn-default" %>
+  <%= f.text_area :content, id: 'editor1', class: "form-control", placeholder: "내용을 입력해주세요.", rows: 50, style:"height: 500px;" %>
+<%= f.submit "SUBMIT", class: "btn btn-default" %>
 <% end %>
+
+<script>
+  // Turn off automatic editor creation first.
+	// This one line makes  inline mode to change font and style with dropdown menu 
+	// and should be outside $(document).ready block
+	CKEDITOR.disableAutoInline = true;
+  $(document).ready(function(){
+    var editor = CKEDITOR.inline( 'editor1'/*,{removePlugins: 'stylescombo'}*/);
+		editor.setData("<h1>Put your title here</h1><p>Content</p>");
+    editor.config.startupFocus = true;
+  });
+</script>
+
