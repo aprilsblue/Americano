@@ -18,8 +18,8 @@
 //= require tether.min.js
 //= require bootstrap.min.js
 //= require turbolinks
-//= require ckeditor/config.js
 //= require ckeditor/init
+//= require ckeditor/config.js
 //= require_tree .
 $.turbo.use('turbolinks:load');
 
