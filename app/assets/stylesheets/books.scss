@@ -64,7 +64,6 @@ main {
   height: 359px;
 }
 
-
 .card-book-new {
   border: dashed 2px lightblue;
   text-align: center;
@@ -73,6 +72,14 @@ main {
 
 .book-margin {
   margin-bottom: 20px;
+}
+
+.pages {
+  padding: {
+    right: 0
+  }
+  border: {
+  }
 }
 
 footer.page-footer {
