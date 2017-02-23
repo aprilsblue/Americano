@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def new
     @book = Book.find(params[:book_id])
     @post = Post.new(page: params[:page])
+    @page = params[:page]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @book = @post.book
+    @page = params[:page]
   end
 
   def update

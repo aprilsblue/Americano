@@ -6,10 +6,10 @@
       <hr>
       <div class="etc-post">
         <% if p.user_id == current_user.id %>
-          <%= link_to post_path(p), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
+          <%= link_to post_path(p, page: params[:page]), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
           <% end %>
-          <%= link_to edit_post_path(p), class: "edit-post" do %>
+          <%= link_to edit_post_path(p, page: params[:page]), class: "edit-post" do %>
              <i class="fa fa-edit" aria-hidden="true"></i>
           <% end %>
         <% end %>

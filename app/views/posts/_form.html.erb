@@ -1,18 +1,8 @@
-<%= form_for [book, post], class: "form-group new-post" do |f| %>
-  <i class="fa fa-book"></i> &nbsp; <%= f.number_field :page, class: "form-control new-post-page", required: true %>
-  <%= f.text_area :content, id: 'editor1', class: "form-control" %>
-<%= f.submit "SUBMIT", class: "btn btn-default" %>
-<% end %>
-
-<script>
-  // Turn off automatic editor creation first.
-  // This one line makes  inline mode to change font and style with dropdown menu
-  // and should be outside $(document).ready block
-  CKEDITOR.disableAutoInline = true;
-  $(document).ready(function(){
-  var editor = CKEDITOR.inline( 'editor1'/*,{removePlugins: 'stylescombo'}*/);
-  editor.setData("<h1>Put your title here</h1><p>Content</p>");
-  editor.config.startupFocus = true;
-  });
-</script>
-
+<div class="page-box">
+  <%= f.number_field :page, class: "form-control new-post-page", required: true %> <span>PAGE</span>
+</div>
+<%= f.text_area :content, id: 'editor1', class: "form-control" %>
+<div class="btn-box text-center">
+  <%= f.submit "SUBMIT", class: "btn btn-default" %>
+  <%= link_to "BACK", book_path(book, page: page), class: "btn btn-primary" %>
+</div>
