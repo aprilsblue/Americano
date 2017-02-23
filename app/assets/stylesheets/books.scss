@@ -67,7 +67,9 @@ main {
 .card-book-new {
   border: dashed 2px lightblue;
   text-align: center;
-  padding: 12.5vw 4.1vw;
+  padding: {
+    top: 10.5rem;
+  }
 }
 
 .book-margin {

@@ -20,7 +20,7 @@
         <div class="etc-post text-right">
           <div class="tooltip">
             <i class="fa fa-user-circle"></i>
-            <span class="tooltiptext">Tooltip text</span>
+            <span class="tooltiptext"><%= p.user.email %></span>
           </div>
           &nbsp;
           <%= link_to post_replies_path(p.id), remote: true do %>
