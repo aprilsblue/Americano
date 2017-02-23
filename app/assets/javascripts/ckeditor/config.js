@@ -1,4 +1,5 @@
 CKEDITOR.editorConfig = function(config) {
+  config.extraPlugins = 'codesnippet';
   config.language = 'ko';
   //config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
   //config.filebrowserFlashBrowseUrl = "/ckeditor/attachment_files";
