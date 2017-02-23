@@ -1,7 +1,7 @@
 <div class="card card-reply">
   <div class="card-block">
     <%= form_for [post, reply], class: "form-group" do |f| %>
-      <%= f.text_area :content, class: "form-control" %>
+      <%= f.text_area :content, class: "form-control" required: true %>
       <%= f.submit "SUBMIT", class: "btn btn-default submit-reply" %>
     <% end %>
   </div>

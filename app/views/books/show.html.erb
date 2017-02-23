@@ -1,17 +1,21 @@
 <div id="book_show">
-  <div id="show_banner">
-    <div class="wrapper_skinny">
-      <h1><%= @book.title %> </h1>
-      <p class="description"> <%= @book.writer %> | <%= @book.publisher %> | <%= @book.published_at.strftime("%Y-%m-%d") %> </p>
+  <div id="show_background"style="background-image:url(<%= @book.picture %>)">
+    <div id="show_banner">
+      <div class="wrapper_skinny">
+        <h1><%= @book.title %> </h1>
+        <span class="description"> <%= @book.writer %> | <%= @book.publisher %> | <%= @book.published_at.strftime("%Y-%m-%d") %> </span>
+      </div>
     </div>
   </div>
   <div id="breadcrumb">
-    <%= link_to "+ New Post", new_book_post_path(@book, page: params[:page]) %>
+    <h5>
+      <%= link_to "+ New Post", new_book_post_path(@book, page: params[:page]) %>
+    </h5>
   </div>
 
-<main>
-<!--Main layout-->
-<div class="container main">
+  <main>
+  <!--Main layout-->
+  <div class="container main">
   <div class="row">
     <div class="col-2 col-lg-1 offset-lg-1 text-center">
       <!-- Page Slide -->
@@ -40,4 +44,4 @@
 <!--/.Main layout-->
 
 </div>
-</main>
+</marn>
