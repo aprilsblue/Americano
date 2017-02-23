@@ -5,21 +5,32 @@
   <% posts.each do |p| %>
     <div class="card">
       <div class="card-block">
-        <span class="grey-text"><i class="fa fa-user-circle"></i> &nbsp; <%= p.user.email %></span> &nbsp;&nbsp;
-        <br><br>
         <%#= render_with_hashtags(p.content, book.id) %>
         <%= p.content.html_safe %>
-        <hr>
-        <%= link_to post_replies_path(p.id), remote: true do %>
-          <span class="light-blue-text"><i class="fa fa-comments-o"></i> &nbsp; <%= p.replies.count %></span>
-        <% end %>
-        <%= link_to new_post_reply_path(p.id), class: "new-reply", remote: true do %>
-          <i class="fa fa-plus-square" aria-hidden="true"></i> Comment
-        <% end %>
+        &nbsp;
         <% if p.user_id == current_user.id %>
-          <%= link_to "Delete", post_path(p), method: "DELETE", class: "delete-post red-text", data: { confirm: "정말 삭제하겠습니까?" } %>
-          <%= link_to "Edit", edit_post_path(p), class: "edit-post green-text" %>
+          <%= link_to post_path(p), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to edit_post_path(p), class: "edit-post" do %>
+             <i class="fa fa-edit" aria-hidden="true"></i>
+          <% end %>
         <% end %>
+        <hr>
+        <div class="etc-post text-right">
+          <div class="tooltip">
+            <i class="fa fa-user-circle"></i>
+            <span class="tooltiptext">Tooltip text</span>
+          </div>
+          &nbsp;
+          <%= link_to post_replies_path(p.id), remote: true do %>
+            <i class="fa fa-comments-o"></i> <%= p.replies.count %>
+          <% end %>
+          &nbsp;
+          <%= link_to new_post_reply_path(p.id), remote: true do %>
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- reply/new -->
