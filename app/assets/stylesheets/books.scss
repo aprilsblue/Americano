@@ -145,18 +145,20 @@ main {
     padding: 1rem 0;
     text-align: center;
     opacity: 0.8;
-   }
+    h1{
+      font-size: 1.5rem;
+      color: $white;
+      font-weight: 300;
+      margin: 0,0, .5rem, 0;
+    }
+  }
+ 
   #show_background{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
    }
-h1{
-  font-size: 1.5rem;
-  color: $white;
-  font-weight: 300;
-    margin: 0,0, .5rem, 0;
-  }
+
   .description{
     width: 75%;
     line-height: 1.75;
