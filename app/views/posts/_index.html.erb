@@ -7,6 +7,7 @@
       <div class="card-block">
         <%#= render_with_hashtags(p.content, book.id) %>
         <%= p.content.html_safe %>
+        <%= link_to "show more", post_path(p), class: "text-grey" %>
         &nbsp;
         <% if p.user_id == current_user.id %>
           <%= link_to post_path(p), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>

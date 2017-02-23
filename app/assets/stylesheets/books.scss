@@ -144,13 +144,14 @@ main {
     background: $dark;
     text-align: center;
     padding: 1rem 0;
+    h1{
+      font-size: 1.5rem;
+      color: $white;
+      font-weight: 300;
+      margin: 0,0, .5rem, 0;
+    }
   }
-  h1{
-    font-size: 1.5rem;
-    color: $white;
-    font-weight: 300;
-    margin: 0,0, .5rem, 0;
-  }
+
   .description{
     width: 75%;
     line-height: 1.75;
