@@ -15,7 +15,7 @@
 // and should be outside $(document).ready block
 CKEDITOR.disableAutoInline = true;
 $(document).ready(function(){
-  var editor = CKEDITOR.inline( 'editor1'/*,{removePlugins: 'stylescombo'}*/);
+  var editor = CKEDITOR.inline( 'editor1' /*,{removePlugins: 'stylescombo'}*/);
   editor.setData("<h1>Put your title here</h1><p>Content</p>");
   editor.config.startupFocus = true;
 });

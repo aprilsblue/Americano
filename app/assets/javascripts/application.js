@@ -17,9 +17,11 @@
 //= require mdb.js
 //= require tether.min.js
 //= require bootstrap.min.js
-//= require turbolinks
 //= require ckeditor/init
 //= require ckeditor/config.js
+//= require ckeditor/plugins/codesnippet/plugin.js
+//= require ckeditor/plugins/codesnippetgeshi/plugin.js
+//= require highlight.pack.js
+//= require turbolinks
 //= require_tree .
 $.turbo.use('turbolinks:load');
-
