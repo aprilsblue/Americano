@@ -2276,36 +2276,6 @@ section {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%; }
 
-@font-face {
-  font-family: "Roboko";
-  src: local(Roboto Thin), font-url("Roboto-Thin.eot");
-  src: font-url("Roboto-Thin.eot?#iefix") format("embedded-opentype"), font-url("Roboto-Thin.woff2") format("woff2"), font-url("Roboto-Thin.woff") format("woff"), font-url("Roboto-Thin.ttf") format("truetype");
-  font-weight: 200; }
-
-@font-face {
-  font-family: "Roboto";
-  src: local(Roboto Light), font-url("Roboto-Light.eot");
-  src: font-url("Roboto-Light.eot?#iefix") format("embedded-opentype"), font-url("Roboto-Light.woff2") format("woff2"), font-url("Roboto-Light.woff") format("woff"), font-url("Roboto-Light.ttf") format("truetype");
-  font-weight: 300; }
-
-@font-face {
-  font-family: "Roboto";
-  src: local(Roboto Regular), font-url("Roboto-Regular.eot");
-  src: font-url("Roboto-Regular.eot?#iefix") format("embedded-opentype"), font-url("Roboto-Regular.woff2") format("woff2"), font-url("Roboto-Regular.woff") format("woff"), font-url("Roboto-Regular.ttf") format("truetype");
-  font-weight: 400; }
-
-@font-face {
-  font-family: "Roboto";
-  src: font-url("Roboto-Medium.eot");
-  src: font-url("Roboto-Medium.eot?#iefix") format("embedded-opentype"), font-url("Roboto_Medium.woff2") format("woff2"), font-url("Roboto-Medium.woff") format("woff"), font-url("Roboto-Medium.ttf") format("truetype");
-  font-weight: 500; }
-
-@font-face {
-  font-family: "Roboto";
-  src: font-url("Roboto-Bold.eot");
-  src: font-url("Roboto-Bold.eot?#iefix") format("embedded-opentype"), font-url("Roboto-Bold.woff2") format("woff2"), font-url("Roboto-Bold.woff") format("woff"), font-url("Roboto-Bold.ttf") format("truetype");
-  font-weight: 700; }
-
 body {
   font-family: "Roboto", sans-serif; }
 
