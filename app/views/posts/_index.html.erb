@@ -35,7 +35,8 @@
     </div>
 <% end %>
 <script>
-$(document).ready(function() {
-  hljs.initHighlightingOnLoad();
-});
+  $(document).ready(function(){
+     hljs.initHighlighting.called = false;
+     hljs.initHighlighting();
+  });
 </script>

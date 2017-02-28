@@ -237,6 +237,8 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     orm_adapter (0.5.0)
     puma (3.7.1)
     rack (2.0.1)
@@ -339,6 +341,7 @@ DEPENDENCIES
   jquery-turbolinks
   listen (~> 3.0.5)
   mini_magick
+  non-stupid-digest-assets
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
