@@ -1,0 +1,4 @@
+var post_var = $("#post_" + <%= @post_id %>);
+post_var.html(
+  "<%= escape_javascript(render partial: 'index', locals: { replies: @replies }) %>"
+);

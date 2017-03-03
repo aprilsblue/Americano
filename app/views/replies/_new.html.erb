@@ -1,8 +1,5 @@
-<div class="card card-reply">
-  <div class="card-block">
-    <%= form_for [post, reply], class: "md-form" do |f| %>
-      <%= f.text_area :content, class: "md-textarea", required: true %>
-      <%= f.submit "SUBMIT", class: "btn btn-default submit-reply" %>
-    <% end %>
-  </div>
-</div>
+<%= form_for [post, reply], class: "form-group" do |f| %>
+  <%= f.text_area :content, class: "form-control"  %>
+  <%= link_to "CANCEL", "", class: "btn-americano submit-reply" %> &nbsp;
+  <%= f.submit "SUBMIT", class: "btn-americano submit-reply" %>
+<% end %>

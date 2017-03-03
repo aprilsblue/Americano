@@ -3,11 +3,22 @@ class Post < ApplicationRecord
   has_many :replies
   belongs_to :user
 
+  # Post - PostPost - Post
+  has_many :post_posts, foreign_key: :child_id
+  has_many :parents, through: :post_posts, class_name: :Post
+  has_many :post_memos, class_name: :PostPost, foreign_key: :parent_id
+
+  has_many :children, through: :post_memos, class_name: :Post
   #Post - PostsTags - Tags
   has_and_belongs_to_many :tags
 
+  #scope
+  scope :is_parent, -> { where(is_child: false) }
+
   #callbacks
-  after_create do
+  after_create :tagging
+
+  def tagging
     post = Post.find_by(id: self.id)
     hashtags = self.content.scan(/#[a-zA-Z0-9가-힣]+/)
     hashtags.uniq.map do |hashtag|
@@ -24,5 +35,16 @@ class Post < ApplicationRecord
       tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
       post.tags << tag
     end
+  end
+
+  def title
+    content = self.content
+    if content.match(/<h4>[^<]*<\/h4>/).present?
+      title = content.scan(/<h4>([^<>]*)<\/h4>/imu).flatten.select{|x| !x.empty?}[0]
+    else
+      title = content.scan(/<p>([^<>]*)<\/p>/imu).flatten.select{|x| !x.empty?}[0]
+    end
+
+    return title
   end
 end

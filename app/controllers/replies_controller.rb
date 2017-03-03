@@ -31,7 +31,7 @@ class RepliesController < ApplicationController
     respond_to do |format|
       if @reply.save
         flash[:notice] = 'Reply was successfully created.'
-        format.html { redirect_to book_path(@post.book, page: @post.page) }
+        format.html { redirect_to post_path(@post, page: @post.page) }
         format.xml  { render xml: @reply, status: :created, location: @reply }
       else
         format.html { render action: 'new' }
@@ -75,11 +75,15 @@ class RepliesController < ApplicationController
 
   def destroy
     @reply = Reply.find(params[:id])
-    page = @reply.post.page
-    book = @reply.post.book
+    post = @reply.post
+    page = post.page
+    book = post.book
     @reply.destroy
+    @replies = post.replies
+    @post_id = post.id
 
     respond_to do |format|
+      format.js   { render 'reload.js.erb' }
       format.html { redirect_to(book_path(book, page: page)) }
       format.xml  { head :ok }
     end

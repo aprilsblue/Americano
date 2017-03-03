@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 #
+#Admin.create(email: "admin@example.com", password: "12341234", password_confirmation: "12341234")
 User.create(email: "admin@test.com", password: "123412", password_confirmation: "123412")
 User.create(email: "user1@test.com", password: "123412", password_confirmation: "123412")
 User.create(email: "user2@test.com", password: "123412", password_confirmation: "123412")
@@ -19,11 +20,8 @@ Book.create(title: "필립 코틀러의 마켓 4.0", writer: "필립 코틀러",
 
 # Book.create(title: "", writer: "", publisher: "", published_at: "", user_id: 1, picture: "" )
 
-
-Post.create(book_id: "1", content: "안드로이드 7.0 누가버젼이 최신 버젼입니다.", user_id: "1", page: "1")
-Post.create(book_id: "1", content: "인텐트는 무엇인가", user_id: "2", page: "1")
-Reply.create(post_id: "1", content: "정말로 최신 버젼인가요?", user_id: "2")
-
-
+Post.create(book_id: "1", content: "<h4>안드로이드 최신버전은?</h4><p>안드로이드 7.0 누가버젼이 최신 버젼입니다.</p>", user_id: "1", page: "1")
+Post.create(book_id: "1", content: "<h4>인텐트</h4><p>인텐트는 무엇인가</p>", user_id: "2", page: "1")
+Reply.create(post_id: "1", content: "<h4>진실</h4><p>정말로 최신 버젼인가요?</p>", user_id: "2")
 
 puts("Seed Success!!")

@@ -29,10 +29,17 @@ form.new_post, form.edit_post {
   }
 }
 
+.btn-americano {
+  border: none;
+  background-color: white;
+  color: $light_dark;
+  margin: 0px 5px;
+}
+
 .user-post {
   float: right;
   margin: {
-    right: 1rem;
+    right: 0.8rem;
   }
 }
 
@@ -43,16 +50,23 @@ form.new_post, form.edit_post {
 }
 
 .delete-post, .edit-post {
-  float: left;
+  float: right;
   margin: {
-    left: 1rem;
+    right: 0.8rem;
   }
   color: $light_dark;
 }
 
 div.etc-post {
+  display: inline;
   i, a {
     color: $light_dark;
+  }
+}
+
+.reply-new {
+  padding: {
+    bottom: 1rem;
   }
 }
 

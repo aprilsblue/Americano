@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222161515) do
+ActiveRecord::Schema.define(version: 20170302084729) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -37,14 +37,25 @@ ActiveRecord::Schema.define(version: 20170222161515) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "post_posts", force: :cascade do |t|
+    t.integer  "parent_id"
+    t.integer  "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_post_posts_on_child_id"
+    t.index ["parent_id"], name: "index_post_posts_on_parent_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "content"
+    t.boolean  "is_child",   default: false
     t.integer  "page"
     t.integer  "user_id"
     t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["book_id"], name: "index_posts_on_book_id"
+    t.index ["is_child"], name: "index_posts_on_is_child"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
