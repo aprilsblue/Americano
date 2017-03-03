@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :books
   has_many :posts
   has_many :replies
+  has_many :likes
+  has_many :like_posts, through: :likes, source: :post
 end

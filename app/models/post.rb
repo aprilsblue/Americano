@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   belongs_to :book
   has_many :replies
   belongs_to :user
+  has_many :likes
+  has_many :like_users, through: :likes, source: :user
 
   #Post - PostsTags - Tags
   has_and_belongs_to_many :tags

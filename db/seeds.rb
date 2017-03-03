@@ -24,6 +24,10 @@ Post.create(book_id: "1", content: "안드로이드 7.0 누가버젼이 최신 �
 Post.create(book_id: "1", content: "인텐트는 무엇인가", user_id: "2", page: "1")
 Reply.create(post_id: "1", content: "정말로 최신 버젼인가요?", user_id: "2")
 
+Like.create(post_id: "1", user_id: "1")
+Like.create(post_id: "1", user_id: "2")
+Like.create(post_id: "2", user_id: "3")
+
 
 
 puts("Seed Success!!")
