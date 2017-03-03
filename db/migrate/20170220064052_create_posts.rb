@@ -3,11 +3,14 @@ class CreatePosts < ActiveRecord::Migration[5.0]
     create_table :posts do |t|
 
       t.string :content
+      t.boolean :is_child, default: false
       t.integer :page
       t.references :user
       t.references :book
 
       t.timestamps
     end
+
+    add_index :posts, :is_child
   end
 end

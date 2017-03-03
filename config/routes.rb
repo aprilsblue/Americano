@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'books#landing'
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get 'books/landing'
   get 'hashtag/:name' => 'posts#hashtag'
   get 'replies/:id/back' => 'replies#back', as: :replies_back
+  get 'posts/add' => 'posts#add', as: :add_post
+  post 'posts/append' => 'posts#append', as: :append_post
 
   devise_for :users
   resources :books do

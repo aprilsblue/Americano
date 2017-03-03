@@ -7,6 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+  config.format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address;div';
   config.extraPlugins = 'codesnippet', 'codesnippetgeshi';
   config.codeSnippet_theme = 'monokai_sublime';
   config.toolbarGroups = [
@@ -25,5 +26,5 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'about', groups: [ 'about' ] }
   ];
 
-  config.removeButtons = 'Source,Save,Templates,NewPage,Preview,Print,Cut,Undo,Redo,Copy,Paste,PasteText,PasteFromWord,SelectAll,Find,Replace,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,NumberedList,BulletedList,Outdent,Indent,Blockquote,CreateDiv,Flash,HorizontalRule,PageBreak,Iframe,Anchor,Language,BidiRtl,BidiLtr,Maximize,About,ShowBlocks,Styles,Format,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Underline,Strike,Unlink,Link,Font,Smiley';
+  config.removeButtons = 'Source,Save,NewPage,Preview,Print,Templates,Cut,Undo,Redo,Copy,Paste,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,NumberedList,Outdent,Indent,BulletedList,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,BidiLtr,BidiRtl,JustifyRight,Language,JustifyBlock,Unlink,Anchor,Flash,HorizontalRule,Smiley,PageBreak,Iframe,Styles,Maximize,About,ShowBlocks,Font,FontSize';
 };

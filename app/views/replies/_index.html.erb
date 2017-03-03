@@ -1,5 +1,5 @@
 <% replies.each do |r| %>
   <div id="reply_<%= r.id %>">
-    <%= render partial: 'item', locals: { r: r } %>
+    <%= render partial: 'replies/item', locals: { r: r } %>
   </div>
 <% end %>

@@ -1,38 +1,76 @@
 <% posts.each do |p| %>
   <div class="card">
-    <div class="card-block">
-      <%#= render_with_hashtags(p.content, book.id) %>
-      <%= p.content.html_safe %>
-      <hr>
-      <div class="etc-post">
-        <% if p.user_id == current_user.id %>
-          <%= link_to post_path(p, page: params[:page]), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
+    <%= link_to post_path(p) do %>
+      <div class="card-block">
+        <span><%= p.title %></span>
+        <div class="etc-post">
+          <%= link_to post_replies_path(p.id), class: "index-reply", remote: true do %>
+            <i class="fa fa-comments-o"></i> <%= p.replies.count %>
           <% end %>
-          <%= link_to edit_post_path(p, page: params[:page]), class: "edit-post" do %>
-             <i class="fa fa-edit" aria-hidden="true"></i>
+          <div class="tooltip user-post">
+            <i class="fa fa-user-circle"></i>
+            <span class="tooltiptext"><%= p.user.email %></span>
+          </div>
+          <% if p.user_id == current_user.id %>
+            <%= link_to edit_post_path(p, page: params[:page]), class: "edit-post" do %>
+               <i class="fa fa-edit" aria-hidden="true"></i>
+            <% end %>
+          <% else %>
+            <%= link_to add_post_path(book: p.book, page: params[:page], post: p), class: "edit-post" do %>
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        <div class="tooltip user-post">
-          <i class="fa fa-user-circle"></i>
-          <span class="tooltiptext"><%= p.user.email %></span>
+          <% if p.user_id == current_user.id %>
+            <%= link_to post_path(p, page: params[:page]), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
         </div>
-        &nbsp;
-        <%= link_to post_replies_path(p.id), class: "index-reply", remote: true do %>
-          <i class="fa fa-comments-o"></i> <%= p.replies.count %>
-        <% end %>
-        &nbsp;
-        <%= link_to new_post_reply_path(p.id), class: "new-reply", remote: true do %>
-          <i class="fa fa-plus-square" aria-hidden="true"></i>
-        <% end %>
       </div>
+      <!-- reply/new -->
+      <div id="post_<%= p.id %>_new"></div>
+      <div id="post_<%= p.id %>"></div>
+    <% end %>
+  </div>
+
+  <!-- child post -->
+  <% p.children.each do |c| %>
+    <div class="card" style="background-color:yellow">
+      <%= link_to post_path(c) do %>
+        <div class="card-block">
+          <span style="color:red"><b>(보충)</b></span><span> <%= c.title %></span>
+          <div class="etc-post">
+            <%= link_to post_replies_path(c.id), class: "index-reply", remote: true do %>
+              <i class="fa fa-comments-o"></i> <%= c.replies.count %>
+            <% end %>
+            <div class="tooltip user-post">
+              <i class="fa fa-user-circle"></i>
+              <span class="tooltiptext"><%= c.user.email %></span>
+            </div>
+            <% if c.user_id == current_user.id %>
+              <%= link_to edit_post_path(c, page: params[:page]), class: "edit-post" do %>
+                 <i class="fa fa-edit" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <%= link_to add_post_path(book: c.book, page: params[:page], post: c), class: "edit-post" do %>
+                <i class="fa fa-edit" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+            <% if c.user_id == current_user.id %>
+              <%= link_to post_path(c, page: params[:page]), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <!-- reply/new -->
+        <div id="post_<%= c.id %>_new"></div>
+        <div id="post_<%= c.id %>"></div>
+      <% end %>
     </div>
-  </div>
-  <!-- reply/new -->
-  <div id="post_<%= p.id %>_new">
-  </div>
-  <div id="post_<%= p.id %>">
-  </div>
+  <% end %>
+  <!-- end child post -->
+
 <% end %>
 <script>
   $(document).ready(function(){

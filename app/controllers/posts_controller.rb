@@ -31,6 +31,32 @@ class PostsController < ApplicationController
     end
   end
 
+  def add
+    @book = params[:book]
+    @page = params[:page]
+    @post = Post.find(params[:post])
+  end
+
+  def append
+    @post = Post.new(post_params)
+    @post.book_id = params[:book].to_i
+    @post.user_id = current_user.id
+    @post.is_child = true
+
+    respond_to do |format|
+      if @post.save
+        PostPost.create(parent_id: params[:parent].to_i, child_id: @post.id)
+        flash[:notice] = 'Post was successfully created.'
+        format.html { redirect_to(book_path(@post.book, page: @post.page)) }
+        format.xml  { render xml: @post, status: :created, location: @post }
+      else
+        format.html { render action: 'new' }
+        format.xml  { render xml: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   def show
     @post = Post.find(params[:id])
 
