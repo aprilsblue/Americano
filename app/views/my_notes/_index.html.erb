@@ -1,0 +1,27 @@
+<% my_post.each do |post|%>
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 mynote-content" id="mynote-content-<%= post.id %>">
+      <div class="mynote-tools" id="delete_<%= post.id %>">
+        <span id="like">
+          <% if post.user_id == current_user.id %>
+            <%= link_to edit_post_path(post, page: params[:page]), class: "edit-post" do %>
+              &nbsp;
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            <% end %>
+          <% else %>
+            <%= link_to add_post_path(book: post.book, page: params[:page], post: p), class: "edit-post" do %>
+              &nbsp;
+              <i class="fa fa-edit" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <%= link_to my_note_path(id: post.id), method: "delete", remote: true do %>
+            <i class="fa fa-remove tools-color" aria-hidden="true"></i>
+          <% end %>
+        </span>
+      </div>
+      <br>
+      <%= post.content.html_safe  %>
+    </div>
+  </div>
+<% end %>
+

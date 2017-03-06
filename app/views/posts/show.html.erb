@@ -10,17 +10,25 @@
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
             <%= link_to edit_post_path(@post, page: params[:page]), class: "edit-post" do %>
-               <i class="fa fa-edit" aria-hidden="true"></i>
-            <% end %>
-          <% end %>
-          <%= link_to post_replies_path(@post.id), class: "index-reply", remote: true do %>
-            <i class="fa fa-comments-o"></i> <%= @post.replies.count %>
-          <% end %>
+               <i class="fa fa-edit" aria-hidden="true"></i> <% end %> <% end %> <%= link_to post_replies_path(@post.id), class: "index-reply", remote: true do %> <i class="fa fa-comments-o"></i> <%= @post.replies.count %> <% end %>
           &nbsp;
           <%= link_to new_post_reply_path(@post.id), class: "new-reply", remote: true do %>
             <i class="fa fa-plus-square" aria-hidden="true"></i>
           <% end %>
           &nbsp;
+          <span id="like">
+            <% if Like.where(post_id: @post.id, user_id: current_user.id).empty?  %>
+              <%= link_to like_post_path(id: @post.id), method: "post", class: "new-reply", remote: true do %>
+                내노트에 추가 +
+              <% end %>
+            <% else %>
+              <%= link_to like_post_path(id: @post.id), method: "post", class: "new-reply", remote: true do %>
+                내노트에서 제거 -
+              <% end %>
+            <% end %>
+          </span>
+          &nbsp;
+
           <div class="tooltip user-post">
             <i class="fa fa-user-circle"></i>
             <span class="tooltiptext"><%= @post.user.email %></span>

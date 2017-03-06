@@ -1,0 +1,10 @@
+<% if Like.where(post_id: post_id, user_id: current_user.id).empty?  %>
+  <%= link_to like_post_path(id: post_id), method: "post", class: "new-reply", remote: true do %>
+    내노트에 추가 +
+  <% end %>
+<% else %>
+  <%= link_to like_post_path(id: post_id), method: "post", class: "new-reply", remote: true do %>
+    내노트에서 제거 -
+  <% end %>
+<% end %>
+
