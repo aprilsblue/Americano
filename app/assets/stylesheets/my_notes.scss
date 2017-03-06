@@ -1,0 +1,19 @@
+// Place all the styles related to the MyNotes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+.mynote-content:hover {
+  background: #eceeef;
+}
+div.row > div.mynote-content > div.mynote-tools {
+  display: none;
+  position: absolute;
+  right: 0.4rem;
+  top: 0;
+  span > a {
+    color: $dark;
+  }
+}
+
+

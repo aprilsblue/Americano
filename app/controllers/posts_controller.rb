@@ -112,9 +112,26 @@ class PostsController < ApplicationController
     render "/books/show"
   end
 
-  private
+  def like
+    @user_id = current_user.id
+    @post_id = params[:id].to_i
+    isnil = Like.where(post_id: @post_id, user_id: @user_id)
+    if isnil.empty?
+      likeit = Like.new(post_id: @post_id, user_id: @user_id)
+      likeit.save
+    else
+      isnil.take.destroy
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
+  private
   def post_params
     params.require(:post).permit(:content, :page, :user_id, :book_id)
   end
 end
+
+

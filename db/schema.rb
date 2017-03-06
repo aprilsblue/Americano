@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170303032147) do
+=======
+ActiveRecord::Schema.define(version: 20170303080818) do
+>>>>>>> 2fe2290935d9df7238314ebec35bb062ac188564
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -46,6 +50,14 @@ ActiveRecord::Schema.define(version: 20170303032147) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "my_notes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> 2fe2290935d9df7238314ebec35bb062ac188564
   create_table "post_posts", force: :cascade do |t|
     t.integer  "parent_id"
     t.integer  "child_id"
