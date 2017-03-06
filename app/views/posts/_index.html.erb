@@ -1,5 +1,9 @@
 <% posts.each do |p| %>
-  <div class="card">
+  <% if p.children.present? %>
+    <div class="card parent-card" style="margin-bottom:0;">
+  <% else %>
+    <div class="card post-card">
+  <% end %>
     <%= link_to post_path(p) do %>
       <div class="card-block">
         <span><%= p.title %></span>
@@ -35,10 +39,10 @@
 
   <!-- child post -->
   <% p.children.each do |c| %>
-    <div class="card" style="background-color:yellow">
+    <div class="card add-card" style="background-color:#eeeeee; margin-bottom:0rem">
       <%= link_to post_path(c) do %>
         <div class="card-block">
-          <span style="color:red"><b>(보충)</b></span><span> <%= c.title %></span>
+          <span><b>[추가]</b></span><span> &nbsp; <%= c.title %></span>
           <div class="etc-post">
             <%= link_to post_replies_path(c.id), class: "index-reply", remote: true do %>
               <i class="fa fa-comments-o"></i> <%= c.replies.count %>

@@ -29,6 +29,29 @@ form.new_post, form.edit_post {
   }
 }
 
+.add-card {
+  margin: {
+    bottom: 0rem;
+  }
+  background: {
+    color: #eeeeee;
+  }
+}
+
+div.parent-card {
+  margin: {
+    top: 1rem;
+    bottom: 0;
+  }
+}
+
+div.post-card {
+  margin: {
+    top: 1rem;
+  }
+}
+
+
 .btn-americano {
   border: none;
   background-color: white;
