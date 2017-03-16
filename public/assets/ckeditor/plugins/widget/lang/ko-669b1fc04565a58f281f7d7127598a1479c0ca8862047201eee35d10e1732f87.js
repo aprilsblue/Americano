@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","ko",{move:"\uc6c0\uc9c1\uc774\ub824\uba74 \ud074\ub9ad \ud6c4 \ub4dc\ub798\uadf8 \ud558\uc138\uc694",label:"%1 widget"});

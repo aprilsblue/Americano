@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","fr",{move:"Cliquer et glisser pour d\xe9placer",label:"\xc9l\xe9ment %1"});

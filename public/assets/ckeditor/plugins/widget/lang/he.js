@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","he",{move:"\u05dc\u05d7\u05e5 \u05d5\u05d2\u05e8\u05d5\u05e8 \u05dc\u05d4\u05d6\u05d6\u05d4",label:"%1 widget"});

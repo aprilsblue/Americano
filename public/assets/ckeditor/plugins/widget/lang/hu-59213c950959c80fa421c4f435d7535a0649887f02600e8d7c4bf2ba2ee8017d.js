@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","hu",{move:"Kattints \xe9s h\xfazd a mozgat\xe1shoz",label:"%1 widget"});
