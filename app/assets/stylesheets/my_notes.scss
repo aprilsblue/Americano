@@ -4,8 +4,8 @@
 @import 'variables';
 
 .mynote-content:hover {
-  background: #eceeef;
 }
+  background: #eceeef;
 div.row > div.mynote-content > div.mynote-tools {
   display: none;
   position: absolute;
@@ -14,6 +14,10 @@ div.row > div.mynote-content > div.mynote-tools {
   span > a {
     color: $dark;
   }
+}
+
+.mynote-draglist {
+
 }
 
 

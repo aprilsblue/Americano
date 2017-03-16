@@ -1,7 +1,7 @@
 <main>
   <div class="container main mynote">
     <% @my_post.each do |post|%>
-      <div class="row">
+      <div class="row mynote-draglist">
         <div class="col-lg-10 offset-lg-1 mynote-content" id="mynote-content-<%= post.id %>">
           <div class="mynote-tools" id="delete_<%= post.id %>" >
             <span id="like">

@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+gem 'seed_dump'
 gem 'rails_admin'
 gem 'non-stupid-digest-assets'
 gem 'mini_magick'
