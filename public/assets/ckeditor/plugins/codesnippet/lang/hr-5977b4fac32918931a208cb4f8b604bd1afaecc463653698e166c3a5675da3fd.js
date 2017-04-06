@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","hr",{button:"Ubaci isje\u010dak k\xf4da",codeContents:"Code content",emptySnippetError:"A code snippet cannot be empty.",language:"Language",title:"Code snippet",pathName:"code snippet"});

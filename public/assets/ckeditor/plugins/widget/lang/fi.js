@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","fi",{move:"Siirr\xe4 klikkaamalla ja raahaamalla",label:"%1 widget"});

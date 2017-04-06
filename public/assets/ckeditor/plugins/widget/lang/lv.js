@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","lv",{move:"Klik\u0161\u0137ina un velc, lai p\u0101rvietotu",label:"%1 widget"});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","az",{button:"Kodun par\xe7as\u0131n\u0131 \u0259lav\u0259 et",codeContents:"Kod",emptySnippetError:"Kodun par\xe7as\u0131n\u0131 bo\u015f ola bilm\u0259z",language:"Programla\u015fd\u0131rma dili",title:"Kodun par\xe7as\u0131n\u0131",pathName:"kodun par\xe7as\u0131n\u0131"});

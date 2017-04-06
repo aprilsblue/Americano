@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","fr",{button:"Ins\xe9rer un extrait de code",codeContents:"Code",emptySnippetError:"Un extrait de code ne peut pas \xeatre vide.",language:"Langue",title:"Extrait de code",pathName:"extrait de code"});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","pl",{move:"Kliknij i przeci\u0105gnij, by przenie\u015b\u0107.",label:"Widget %1"});

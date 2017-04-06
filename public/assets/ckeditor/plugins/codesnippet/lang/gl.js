@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","gl",{button:"Inserir fragmento de c\xf3digo",codeContents:"Contido do c\xf3digo",emptySnippetError:"Un fragmento de c\xf3digo non pode estar baleiro.",language:"Linguaxe",title:"Fragmento de c\xf3digo",pathName:"fragmento de c\xf3digo"});

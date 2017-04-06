@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","oc",{move:"Clicar e lisar per despla\xe7ar",label:"Element %1"});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","da",{move:"Klik og tr\xe6k for at flytte",label:"%1 widget"});
