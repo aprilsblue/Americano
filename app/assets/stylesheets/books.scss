@@ -46,6 +46,11 @@ main {
   left: 0;
   right: 0;
   display: none;
+  a {
+    display: inline;
+    position: relative;
+    top: 1.5rem;
+  }
 }
 
 .card-title {

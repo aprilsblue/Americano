@@ -12,12 +12,11 @@
       <%= link_to "+ New Post", new_book_post_path(@book, page: params[:page]) %>
     </h5>
   </div>
-
   <main>
   <!--Main layout-->
     <div class="container main">
       <div class="row">
-        <% if @posts.empty? %>
+        <% if @exercises.empty? %>
           <div class="col-12 col-lg-10 offset-lg-1 text-center">
             <h5>결과가 없습니다.</h5>
           </div>
@@ -48,6 +47,5 @@
       </div>
     </div>
   <!--/.Main layout-->
-
   </div>
 </main>
