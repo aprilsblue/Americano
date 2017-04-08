@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","no",{move:"Klikk og dra for \xe5 flytte",label:"Widget %1"});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","ar",{move:"\u0625\u0636\u063a\u0637 \u0648 \u0625\u0633\u062d\u0628 \u0644\u0644\u062a\u062d\u0631\u064a\u0643",label:"%1 widget"});

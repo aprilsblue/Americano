@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","tr",{move:"Ta\u015f\u0131mak i\xe7in, t\u0131klay\u0131n ve s\xfcr\xfckleyin",label:"%1 Grafik Bele\u015feni"});

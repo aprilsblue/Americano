@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","zh",{move:"\u62d6\u66f3\u4ee5\u79fb\u52d5",label:"%1 \u5c0f\u5de5\u5177"});

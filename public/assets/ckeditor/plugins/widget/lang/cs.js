@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","cs",{move:"Klepn\u011bte a t\xe1hn\u011bte pro p\u0159esunut\xed",label:"Ovl\xe1dac\xed prvek %1"});

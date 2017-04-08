@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","sq",{move:"Kliko dhe t\xebrhiqe p\xebr ta l\xebvizur",label:"%1 widget"});

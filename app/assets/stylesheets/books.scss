@@ -46,6 +46,11 @@ main {
   left: 0;
   right: 0;
   display: none;
+  a {
+    display: inline;
+    position: relative;
+    top: 1.5rem;
+  }
 }
 
 .card-title {
@@ -77,8 +82,11 @@ main {
 }
 
 .pages {
+  margin: {
+    top: 1rem;
+  }
   padding: {
-    right: 0
+    right: 0;
   }
   border: {
   }
@@ -131,7 +139,7 @@ footer.page-footer {
 
 //books/show page 관련
 main {
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 

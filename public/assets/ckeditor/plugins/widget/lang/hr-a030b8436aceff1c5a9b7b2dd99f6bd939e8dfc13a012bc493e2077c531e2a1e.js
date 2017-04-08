@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","hr",{move:"Klikni i povuci da pomakne\u0161",label:"%1 widget"});

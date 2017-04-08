@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("widget","ja",{move:"\u30c9\u30e9\u30c3\u30b0\u3057\u3066\u79fb\u52d5",label:"%1 \u30a6\u30a3\u30b8\u30a7\u30c3\u30c8"});

@@ -42,10 +42,16 @@ class PostsController < ApplicationController
     @post.book_id = params[:book].to_i
     @post.user_id = current_user.id
     @post.is_child = true
+    @parent = params[:parent].to_i
+
 
     respond_to do |format|
       if @post.save
-        PostPost.create(parent_id: params[:parent].to_i, child_id: @post.id)
+        if Post.find(@parent).parents.present?
+          PostPost.create(parent_id: Post.find(@parent).parents.take.id, child_id: @post.id)
+        else
+          PostPost.create(parent_id: @parent, child_id: @post.id)
+        end
         flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to(book_path(@post.book, page: @post.page)) }
         format.xml  { render xml: @post, status: :created, location: @post }

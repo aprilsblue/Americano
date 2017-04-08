@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","sq",{button:"Shto kod cop\xebze",codeContents:"P\xebrmbajtja e kodit",emptySnippetError:"A code snippet cannot be empty.",language:"Gjuha",title:"Code snippet",pathName:"code snippet"});

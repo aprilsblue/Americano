@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","oc",{button:"Inserir un extrait de c\xf2di",codeContents:"C\xf2di",emptySnippetError:"Un extrait de c\xf2di p\xf2t pas \xe8sser void.",language:"Lenga",title:"Extrait de c\xf2di",pathName:"extrait de c\xf2di"});
