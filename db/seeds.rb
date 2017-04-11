@@ -33,4 +33,26 @@ Post.create!([
 Reply.create!([
   {content: "정말로 최신 버젼인가요?", post_id: 1, user_id: 2}
 ])
+
+Chapter.create!([
+  {book_id: 1, unit: 0, title: "notice"},
+  {book_id: 1, unit: 1, title: "맛보기"},
+  {book_id: 1, unit: 2, title: "레이아웃의 기본기"},
+  {book_id: 1, unit: 3, title: "이것이 코딩이다"},
+  {book_id: 1, unit: 4, title: "코딩코딩코코"},
+])
+
+Exercise.create!([
+  {chapter_id: 1, number: 1, prize: 50, user_id: 1},
+  {chapter_id: 1, number: 2, prize: 100, user_id: 1},
+  {chapter_id: 1, number: 3, prize: 10050, user_id: 1},
+  {chapter_id: 1, number: 4, prize: 0, user_id: 1}
+])
+
+Notice.create!([
+  {book_id: 1, content: "홀수문제 솔루션입니당", url: "http://naver.com"},
+  {book_id: 1, content: "현재 책의 최신 에디션이 존재합니다.", url: ""}
+])
+
+
 puts("Seed Success!!")
