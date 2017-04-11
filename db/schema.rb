@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329191526) do
+ActiveRecord::Schema.define(version: 20170410114732) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -58,14 +58,12 @@ ActiveRecord::Schema.define(version: 20170329191526) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "number"
-    t.string   "content"
-    t.integer  "prize"
+    t.string   "content",    default: "문제내용을 추가해주세요."
+    t.integer  "prize",      default: 0
     t.integer  "chapter_id"
-    t.integer  "book_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_exercises_on_book_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["chapter_id"], name: "index_exercises_on_chapter_id"
     t.index ["user_id"], name: "index_exercises_on_user_id"
   end
@@ -82,6 +80,15 @@ ActiveRecord::Schema.define(version: 20170329191526) do
   create_table "my_notes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.string   "content"
+    t.string   "url"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_notices_on_book_id"
   end
 
   create_table "post_posts", force: :cascade do |t|

@@ -57,12 +57,12 @@
           <div class="book-info book-size">
             <!--Title-->
             <h5 class="card-title light-blue-text"><strong><%= b.title %></strong></h5>
-            <br>
+           <br>
             <!--Text-->
             <p class="card-text white-text">Writer : <%= b.writer %></p>
             <p class="card-text white-text">Publihser : <%= b.publisher %></p>
             <p class="card-text white-text">Year : <%= b.published_at.strftime("%Y-%m-%d") %></p>
-            <%= link_to exercises_path(id: b.id, chapter: b.exercises.order(:chapter_id).pluck(:chapter_id).uniq[0]), class: "btn btn-default", title: "SOLUTION" do %>
+            <%= link_to chapters_path(id: b.id), class: "btn btn-default", title: "SOLUTION" do %>
               <i class="fa fa-book"></i>
             <% end %>
             <%= link_to book_path(b, page: b.posts.order(:page).pluck(:page).uniq[0]), class: "btn btn-default", title: "QnA" do %>
