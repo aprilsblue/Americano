@@ -7,14 +7,15 @@ class ChaptersController < ApplicationController
     else
       @book = Book.find(params[:book])
     end
-
     @chapters = @book.chapters
 
     if params[:chapter].nil?
-      @exercises = @chapters.first.exercise.all
+      @chapter = @chapters.first
     else
-      @exercises = Chapter.find(params[:chapter]).exercise.all
+      @chapter = Chapter.find(params[:chapter])
     end
+
+    @exercises = @chapter.exercise.all
 
     respond_to do |format|
       format.html # index.html.erb
