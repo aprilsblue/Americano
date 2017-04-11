@@ -19,14 +19,22 @@
           <div class="col-2 col-lg-1 offset-lg-1 text-center pages">
             <!-- Page Slide -->
             <% @chapters.each do |p| %>
-              <% if params[:chapter].to_i == p %>
+              <% if Chapter.find(params[:chapter]).unit.to_i == p.unit.to_i %>
                 <%= link_to chapters_path(book: @book, chapter: p), class: "lime-text" do %>
-                  <h4><b>Ch. <%= p.unit %></b></h4>
+                  <% if p.unit.to_i == 0 %>
+                    <h4><b>Notice</b></h4>
+                  <% else %>
+                    <h4><b>Ch. <%= p.unit %></b></h4>
+                  <% end %>
                 <% end %>
                 <br>
               <% else %>
                 <%= link_to chapters_path(book: @book, chapter: p), class: "grey-text" do %>
-                  <h4>Ch. <%= p.unit %></h4>
+                  <% if p.unit.to_i == 0 %>
+                    <h4><b>Notice</b></h4>
+                  <% else %>
+                    <h4><b>Ch. <%= p.unit %></b></h4>
+                  <% end %>
                 <% end %>
                 <br>
               <% end %>

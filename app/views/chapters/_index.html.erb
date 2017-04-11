@@ -1,6 +1,6 @@
 <% exercises.each do |p| %>
   <div class="card post-card">
-    <%= link_to post_path(p) do %>
+    <%= link_to exercise_path(p) do %>
       <div class="card-block">
         <span><%= p.number %>. <%= p.content %></span>
         <div class="etc-post">

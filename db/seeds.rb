@@ -35,6 +35,7 @@ Reply.create!([
 ])
 
 Chapter.create!([
+  {book_id: 1, unit: 0, title: "notice"},
   {book_id: 1, unit: 1, title: "맛보기"},
   {book_id: 1, unit: 2, title: "레이아웃의 기본기"},
   {book_id: 1, unit: 3, title: "이것이 코딩이다"},
