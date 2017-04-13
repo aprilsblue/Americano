@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410114732) do
+ActiveRecord::Schema.define(version: 20170329191526) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -85,15 +85,6 @@ ActiveRecord::Schema.define(version: 20170410114732) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_my_notes_on_book_id"
     t.index ["user_id"], name: "index_my_notes_on_user_id"
-  end
-
-  create_table "notices", force: :cascade do |t|
-    t.string   "content"
-    t.string   "url"
-    t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_notices_on_book_id"
   end
 
   create_table "post_posts", force: :cascade do |t|
