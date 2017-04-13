@@ -80,8 +80,13 @@ ActiveRecord::Schema.define(version: 20170329191526) do
   end
 
   create_table "my_notes", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_my_notes_on_book_id"
+    t.index ["user_id"], name: "index_my_notes_on_user_id"
   end
 
   create_table "post_posts", force: :cascade do |t|
