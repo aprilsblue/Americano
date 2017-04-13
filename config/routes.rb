@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  resources :solutions
-  resources :answers
-  resources :exercises
-  resources :chapters
-  resources :questions
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'books#landing'
 
@@ -23,5 +18,10 @@ Rails.application.routes.draw do
     end
   end
   resources :my_notes
+  resources :solutions
+  resources :answers
+  resources :exercises
+  resources :chapters
+  resources :questions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
