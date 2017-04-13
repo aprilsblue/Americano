@@ -33,7 +33,6 @@ Post.create([
 Reply.create([
   {content: "정말로 최신 버젼인가요?", post_id: 1, user_id: 2}
 ])
-<<<<<<< HEAD
 
 Chapter.create!([
   {book_id: 1, unit: 0, title: "notice"},
@@ -53,14 +52,10 @@ Exercise.create!([
 Notice.create!([
   {book_id: 1, content: "홀수문제 솔루션입니당", url: "http://naver.com"},
   {book_id: 1, content: "현재 책의 최신 에디션이 존재합니다.", url: ""}
-=======
-Tag.create([
-  {name: "ffffff"},
-  {name: "e74c3c"},
-  {name: "39"},
-  {name: "2ecc71"}
->>>>>>> dev/junggun
-])
+)]
 
+MyNote.create!([
+  {title: "첫번째 노트", book_id: "1", user_id: "1"}
+])
 
 puts("Seed Success!!")
