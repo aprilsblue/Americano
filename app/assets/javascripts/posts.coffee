@@ -5,9 +5,3 @@
 #
 
 
-document.addEventListener "turbolinks:load", ->
-
-  hljs.initHighlighting.called = false
-  hljs.initHighlighting()
-
-  return

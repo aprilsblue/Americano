@@ -29,7 +29,6 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        Chapter.create(unit: 0, book_id: @book.id)
         flash[:notice] = 'Book was successfully created.'
         format.html { redirect_to(@book) }
         format.xml  { render xml: @book, status: :created, location: @book }
@@ -42,9 +41,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    posts = @book.posts.all.order(:page)
+    @all_posts = @book.posts.all.order(:page)
     @reply = Reply.new # for reply new
-    @pages = posts.where("page IS NOT NULL").pluck(:page).uniq
+    @pages = @all_posts.where("page IS NOT NULL").pluck(:page).uniq
     if params[:page].nil?
       @posts = Post.is_parent.where(page: @pages[0]).all.reverse
     else

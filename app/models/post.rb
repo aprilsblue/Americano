@@ -48,6 +48,10 @@ class Post < ApplicationRecord
       title = content.scan(/<p>([^<>]*)<\/p>/imu).flatten.select{|x| !x.empty?}[0]
     end
 
+    if title.nil?
+      title = "There's no title"
+    end
+
     return title
   end
 end

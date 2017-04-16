@@ -5,8 +5,12 @@ class PostsController < ApplicationController
 
   def new
     @book = Book.find(params[:book_id])
-    @post = Post.new(page: params[:page])
-    @page = params[:page]
+    if params[:page].to_i == 0
+      @page = 1
+    else
+      @page = params[:page]
+    end
+    @post = Post.new(page: @page)
 
     respond_to do |format|
       format.html # new.html.erb
