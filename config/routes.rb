@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'books#landing'
+  root 'books#index'
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
 
   get 'books/landing'
   get 'hashtag/:name' => 'posts#hashtag'
   get 'replies/:id/back' => 'replies#back', as: :replies_back
   get 'posts/add' => 'posts#add', as: :add_post
+  get 'books/about' => 'books#about'
   post 'posts/append' => 'posts#append', as: :append_post
   post 'posts/like' => 'posts#like', as: :like_post
 
@@ -18,10 +19,5 @@ Rails.application.routes.draw do
     end
   end
   resources :my_notes
-  resources :solutions
-  resources :answers
-  resources :exercises
-  resources :chapters
-  resources :questions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [ :landing, :index ]
 
-  def landing
+  def about
     render layout: false
   end
 
@@ -29,6 +29,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
+        Chapter.create(unit: 0, book_id: @book.id)
         flash[:notice] = 'Book was successfully created.'
         format.html { redirect_to(@book) }
         format.xml  { render xml: @book, status: :created, location: @book }

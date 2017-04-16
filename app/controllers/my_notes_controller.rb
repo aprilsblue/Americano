@@ -1,5 +1,6 @@
 class MyNotesController < ApplicationController
   def index
+    @my_notes = current_user.my_notes
     @my_post = current_user.like_posts
     respond_to do |format|
       format.html # index.html.erb

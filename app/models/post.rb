@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   has_many :post_memos, class_name: :PostPost, foreign_key: :parent_id
 
   has_many :children, through: :post_memos, class_name: :Post
+
   #Post - PostsTags - Tags
   has_and_belongs_to_many :tags
 
