@@ -76,12 +76,10 @@
     <% end %>
   </div>
 
-  <div class="pagination">
-    <span class="previous_page disabled">Previous</span>
-    <em class="current">1</em>
-    <a href="#">2</a>
-    <a class="next_page" href="#">Next</a>
+  <div class="text-center">
+    <%= will_paginate @books %>
   </div>
+
 </div>
 
 <!--/.Content-->

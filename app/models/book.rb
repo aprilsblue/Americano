@@ -3,6 +3,6 @@ class Book < ApplicationRecord
   has_many :posts
   has_many :my_notes
 
-  #Reader(User) - Bookmark -Book relationship
+  self.per_page = 7
 end
 
