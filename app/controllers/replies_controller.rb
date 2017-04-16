@@ -12,9 +12,8 @@ class RepliesController < ApplicationController
   end
 
   def new
+    @post = Post.find(params[:post_id])
     @reply = Reply.new
-    @post_id = params[:post_id]
-    @post = Post.find(@post_id)
 
     respond_to do |format|
       format.js # new.js.erb

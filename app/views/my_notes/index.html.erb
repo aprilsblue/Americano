@@ -1,8 +1,61 @@
+<div id="banner" class="booklist_banner" >
+  <h1>Discover your new favorite book</h1>
+</div>
+
+<!--Content-->
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-md-6 book-margin">
-      <div class="car car-book">
+
+    <!-- columnns new book -->
+    <% if user_signed_in?  %>
+      <div class="col-lg-3 col-md-6 book-margin">
+        <!--Card-->
+        <%= link_to new_book_path, class: "new-btn" do %>
+          <div class="card-book-new book-size">
+            <h4><i class="fa fa-plus-square-o" aria-hidden="true"></i> NEW NOTE </h4>
+          </div>
+        <% end %>
+        <!--/.Card-->
       </div>
-    </div>
+      <!-- columnns new book-->
+    <% end %>
+
+    <% @my_notes.each do |n| %>
+      <div class="col-lg-3 col-md-6 book-margin">
+        <!--Card-->
+        <div class="card card-book">
+
+          <!--Card image-->
+          <%#= image_tag asset_path("book.png"), class: "book-size", alt: "" %>
+          <!--/.Card image-->
+
+          <!--Card content-->
+          <div class="book-info book-size">
+            <!--Title-->
+            <h5 class="card-title light-blue-text"><strong><%= n.title %></strong></h5>
+           <br>
+            <!--Text-->
+            <%#= link_to "SOLUTION", exercises_path(id: b.id, chapter: b.exercises.order(:chapter_id).pluck(:chapter_id).uniq[0]), class: "btn btn-default", title: "SOLUTION" %>
+            <%#= link_to book_path(b, page: b.posts.order(:page).pluck(:page).uniq[0]), class: "btn btn-default", title: "QnA" do %>
+              <%#<i class="fa fa-pencil"></i>%>
+            <%# end %>
+          </div>
+          <!--/.Card content-->
+
+        </div>
+        <!--/.Card-->
+
+      </div>
+      <!-- columnns -->
+    <% end %>
+  </div>
+
+  <div class="pagination">
+    <span class="previous_page disabled">Previous</span>
+    <em class="current">1</em>
+    <a href="#">2</a>
+    <a class="next_page" href="#">Next</a>
   </div>
 </div>
+
+<!--/.Content-->

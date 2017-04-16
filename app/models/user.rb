@@ -10,9 +10,5 @@ class User < ApplicationRecord
   has_many :replies
   has_many :likes
   has_many :like_posts, through: :likes, source: :post
-  has_many :exercises
-  has_many :solutions
-  has_many :questions
-  has_many :answers
-  has_many :my_books
+  has_many :my_notes
 end
