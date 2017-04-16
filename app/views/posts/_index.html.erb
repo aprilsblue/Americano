@@ -4,9 +4,9 @@
   <% else %>
     <div class="card post-card">
   <% end %>
-    <%= link_to post_path(p) do %>
-      <div class="card-block">
-        <span><%= p.title %></span>
+  <%= link_to post_path(p) do %>
+    <div class="card-block">
+      <span calss="post_title"><%= p.title.html_safe %></span>
         <div class="etc-post">
           <%= link_to post_replies_path(p.id), class: "index-reply", remote: true do %>
             <i class="fa fa-comments-o"></i> <%= p.replies.count %>
@@ -80,5 +80,6 @@
   $(document).ready(function(){
      hljs.initHighlighting.called = false;
      hljs.initHighlighting();
+    console.log("123213");
   });
 </script>
