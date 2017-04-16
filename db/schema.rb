@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329191526) do
-
-  create_table "answers", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 20170303080818) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -35,15 +25,6 @@ ActiveRecord::Schema.define(version: 20170329191526) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
-  create_table "chapters", force: :cascade do |t|
-    t.integer  "unit"
-    t.string   "title"
-    t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_chapters_on_book_id"
-  end
-
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -54,18 +35,6 @@ ActiveRecord::Schema.define(version: 20170329191526) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
-  end
-
-  create_table "exercises", force: :cascade do |t|
-    t.integer  "number"
-    t.string   "content",    default: "문제내용을 추가해주세요."
-    t.integer  "prize",      default: 0
-    t.integer  "chapter_id"
-    t.integer  "user_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.index ["chapter_id"], name: "index_exercises_on_chapter_id"
-    t.index ["user_id"], name: "index_exercises_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -98,8 +67,12 @@ ActiveRecord::Schema.define(version: 20170329191526) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "content"
-    t.boolean  "is_child",   default: false
+    t.string   "qna"
     t.integer  "page"
+    t.integer  "chapter"
+    t.integer  "caffeine"
+    t.boolean  "is_private", default: false
+    t.boolean  "is_child",   default: false
     t.integer  "user_id"
     t.integer  "book_id"
     t.datetime "created_at",                 null: false
@@ -116,21 +89,6 @@ ActiveRecord::Schema.define(version: 20170329191526) do
     t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "prize"
-    t.integer  "page"
-    t.integer  "chapter_id"
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_questions_on_book_id"
-    t.index ["chapter_id"], name: "index_questions_on_chapter_id"
-    t.index ["user_id"], name: "index_questions_on_user_id"
-  end
-
   create_table "replies", force: :cascade do |t|
     t.string   "content"
     t.integer  "post_id"
@@ -139,16 +97,6 @@ ActiveRecord::Schema.define(version: 20170329191526) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_replies_on_post_id"
     t.index ["user_id"], name: "index_replies_on_user_id"
-  end
-
-  create_table "solutions", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "exercise_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["exercise_id"], name: "index_solutions_on_exercise_id"
-    t.index ["user_id"], name: "index_solutions_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -160,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170329191526) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.integer  "caffeine"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

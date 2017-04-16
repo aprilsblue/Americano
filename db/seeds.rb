@@ -18,7 +18,7 @@ Book.create!([
   {title: "Discrete mathematics and its application", writer: "Kenneth H Rosen", publisher: "McGraw-Hill Higher Education", published_at: "2012-09-01 00:00:00", picture: "https://images-na.ssl-images-amazon.com/images/I/51faFhHDjPL._SX399_BO1,204,203,200_.jpg", edition: nil, user_id: 5}
 ])
 Post.create([
-  {content: "인텐트는 무엇인가", page: 1, user_id: 2, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
   {content: "<p><strong>디자인 탭에서 한글이 표시되지 않을때 for mac&nbsp;</strong></p>\r\n\r\n<p>mac os Elcapitan, Android 2.2.3</p>\r\n\r\n<p>최상위 경로에서, (~가 보일때) 터미널에 다음과 같이 작성한다. <span style=\"color:#ffffff\"><span style=\"background-color:#e74c3c\">(이때 Users/Applications가 아님을 주의한다.)</span></span></p>\r\n\r\n<pre>\r\n<code class=\"language-bash\">cd /Applications/Android Studio.app/Contents/plugins/android/lib/layoutlib/data/fonts\r\n</code></pre>\r\n\r\n<p>&nbsp;이 경로에서 fonts.xml을 열어서 lang=&quot;ko&quot;부분의 폰트를 NanumGothic.ttf로 바꿔준다.</p>\r\n\r\n<p>(위 경로에서 ls를 누르면 나눔고딕이 기본적으로 설치되어있는것을 확인 할 수 있다.)</p>\r\n\r\n<p>&nbsp;</p>\r\n", page: 55, user_id: 5, book_id: 1},
   {content: "<p><strong>Intent? 인텐트?</strong></p>\r\n\r\n<p>버튼 함수를&nbsp;만들 때 Intent를 정의하게 된다. 여기서 Intent는 저자에 의하면 안드로이드 플랫폼에게 전달할 무엇이다. 플랫폼상 다른 애플리케이션이나 다른 액티비티를&nbsp;이용할고자 할 때(전화걸기, 웹브라우져 등등)사용한다. Intent에 실어서 보내면 알아서 플랫폼이 애플리케이션 구성 요소간에 데이터를 전달, 실행해준다.</p>\r\n\r\n<p>Intent myIntent = new Intent(사용할 함수 또는 기능, 실어줄 것)</p>\r\n\r\n<p>Example</p>\r\n\r\n<pre>\r\n<code class=\"language-java\">// 전화걸기\r\nIntent myIntent = new Intent(Intent.ACTION_VIEW, Uri_parse(\"tel:010-0000-0000\"));\r\n\r\n// 다른 액티비티 켜기\r\nIntent intent = new Intent(getApplicationContext(), NewActivity.class);</code></pre>\r\n\r\n<p>&nbsp;</p>\r\n", page: 66, user_id: 5, book_id: 1},
   {content: "<p>Put your title here</p>\r\n\r\n<p>Content</p>\r\n", page: 55, user_id: 1, book_id: 1},
@@ -34,20 +34,6 @@ Reply.create([
   {content: "정말로 최신 버젼인가요?", post_id: 1, user_id: 2}
 ])
 
-Chapter.create!([
-  {book_id: 1, unit: 0, title: "notice"},
-  {book_id: 1, unit: 1, title: "맛보기"},
-  {book_id: 1, unit: 2, title: "레이아웃의 기본기"},
-  {book_id: 1, unit: 3, title: "이것이 코딩이다"},
-  {book_id: 1, unit: 4, title: "코딩코딩코코"}
-])
-
-Exercise.create!([
-  {chapter_id: 1, number: 1, prize: 50, user_id: 1},
-  {chapter_id: 1, number: 2, prize: 100, user_id: 1},
-  {chapter_id: 1, number: 3, prize: 10050, user_id: 1},
-  {chapter_id: 1, number: 4, prize: 0, user_id: 1}
-])
 
 MyNote.create!([
   {title: "첫번째 노트", book_id: "1", user_id: "1"}
