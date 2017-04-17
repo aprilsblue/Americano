@@ -81,7 +81,11 @@ div.post-card {
 }
 
 .etc-right {
-float: right;
+  float: right;
+}
+
+.etc-left {
+  float: left;
 }
 
 div.etc-post {
@@ -90,7 +94,7 @@ div.etc-post {
     color: $light_dark;
   }
   span.like-sum {
-    font-size: 20px;
+    font-size: 15px;
     margin-left: 3px;
     margin-right: 3px;
   }
@@ -159,7 +163,13 @@ div.tooltip {
   color: $light_dark;
 }
 
-pre {
+.pre {
   overflow: auto;
   background: #23241f;
+}
+
+.scrap-modal{
+  top: 35vh;
+  margin: auto;
+  width: 50vh;
 }

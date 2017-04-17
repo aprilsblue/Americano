@@ -69,6 +69,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user_note = MyNote.where(user_id: current_user).map { |m| [m.title, m.id] }
 
     respond_to do |format|
       format.html # show.html.erb
@@ -136,6 +137,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def scarp_new
+
+  end
+
+  def scrap
+
+
+  end
   private
   def post_params
     params.require(:post).permit(:content, :page, :user_id, :book_id)
