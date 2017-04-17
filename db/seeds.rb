@@ -39,4 +39,17 @@ MyNote.create!([
   {title: "첫번째 노트", book_id: "1", user_id: "1"}
 ])
 
+
+Post.create([
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 3, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 1, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 3, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
+  {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1}
+])
+
 puts("Seed Success!!")
+
