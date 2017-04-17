@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'replies/:id/back' => 'replies#back', as: :replies_back
   get 'posts/add' => 'posts#add', as: :add_post
   get 'books/about' => 'books#about'
+  post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'posts/append' => 'posts#append', as: :append_post
   post 'posts/like' => 'posts#like', as: :like_post
 

@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = Book.all.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
