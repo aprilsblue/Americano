@@ -1,6 +1,6 @@
 <main>
   <div class="container main mynote">
-    <% @my_post.each do |post|%>
+    <% @my_posts.each do |post| %>
       <div class="row">
         <div class="col-lg-10 offset-lg-1 mynote-content" id="mynote-content-<%= post.id %>">
           <div class="mynote-tools" id="delete_<%= post.id %>" >
@@ -16,7 +16,7 @@
                   <i class="fa fa-edit" aria-hidden="true"></i>
                 <% end %>
               <% end %>
-              <%= link_to my_note_path(id: post.id), method: "delete", remote: true do %>
+              <%= link_to delete_post_path(my_note_id: @my_note, id: post), method: "delete", remote: true do %>
                 <i class="fa fa-remove tools-color" aria-hidden="true"></i>
               <% end %>
             </span>
