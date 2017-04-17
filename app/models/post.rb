@@ -12,6 +12,10 @@ class Post < ApplicationRecord
 
   has_many :children, through: :post_memos, class_name: :Post
 
+  # Post - PostNote - MyNote
+  has_many :post_notes
+  has_many :my_notes, through: :post_notes
+
   #Post - PostsTags - Tags
   has_and_belongs_to_many :tags
 
