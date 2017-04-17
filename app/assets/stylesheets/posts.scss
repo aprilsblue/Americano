@@ -80,12 +80,22 @@ div.post-card {
   color: $light_dark;
 }
 
+.etc-right {
+float: right;
+}
+
 div.etc-post {
   display: inline;
-  i, a {
+  i, a, span {
     color: $light_dark;
   }
+  span.like-sum {
+    font-size: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
 }
+
 
 .reply-new {
   padding: {

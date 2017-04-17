@@ -54,4 +54,12 @@ class Post < ApplicationRecord
 
     return title
   end
+
+  def like_sum
+    result = 0
+    self.likes.each do |x|
+      result += x.evaluate
+    end
+    return result
+  end
 end

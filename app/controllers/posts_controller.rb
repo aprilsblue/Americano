@@ -119,15 +119,19 @@ class PostsController < ApplicationController
   def like
     @user_id = current_user.id
     @post_id = params[:id].to_i
+
     isnil = Like.where(post_id: @post_id, user_id: @user_id)
     if isnil.empty?
       likeit = Like.new(post_id: @post_id, user_id: @user_id)
+      if params[:val] == "dislike"
+        likeit.evaluate = -1
+      end
       likeit.save
     else
       isnil.take.destroy
     end
     respond_to do |format|
-      format.html
+      format.html { redirect_to post_path(@post_id) }
       format.js
     end
   end
