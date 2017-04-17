@@ -2,9 +2,12 @@
   <div class="container main">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <%= @post.content.html_safe  %>
+        <%= @post.content.html_safe %>
         <br><hr>
         <div class="etc-post">
+          <%= render partial: 'posts/like_sum', locals: { post: @post }, remote: true%>
+        </div>
+        <div class="etc-post etc-right">
           <% if @post.user_id == current_user.id %>
             <%= link_to post_path(@post, page: params[:page]), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
               <i class="fa fa-trash" aria-hidden="true"></i>

@@ -5,8 +5,12 @@ class PostsController < ApplicationController
 
   def new
     @book = Book.find(params[:book_id])
-    @post = Post.new(page: params[:page])
-    @page = params[:page]
+    if params[:page].to_i == 0
+      @page = 1
+    else
+      @page = params[:page]
+    end
+    @post = Post.new(page: @page)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -115,15 +119,19 @@ class PostsController < ApplicationController
   def like
     @user_id = current_user.id
     @post_id = params[:id].to_i
+
     isnil = Like.where(post_id: @post_id, user_id: @user_id)
     if isnil.empty?
       likeit = Like.new(post_id: @post_id, user_id: @user_id)
+      if params[:val] == "dislike"
+        likeit.evaluate = -1
+      end
       likeit.save
     else
       isnil.take.destroy
     end
     respond_to do |format|
-      format.html
+      format.html { redirect_to post_path(@post_id) }
       format.js
     end
   end

@@ -52,6 +52,18 @@ class Post < ApplicationRecord
       title = content.scan(/<p>([^<>]*)<\/p>/imu).flatten.select{|x| !x.empty?}[0]
     end
 
+    if title.nil?
+      title = "There's no title"
+    end
+
     return title
+  end
+
+  def like_sum
+    result = 0
+    self.likes.each do |x|
+      result += x.evaluate
+    end
+    return result
   end
 end
