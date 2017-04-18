@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'posts/append' => 'posts#append', as: :append_post
   post 'posts/like' => 'posts#like', as: :like_post
+  get 'posts/scrap/:id' => 'posts#scrap_new', as: :scrap_new
+  post 'posts/scrap' => 'posts#scrap', as: :scrap
 
   devise_for :users
   resources :books do

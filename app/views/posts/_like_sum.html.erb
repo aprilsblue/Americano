@@ -1,23 +1,23 @@
 <% if !Like.where(post_id: post, user_id: current_user).take.nil? %>
   <% if Like.where(post_id: post, user_id: current_user).take.evaluate.to_i == 1 %>
     <%= link_to like_post_path(id: post, val: "like"), method: "post" do %>
-      <i class="fa fa-caret-up fa-2x lime-text" aria-hidden="true"></i>
+      <i class="fa fa-coffee lime-text" aria-hidden="true"></i>
     <% end %>
     <span class="like-sum"> <%= post.like_sum %> </span>
-    <i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
   <% else %>
-    <i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>
+    <i class="fa fa-coffee" aria-hidden="true"></i>
     <span class="like-sum"> <%= post.like_sum %> </span>
     <%= link_to like_post_path(id: post, val: "dislike"), method: "post" do %>
-      <i class="fa fa-caret-down fa-2x lime-text" aria-hidden="true"></i>
+      <i class="fa fa-caret-down lime-text" aria-hidden="true"></i>
     <% end %>
   <% end %>
 <% else %>
   <%= link_to like_post_path(id: post, val: "like"), method: "post" do %>
-    <i class="fa fa-caret-up fa-2x" aria-hidden="true"></i>
+    <i class="fa fa-coffee" aria-hidden="true"></i>
   <% end %>
   <span class="like-sum"> <%= post.like_sum %> </span>
   <%= link_to like_post_path(id: post, val: "dislike"), method: "post" do %>
-    <i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
   <% end %>
 <% end %>
