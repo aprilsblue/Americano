@@ -2,13 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $(".mynote-content").on "mouseover", ->
+document.addEventListener "turbolinks:load", ->
+  $("body").on "mouseover", ".mynote-content", ->
     id = $(@).attr("id").split("-")[2]
     $("#delete_"+id).css('display', 'block')
     return
 
-  $(".mynote-content").on "mouseleave", ->
+  $("body").on "mouseleave", ".mynote-content", ->
     id = $(@).attr("id").split("-")[2]
     $("#delete_"+id).css('display', 'none')
     return

@@ -34,7 +34,7 @@ class MyNotesController < ApplicationController
 
   def show
     @my_note = MyNote.find(params[:id])
-    @my_posts = @my_note.posts.all
+    @my_posts = @my_note.posts.includes(:post_notes).order('post_notes.number')
 
     respond_to do |format|
       format.html # show.html.erb
@@ -72,10 +72,16 @@ class MyNotesController < ApplicationController
   end
 
   def delete_post
-    post_id = params[:id].to_i
-    @like = Like.where(post_id: post_id, user_id: current_user.id)
-    @like.take.destroy
-    @my_post = current_user.like_posts
+    @post_note = PostNote.where(post_id: params[:id], my_note_id: params[:my_note_id]).take
+    @post_note.destroy
+
+    @my_note = MyNote.find(params[:my_note_id])
+    @my_posts = @my_note.posts.includes(:post_notes).order('post_notes.number')
+
+    respond_to do |format|
+      format.js
+      format.xml  { head :ok }
+    end
   end
 
   private

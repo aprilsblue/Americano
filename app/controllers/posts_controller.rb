@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user_note = MyNote.where(user_id: current_user).map { |m| [m.title, m.id] }
+    @my_notes = current_user.my_notes.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -137,14 +137,29 @@ class PostsController < ApplicationController
     end
   end
 
-  def scarp_new
-
-  end
-
   def scrap
+    post = Post.find(params[:post])
+    my_note = current_user.my_notes.find(params[:note].to_i)
+    my_note.posts.present? ? last_number = PostNote.where(my_note_id: params[:note]).order(:number).last.number : last_number = 0
 
+    scrap = PostNote.new
+    scrap.post_id = params[:post].to_i
+    scrap.my_note_id = params[:note].to_i
+    scrap.number = last_number + 1
 
+    respond_to do |format|
+      if scrap.save
+        flash[:notice] = 'Post was successfully created.'
+        format.html { redirect_to(post_path(post)) }
+        format.xml  { render xml: scrap, status: :created, location: scrap }
+      else
+        format.html { redirect_to(post_path(post)) }
+        format.xml  { render xml: scrap.errors, status: :unprocessable_entity }
+        puts scrap.errors.full_messages
+      end
+    end
   end
+
   private
   def post_params
     params.require(:post).permit(:content, :page, :user_id, :book_id)

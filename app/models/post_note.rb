@@ -1,4 +1,4 @@
 class PostNote < ApplicationRecord
   belongs_to :post
-  belongs_to :note
+  belongs_to :my_note
 end
