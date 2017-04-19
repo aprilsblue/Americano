@@ -7,14 +7,11 @@
   margin: 0 5px;
   color: $light-dark;
 }
-.mynote-content::over {
-  background: #eceeef;
-}
 div.row > div.mynote-content > div.mynote-tools {
   display: none;
   position: absolute;
-  right: 0.4rem;
-  top: 0;
+  right: 0.2rem;
+  top: 0.4rem;
   span > a {
     color: $dark;
   }
@@ -23,6 +20,9 @@ div.row > div.mynote-content > div.mynote-tools {
   width: 100%;
   height: 359px;
   margin: 0;
+}
+.mynote-content:hover {
+  background-color: #eee;
 }
 .note-size {
   width: 100%;

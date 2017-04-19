@@ -14,7 +14,12 @@
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
             <%= link_to edit_post_path(@post, page: params[:page]), class: "edit-post" do %>
-               <i class="fa fa-edit" aria-hidden="true"></i> <% end %> <% end %> <%= link_to post_replies_path(@post.id), class: "index-reply", remote: true do %> <i class="fa fa-comments-o"></i> <%= @post.replies.count %> <% end %>
+              <i class="fa fa-edit" aria-hidden="true"></i> 
+            <% end %>
+          <% end %>
+          <%= link_to post_replies_path(@post.id), class: "index-reply", remote: true do %>
+            <i class="fa fa-comments-o"></i> <%= @post.replies.count %>
+          <% end %>
           &nbsp;
           <%= link_to new_post_reply_path(@post.id), class: "new-reply", remote: true do %>
             <i class="fa fa-plus-square" aria-hidden="true"></i>
@@ -42,25 +47,22 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Choose your note</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <center>
-            <select>
-              <%= options_for_select(@user_note, :title) %>
-            </select>
-            <%= link_to scrap_path do%>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= form_tag scrap_path(post: @post), method: 'POST', class: 'form-group' do %>
+              <%= select_tag :note, options_from_collection_for_select(@my_notes, :id, :title), class: 'form-control' %>
+              <%= button_tag "scrap", class: 'btn-americano' %>
             <% end %>
           </center>
         </div>
       </div>
     </div>
   </div>
-
-
 </main>
+
 <script>
   $(document).ready(function(){
     hljs.initHighlighting.called = false;

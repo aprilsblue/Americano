@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   get 'replies/:id/back' => 'replies#back', as: :replies_back
   get 'posts/add' => 'posts#add', as: :add_post
   get 'books/about' => 'books#about'
+  get 'posts/scrap/:id' => 'posts#scrap_new', as: :scrap_new
+
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'posts/append' => 'posts#append', as: :append_post
   post 'posts/like' => 'posts#like', as: :like_post
-  get 'posts/scrap/:id' => 'posts#scrap_new', as: :scrap_new
   post 'posts/scrap' => 'posts#scrap', as: :scrap
 
   devise_for :users

@@ -1,1 +1,7 @@
-$("div.mynote").html("<%= escape_javascript (render partial: 'my_notes/index', locals: { my_post: @my_post }) %>");
+$("div.mynote").html(
+  "<%= escape_javascript (render partial: 'my_notes/index', locals: { my_posts: @my_posts, my_note: @my_note.id }) %>"
+);
+$(document).ready(function(){
+  hljs.initHighlighting.called = false;
+  hljs.initHighlighting();
+});
