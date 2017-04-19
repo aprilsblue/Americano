@@ -44,10 +44,10 @@
 
         <!-- child post -->
         <% p.children.each do |c| %>
-          <div class="card add-card" style="background-color:#eeeeee; margin-bottom:0rem">
+          <div class="card add-card" style="margin-bottom:0rem">
             <%= link_to post_path(c) do %>
               <div class="card-block">
-                <span><b>[추가]</b></span><span> &nbsp; <%= c.title %></span>
+                <span><b>↳</b></span><span> &nbsp; <%= c.title %></span>
                 <div class="etc-post">
                   <%= link_to post_replies_path(c.id), class: "index-reply", remote: true do %>
                     <i class="fa fa-comments-o"></i> <%= c.replies.count %>

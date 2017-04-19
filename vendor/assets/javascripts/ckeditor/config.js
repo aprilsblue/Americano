@@ -11,7 +11,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.extraPlugins = 'codesnippet', 'codesnippetgeshi';
   config.codeSnippet_theme = 'monokai_sublime';
   config.toolbarGroups = [
-    { name: 'document', groups: [ 'mode', 'document', 'doctools', 'codesnippet'  ] },
+    { name: 'document', groups: [ 'mode', 'document', 'doctools', 'codesnippet' ] },
     { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
     { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
     { name: 'forms', groups: [ 'forms' ] },
@@ -26,5 +26,5 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'about', groups: [ 'about' ] }
   ];
 
-  config.removeButtons = 'Source,Save,NewPage,Preview,Print,Templates,Cut,Undo,Redo,Copy,Paste,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,NumberedList,Outdent,Indent,BulletedList,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,BidiLtr,BidiRtl,JustifyRight,Language,JustifyBlock,Unlink,Anchor,Flash,HorizontalRule,Smiley,PageBreak,Iframe,Styles,Maximize,About,ShowBlocks,Font,FontSize';
+  config.removeButtons = 'Source,Save,Templates,NewPage,Preview,Print,Cut,Undo,Find,Replace,Redo,Copy,Paste,PasteText,PasteFromWord,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Underline,Strike,CopyFormatting,RemoveFormat,NumberedList,BulletedList,Outdent,Indent,Blockquote,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Unlink,Link,Anchor,Flash,HorizontalRule,Smiley,PageBreak,Iframe,Styles,Maximize,About,ShowBlocks,Font,FontSize';
 };
