@@ -1,7 +1,8 @@
 class MyNotesController < ApplicationController
   def index
     @my_notes = current_user.my_notes.all.reverse
-    @my_friends = current_user.followers.all + current_user.followees.all
+    @my_friends = current_user.followers.where(user_friends: {status: "friend"}).all + current_user.followees.where(user_friends: {status: "friend"}).all
+
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -37,6 +38,7 @@ class MyNotesController < ApplicationController
   def show
     @my_note = MyNote.find(params[:id])
     @my_posts = @my_note.post_notes.order('number') # number is position
+    @authority = params[:authority]
 
     respond_to do |format|
       format.html # show.html.erb
