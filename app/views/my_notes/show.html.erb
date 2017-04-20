@@ -1,11 +1,17 @@
 <main>
-  <div class="container main mynote">
-    <%= render partial: 'index', locals: { my_posts: @my_posts, my_note: @my_note.id } %>
-  </div>
+
+<div class="container main mynote">
+  <%= render partial: 'index', locals: { my_posts: @my_posts, my_note: @my_note.id } %>
+</div>
+
+</head>
+
 </main>
+
 <script>
-  $(document).ready(function(){
-    hljs.initHighlighting.called = false;
-    hljs.initHighlighting();
-  });
+$(document).ready(function(){
+  hljs.initHighlighting.called = false;
+  hljs.initHighlighting();
+});
 </script>
+
