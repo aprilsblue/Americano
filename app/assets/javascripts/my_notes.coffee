@@ -18,5 +18,11 @@ document.addEventListener "turbolinks:load", ->
     $("input.share-note").val(id)
     return
 
-  return
+  jQuery ->
+    $('#my-note-posts').sortable
+      axis: 'y'
+      update: ->
+         $.post($(this).data('update-url'), $(this).sortable('serialize'))
+    return
 
+  return

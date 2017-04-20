@@ -25,7 +25,9 @@ Rails.application.routes.draw do
       resources :replies, shallow: true
     end
   end
-  resources :my_notes
   resources :my_pages
+  resources :my_notes do
+    collection { post :sort }
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

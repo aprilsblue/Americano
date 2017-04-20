@@ -36,7 +36,7 @@ class MyNotesController < ApplicationController
 
   def show
     @my_note = MyNote.find(params[:id])
-    @my_posts = @my_note.posts.includes(:post_notes).order('post_notes.number')
+    @my_posts = @my_note.post_notes.order('number') # number is position
 
     respond_to do |format|
       format.html # show.html.erb
@@ -100,6 +100,14 @@ class MyNotesController < ApplicationController
         puts(@my_note.errors.full_messages)
       end
     end
+  end
+
+  def sort
+    params[:post_note].each_with_index do |id, index|
+      PostNote.find(id).update( {number: index + 1} )
+    end
+
+    render nothing: true
   end
 
   private
