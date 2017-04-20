@@ -1,16 +1,20 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [ :landing, :index ]
+  before_action :authenticate_user!, except: [:about, :index ]
 
   def about
     render layout: false
   end
 
   def index
-    @books = Book.all.paginate(page: params[:page])
+    if user_signed_in?
+      @books = Book.all.paginate(page: params[:page])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @bookss }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render xml: @bookss }
+      end
+    else
+      redirect_to  books_about_path
     end
   end
 
