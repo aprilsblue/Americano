@@ -36,9 +36,12 @@ Reply.create([
 
 
 MyNote.create!([
-  {title: "첫번째 노트", book_id: "1", user_id: "1"}
+  {title: "첫번째 노트", user_id: "1"}
 ])
 
+UserNote.create([
+  {user_id: "1", my_note_id: "1", authority: "all"}
+])
 
 Post.create([
   {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
@@ -49,6 +52,16 @@ Post.create([
   {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 3, book_id: 1},
   {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1},
   {content: "<p>인텐트는 무엇인가</p>", page: 1, user_id: 2, book_id: 1}
+])
+
+UserFriend.create([
+  {follower_id: 1, followee_id: 3, status: "friend"},
+  {follower_id: 1, followee_id: 4, status: "request"},
+  {follower_id: 2, followee_id: 1, status: "request"},
+  {follower_id: 4, followee_id: 3, status: "friend"},
+  {follower_id: 7, followee_id: 5, status: "friend"},
+  {follower_id: 6, followee_id: 2, status: "request"},
+  {follower_id: 5, followee_id: 1, status: "request"}
 ])
 
 puts("Seed Success!!")

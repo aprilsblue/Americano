@@ -1,0 +1,2 @@
+class MyPage < ApplicationRecord
+end

@@ -4,7 +4,6 @@ class CreateMyNotes < ActiveRecord::Migration[5.0]
 
       t.string :title
       t.references :user
-      t.references :book
 
       t.timestamps
     end

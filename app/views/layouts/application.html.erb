@@ -21,9 +21,13 @@
           <ul>
             <% if user_signed_in? %>
               <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
               <li>
-                  <%= link_to "My Note", my_notes_path %>
+                <%= link_to my_pages_path do %>
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "My Note", my_notes_path %>
               </li>
               <li>
                 <%= link_to "Sign out", destroy_user_session_path, method: "delete"  %>

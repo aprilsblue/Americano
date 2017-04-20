@@ -1,0 +1,31 @@
+// Place all the styles related to the my_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// margin Setting
+.marginTop30 {
+  margin-top: 30px;
+}
+.marginRight20 {
+  margin-right: 20px;
+}
+.profile-img {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.friend-profile-img {
+  margin-right: 10px;
+}
+h3.title {
+  margin-bottom: 20px;
+}
+input.user-search {
+  display: inline-block;
+  width: 200px;
+}
+li.friend {
+  margin-bottom: 10px;
+}
