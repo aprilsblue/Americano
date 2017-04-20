@@ -8,7 +8,7 @@
           <%= render partial: 'posts/like_sum', locals: { post: @post }, remote: true%>
         </div>
         <div class="etc-post etc-right">
-          <span style="cursor:pointer" data-toggle="modal" data-target="#scrapModal">Scrap</span>
+            <span style="cursor:pointer" data-toggle="modal" data-target="#scrapModal">Scrap</span>
           <% if @post.user_id == current_user.id %>
             <%= link_to post_path(@post, page: params[:page]), method: "DELETE", class: "delete-post", data: { confirm: "정말 삭제하겠습니까?" } do %>
               <i class="fa fa-trash" aria-hidden="true"></i>
