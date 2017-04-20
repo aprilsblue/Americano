@@ -25,9 +25,11 @@
             <div class="card card-book card-note">
           <% end %>
             <div class="card-top-menu">
-              <span class="share-modal" style="cursor:pointer" data-toggle="modal" id="<%= n.id %>" data-target="#shareNote">
-                <i class="fa fa-users icons"></i>
-              </span>
+              <% if UserNote.where(user_id: current_user, my_note_id: n.id).take.authority == "all" %>
+                <span class="share-modal" style="cursor:pointer" data-toggle="modal" id="<%= n.id %>" data-target="#shareNote">
+                  <i class="fa fa-users icons"></i>
+                </span>
+              <% end %>
               <%= link_to edit_my_note_path(n) do %>
                 <i class="fa fa-pencil icons"></i>
               <% end %>
@@ -38,7 +40,7 @@
             <!--Card content-->
 
             <% if UserNote.where(user_id: current_user, my_note_id: n.id).take.authority == "read" %>
-              <%= link_to my_note_path(n) do %>
+              <%= link_to my_note_path(n, authority: "read") do %>
                 <div class="note-info note-size">
                   <!--Title-->
                   <div class="table-cell">
@@ -48,7 +50,7 @@
                 </div>
               <% end %>
             <% else %>
-              <%= link_to my_note_path(n) do %>
+              <%= link_to my_note_path(n, authority: "all") do %>
                 <div class="note-info note-size">
                   <!--Title-->
                   <div class="table-cell">
