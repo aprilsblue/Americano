@@ -12,5 +12,11 @@ document.addEventListener "turbolinks:load", ->
     id = $(@).attr("id").split("-")[2]
     $("#delete_"+id).css('display', 'none')
     return
+
+  $(".share-modal").click ->
+    id = $(this).attr("id")
+    $("input.share-note").val(id)
+    return
+
   return
 

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   post 'posts/append' => 'posts#append', as: :append_post
   post 'posts/like' => 'posts#like', as: :like_post
   post 'posts/scrap' => 'posts#scrap', as: :scrap
+  post 'my_pages/friend' => 'my_pages#friend', as: :friend
+  post 'my_pages/accept' => 'my_pages#accept', as: :accept
+  post 'my_notes/share' => 'my_notes#share', as: :share
 
   devise_for :users
   resources :books do
@@ -23,5 +26,6 @@ Rails.application.routes.draw do
     end
   end
   resources :my_notes
+  resources :my_pages
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,7 @@
 class MyNote < ApplicationRecord
-  belongs_to :user
+  # MyNote - UserNote - User
+  has_many :user_notes
+  has_many :users, through: :user_notes
 
   # MyNote - PostNote - Post
   has_many :post_notes
