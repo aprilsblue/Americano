@@ -12,5 +12,13 @@ document.addEventListener "turbolinks:load", ->
     id = $(@).attr("id").split("-")[2]
     $("#delete_"+id).css('display', 'none')
     return
+  jQuery ->
+    $('#my-note-posts').sortable
+      axis: 'y'
+      update: ->
+         $.post($(this).data('update-url'), $(this).sortable('serialize'))
+    return
+
   return
+
 
