@@ -14,7 +14,7 @@
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
             <%= link_to edit_post_path(@post, page: params[:page]), class: "edit-post" do %>
-              <i class="fa fa-edit" aria-hidden="true"></i> 
+              <i class="fa fa-edit" aria-hidden="true"></i>
             <% end %>
           <% end %>
           <%= link_to post_replies_path(@post.id), class: "index-reply", remote: true do %>
@@ -54,7 +54,7 @@
           <center>
             <%= form_tag scrap_path(post: @post), method: 'POST', class: 'form-group' do %>
               <%= select_tag :note, options_from_collection_for_select(@my_notes, :id, :title), class: 'form-control' %>
-              <%= button_tag "scrap", class: 'btn-americano' %>
+              <%= button_tag "Scrap", class: 'btn-americano' %>
             <% end %>
           </center>
         </div>

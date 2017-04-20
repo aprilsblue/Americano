@@ -13,6 +13,11 @@ document.addEventListener "turbolinks:load", ->
     $("#delete_"+id).css('display', 'none')
     return
 
+  $(".share-modal").click ->
+    id = $(this).attr("id")
+    $("input.share-note").val(id)
+    return
+
   jQuery ->
     $('#my-note-posts').sortable
       axis: 'y'
@@ -21,5 +26,3 @@ document.addEventListener "turbolinks:load", ->
     return
 
   return
-
-

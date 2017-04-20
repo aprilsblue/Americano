@@ -19,36 +19,73 @@
     <% @my_notes.each do |n| %>
       <div class="col-lg-3 col-md-6 book-margin">
         <!--Card-->
-        <%= link_to my_note_path(n) do %>
-          <div class="card card-book card-note">
-
-            <!--Card image-->
-            <%#= image_tag asset_path("book.png"), class: "book-size", alt: "" %>
-            <!--/.Card image-->
-
-            <!--Card content-->
-            <div class="note-info note-size">
-              <!--Title-->
-              <div class="table-cell">
-                <h5 class="card-title gray-text"><strong><%= n.title %></strong></h5>
-              <!--Text-->
-                <%= link_to edit_my_note_path(n) do %>
-                  <i class="fa fa-pencil icons"></i>
-                <% end %>
-                <%= link_to my_note_path(n), method: 'DELETE', data: {confirm: "Are You Sure?"} do %>
-                  <i class="fa fa-trash icons"></i>
-                <% end %>
-              </div>
+          <% if UserNote.where(user_id: current_user, my_note_id: n.id).take.authority == "read" %>
+            <div class="card card-book card-note read">
+          <% else %>
+            <div class="card card-book card-note">
+          <% end %>
+            <div class="card-top-menu">
+              <span class="share-modal" style="cursor:pointer" data-toggle="modal" id="<%= n.id %>" data-target="#shareNote">
+                <i class="fa fa-users icons"></i>
+              </span>
+              <%= link_to edit_my_note_path(n) do %>
+                <i class="fa fa-pencil icons"></i>
+              <% end %>
+              <%= link_to my_note_path(n), method: 'DELETE', data: {confirm: "Are You Sure?"} do %>
+                <i class="fa fa-trash icons"></i>
+              <% end %>
             </div>
+            <!--Card content-->
+
+            <% if UserNote.where(user_id: current_user, my_note_id: n.id).take.authority == "read" %>
+              <%= link_to my_note_path(n) do %>
+                <div class="note-info note-size">
+                  <!--Title-->
+                  <div class="table-cell">
+                    <h5 class="card-title gray-text"><strong><%= n.title %></strong></h5>
+                  <!--Text-->
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to my_note_path(n) do %>
+                <div class="note-info note-size">
+                  <!--Title-->
+                  <div class="table-cell">
+                    <h5 class="card-title gray-text"><strong><%= n.title %></strong></h5>
+                  <!--Text-->
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
           <!--/.Card content-->
-        <% end %>
-
         <!--/.Card-->
 
       </div>
       <!-- columnns -->
     <% end %>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade scrap-modal" id="shareNote" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Choose your Friend </h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <center>
+            <%= form_tag share_path, method: 'POST', class: 'form-group' do %>
+              <%= select_tag :friend, options_from_collection_for_select(@my_friends, :id, :email), class: 'form-control' %>
+              <%= hidden_field_tag :note, "", class: 'share-note' %>
+              <%= button_tag "Share", class: 'btn-americano' %>
+            <% end %>
+          </center>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

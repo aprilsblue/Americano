@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416102053) do
+ActiveRecord::Schema.define(version: 20170420163406) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -50,11 +50,14 @@ ActiveRecord::Schema.define(version: 20170416102053) do
   create_table "my_notes", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_my_notes_on_book_id"
     t.index ["user_id"], name: "index_my_notes_on_user_id"
+  end
+
+  create_table "my_pages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "post_notes", force: :cascade do |t|
@@ -112,6 +115,24 @@ ActiveRecord::Schema.define(version: 20170416102053) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_friends", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followee_id"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["followee_id", "follower_id"], name: "index_user_friends_on_followee_id_and_follower_id", unique: true
+    t.index ["follower_id", "followee_id"], name: "index_user_friends_on_follower_id_and_followee_id", unique: true
+  end
+
+  create_table "user_notes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "my_note_id"
+    t.string   "authority"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
