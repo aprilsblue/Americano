@@ -69,7 +69,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @my_notes = current_user.my_notes.all
+    @my_notes = current_user.my_notes.all.to_a
+
+    @my_notes.each do |m|
+       if @post.is_scrapped?(m)
+         @my_notes = @my_notes - [m]
+       end
+    end
 
     respond_to do |format|
       format.html # show.html.erb

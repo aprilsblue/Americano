@@ -66,4 +66,12 @@ class Post < ApplicationRecord
     end
     return result
   end
+
+  def is_scrapped?(note_id)
+    if PostNote.where(post_id: self, my_note_id: note_id).take.nil?
+      return false
+    else
+      return true
+    end
+  end
 end

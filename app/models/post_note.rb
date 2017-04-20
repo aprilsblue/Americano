@@ -5,4 +5,5 @@ class PostNote < ApplicationRecord
   def pick_post
     return Post.find(self.post_id)
   end
+
 end
