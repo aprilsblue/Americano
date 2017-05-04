@@ -18,6 +18,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def test
+    @book = Book.find(1)
+    @post = @book.posts.new(user_id: 1, page: 1, content: params[:url])
+    @post.save
+
+    render nothing: true
+  end
+
   def create
     @book = Book.find(params[:book_id])
     @post = @book.posts.new(post_params)
@@ -171,5 +179,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, :page, :user_id, :book_id)
   end
 end
-
-
