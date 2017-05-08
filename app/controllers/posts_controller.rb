@@ -19,11 +19,35 @@ class PostsController < ApplicationController
   end
 
   def test
-    @book = Book.find(1)
-    @post = @book.posts.new(user_id: 1, page: 1, content: params[:url])
-    @post.save
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 
-    render nothing: true
+    if user_signed_in?
+      @book = Book.find(1)
+      @post = @book.posts.new(user_id: current_user.id, page: 1, content: params[:current_url])
+      @post.save
+
+      render json: {result: "response_succees"}
+    else
+      render json: {result: "no"}
+    end
+  end
+
+  def check
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+
+    if user_signed_in?
+      url = params[:check_url]
+      puts url
+      render json: {result: "ok"}
+    else
+      render json: {result: "fail"}
+    end
   end
 
   def create
