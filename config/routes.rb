@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'books/about' => 'books#about'
   get 'posts/scrap/:id' => 'posts#scrap_new', as: :scrap_new
   get 'posts/test' => 'posts#test', as: :test
+  get 'posts/check' => 'posts#check', as: :check
 
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'posts/append' => 'posts#append', as: :append_post
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
   post 'my_pages/friend' => 'my_pages#friend', as: :friend
   post 'my_pages/accept' => 'my_pages#accept', as: :accept
   post 'my_notes/share' => 'my_notes#share', as: :share
-  post 'posts/check' => 'posts#check', as: :check
 
   devise_for :users
   resources :books do
