@@ -42,10 +42,10 @@ class PostsController < ApplicationController
     url = JSON.parse(params[:check_url])
     url.each do |u|
       if Post.where(content: u).present?
-        check << u
+        @check = u
       end
     end
-    render json: {result: url}
+    render json: {result: @check}
   end
 
   def create
