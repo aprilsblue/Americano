@@ -40,9 +40,10 @@ class PostsController < ApplicationController
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 
     url = JSON.parse(params[:check_url])
+    @check = []
     url.each do |u|
       if Post.where(content: u).present?
-        @check = u
+        @check << u
       end
     end
     render json: {result: @check}
