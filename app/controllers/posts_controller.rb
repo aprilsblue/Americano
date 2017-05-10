@@ -38,12 +38,15 @@ class PostsController < ApplicationController
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 
     url = params[:check_url]
-    url.each do |u|
-      if Post.where(content: u).present?
-        check << u
-      end
-    end
-    render json: {result: check}
+    puts "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+    puts url
+    puts "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+    #url.each do |u|
+      #if Post.where(content: u).present?
+        #check << u
+      #end
+    #end
+    render json: {result: "good"}
   end
 
   def create
