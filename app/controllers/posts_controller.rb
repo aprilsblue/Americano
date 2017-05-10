@@ -46,7 +46,7 @@ class PostsController < ApplicationController
         #check << u
       #end
     #end
-    render json: {result: "good"}
+    render json: {result: url}
   end
 
   def create
