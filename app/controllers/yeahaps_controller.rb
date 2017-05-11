@@ -1,57 +1,41 @@
 class YeahapsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!
 
   #index is in mynote#index
 
   def new
+    @page = Page.new
   end
 
   def create
-    @book = Book.find(params[:book_id])
-    @post = @book.posts.new(post_params)
-    @post.user_id = current_user.id
+    page = Page.where(url: page_params.url).take
+    if page.nil?
+      page = Page.new(page_params)
+      page.save
+    end
 
+    yeahap = Yeahap.new(user_id: current_user.id, page_id: page.id)
     respond_to do |format|
-      if @post.save
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(book_path(@post.book, page: @post.page)) }
-        format.xml  { render xml: @post, status: :created, location: @post }
+      if yeahap.save
+        flash[:notice] = 'Yeahap! Successfully complete your action!'
+        format.html { redirect_to(root_path) }
       else
         format.html { render action: 'new' }
-        format.xml  { render xml: @post.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-    @my_notes = current_user.my_notes.all.to_a
-
-    @my_notes.each do |m|
-       if @post.is_scrapped?(m)
-         @my_notes = @my_notes - [m]
-       end
-    end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render xml: @post }
-    end
-  end
-
   def edit
-    @post = Post.find(params[:id])
-    @book = @post.book
-    @page = params[:page]
+    @yeahap = Yeahap.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @yeahap = Yeahap.find(params[:id])
 
     respond_to do |format|
-      if @post.update(post_params)
+      if @yeahap.update(yeahap_params)
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(book_path(@post.book, page: @post.page)) }
+        format.html { redirect_to(root_path) }
         format.xml  { head :ok }
       else
         format.html { render action: 'edit' }
@@ -61,71 +45,18 @@ class YeahapsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    page = @post.page
-    book = @post.book
-    @post.destroy
+    @yeahap = Yeahap.find(params[:id])
+    @yeahap.destroy
 
     respond_to do |format|
-      format.html { redirect_to(book_path(book, page: page)) }
+      format.html { redirect_to(root_path) }
       format.xml  { head :ok }
     end
   end
 
-  def hashtag
-    tag = Tag.find_by(name: params[:name])
-    @posts = tag.posts.where(book_id: params[:book_id].to_i)
-    @book = Book.find_by(id: params[:book_id].to_i)
-    render "/books/show"
-  end
-
-  def like
-    @user_id = current_user.id
-    @post_id = params[:id].to_i
-
-    isnil = Like.where(post_id: @post_id, user_id: @user_id)
-    if isnil.empty?
-      likeit = Like.new(post_id: @post_id, user_id: @user_id)
-      if params[:val] == "dislike"
-        likeit.evaluate = -1
-      end
-      likeit.save
-    else
-      isnil.take.destroy
-    end
-    respond_to do |format|
-      format.html { redirect_to post_path(@post_id) }
-      format.js
-    end
-  end
-
-  def scrap
-    post = Post.find(params[:post])
-    my_note = current_user.my_notes.find(params[:note].to_i)
-    my_note.posts.present? ? last_number = PostNote.where(my_note_id: params[:note]).order(:number).last.number : last_number = 0
-
-    scrap = PostNote.new
-    scrap.post_id = params[:post].to_i
-    scrap.my_note_id = params[:note].to_i
-    scrap.number = last_number + 1
-
-    respond_to do |format|
-      if scrap.save
-        flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(post_path(post)) }
-        format.xml  { render xml: scrap, status: :created, location: scrap }
-      else
-        format.html { redirect_to(post_path(post)) }
-        format.xml  { render xml: scrap.errors, status: :unprocessable_entity }
-        puts scrap.errors.full_messages
-      end
-    end
-  end
-
   private
-  def yeahap_params
-    params.require(:yeap).permit(:user_id, :page_id)
+  def page_params
+    params.require(:page).permit(:url, :content)
   end
-
 
 end
