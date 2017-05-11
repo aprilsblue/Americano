@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostPostTest < ActiveSupport::TestCase
+class YeahapsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

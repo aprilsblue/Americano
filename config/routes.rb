@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  root 'books#index'
+  resources :pages
+  root 'my_notes#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
 
-  get 'books/landing'
   get 'hashtag/:name' => 'posts#hashtag'
   get 'replies/:id/back' => 'replies#back', as: :replies_back
   get 'posts/add' => 'posts#add', as: :add_post
-  get 'books/about' => 'books#about'
   get 'posts/scrap/:id' => 'posts#scrap_new', as: :scrap_new
 
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post

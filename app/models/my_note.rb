@@ -3,8 +3,8 @@ class MyNote < ApplicationRecord
   has_many :user_notes
   has_many :users, through: :user_notes
 
-  # MyNote - PostNote - Post
-  has_many :post_notes
-  has_many :posts, through: :post_notes
+  # Mynote - pages
+  has_many :in_notes
+  has_many :yeahaps, through: :in_notes
 
 end
