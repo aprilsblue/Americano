@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 
-    if user_signed_in?
+    if session["warden.user.user.key"].present?
       @book = Book.find(1)
       @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
       @post.save
