@@ -2,8 +2,16 @@ require 'json'
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :test, :check]
+  before_action :cors_allow_all, only: [:test, :check]
 
   #index is in Book#show
+
+  def cors_allow_all
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
 
   def new
     @book = Book.find(params[:book_id])
@@ -21,16 +29,11 @@ class PostsController < ApplicationController
   end
 
   def test
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-
     if warden.authenticate?(scope: mapping)
       @book = Book.find(1)
       @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
       @post.save
-      session[:current_user_id] = current_user.id
+
       render json: {result: "response_succees", user: current_user.id }
     else
       render json: {result: "no", user: "none"}
@@ -38,11 +41,6 @@ class PostsController < ApplicationController
   end
 
   def check
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-
     url = JSON.parse(params[:check_url])
     @check = []
     url.each do |u|
