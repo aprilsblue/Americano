@@ -26,13 +26,14 @@ class PostsController < ApplicationController
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 
-    if session["warden.user.user.key"][1][0].present?
+    if warden.authenticate?(scope: mapping)
       @book = Book.find(1)
       @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
       @post.save
-      render json: {result: "response_succees"}
+      session[:current_user_id] = current_user.id
+      render json: {result: "response_succees", user: current_user.id }
     else
-      render json: {result: "no"}
+      render json: {result: "no", user: "none"}
     end
   end
 
