@@ -8,6 +8,13 @@ class BooksController < ApplicationController
   def index
     @books = Book.all.paginate(page: params[:page])
 
+    if user_signed_in?
+      session[:current_user_id] = current_user.id
+      puts "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+      puts session[:current_user_id]
+      puts "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render xml: @bookss }

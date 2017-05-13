@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 
-    if session["warden.user.user.key"].present?
+    if session["warden.user.user.key"][1][0].present?
       @book = Book.find(1)
       @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
       @post.save
@@ -81,7 +81,6 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.is_child = true
     @parent = params[:parent].to_i
-
 
     respond_to do |format|
       if @post.save
