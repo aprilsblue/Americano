@@ -1,0 +1,11 @@
+<%= form_for page, class: "form-group" do |p| %>
+  <%= p.text_field :url, class: "form-control", placeholder: "url", required: true %>
+  <%= p.fields_for :yeahaps do |y| %>
+    <%= y.text_field :content, class: "form-control", placeholder: "content", required: true %>
+  <% end %>
+  <br>
+  <div class="text-center">
+    <%= p.submit "SUBMIT", class: "btn-americano" %>
+    <%= link_to "BACK", root_path, class: "btn-americano" %>
+  </div>
+<% end %>

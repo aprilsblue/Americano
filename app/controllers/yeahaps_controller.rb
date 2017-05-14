@@ -1,29 +1,14 @@
 class YeahapsController < ApplicationController
   before_action :authenticate_user!
 
-  #index is in mynote#index
-
-  def new
-    @page = Page.new
-  end
-
-  def create
-    page = Page.where(url: page_params.url).take
-    if page.nil?
-      page = Page.new(page_params)
-      page.save
-    end
-
-    yeahap = Yeahap.new(user_id: current_user.id, page_id: page.id)
+  def index
+    @yeahaps = Yeahap.where(user_id: current_user.id).all
     respond_to do |format|
-      if yeahap.save
-        flash[:notice] = 'Yeahap! Successfully complete your action!'
-        format.html { redirect_to(root_path) }
-      else
-        format.html { render action: 'new' }
-      end
+      format.html # index.html.erb
+      format.xml  { render xml: @yeahps }
     end
   end
+  #create is page#create because nested_attribute
 
   def edit
     @yeahap = Yeahap.find(params[:id])
@@ -33,7 +18,7 @@ class YeahapsController < ApplicationController
     @yeahap = Yeahap.find(params[:id])
 
     respond_to do |format|
-      if @yeahap.update(yeahap_params)
+      if @yeahap.update(content: yeahap_params[:content])
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to(root_path) }
         format.xml  { head :ok }
@@ -47,6 +32,7 @@ class YeahapsController < ApplicationController
   def destroy
     @yeahap = Yeahap.find(params[:id])
     @yeahap.destroy
+    @yeahaps = Yeahap.where(user_id: current_user.id).all
 
     respond_to do |format|
       format.html { redirect_to(root_path) }
@@ -55,8 +41,8 @@ class YeahapsController < ApplicationController
   end
 
   private
-  def page_params
-    params.require(:page).permit(:url, :content)
+  def yeahap_params
+    params.require(:yeahap).permit(:content)
   end
 
 end

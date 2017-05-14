@@ -16,10 +16,15 @@
     <!--Navbar show page-->
     <header id="main_header" class="cf">
       <div class="wrapper_wide">
-        <%= link_to "Yeahap", root_path, id: "logo" %>
+        <%= link_to root_path do %>
+          <%= image_tag "#{asset_path("yeahap.png")}", style: "height:25px" %>
+        <% end %>
         <nav>
           <ul>
             <% if user_signed_in? %>
+              <li>
+                <%= link_to "new Yeahap", new_page_path %>
+              </li>
               <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
               <li>
                 <%= link_to my_pages_path do %>
