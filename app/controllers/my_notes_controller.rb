@@ -1,4 +1,6 @@
 class MyNotesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @my_notes = current_user.my_notes.all.reverse
     @my_friends = current_user.followers.where(user_friends: {status: "friend"}).all + current_user.followees.where(user_friends: {status: "friend"}).all
