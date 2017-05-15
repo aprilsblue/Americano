@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def test
-    if warden.authenticate?(scope: mapping)
+    if user_signed_in?
       @book = Book.find(1)
       @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
       @post.save
