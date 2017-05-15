@@ -4,6 +4,7 @@
 //
 
 .tooltip {
+  z-index: 1;
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
@@ -29,3 +30,4 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+

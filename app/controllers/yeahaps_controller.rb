@@ -12,6 +12,10 @@ class YeahapsController < ApplicationController
 
   def edit
     @yeahap = Yeahap.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
@@ -19,7 +23,7 @@ class YeahapsController < ApplicationController
 
     respond_to do |format|
       if @yeahap.update(content: yeahap_params[:content])
-        flash[:notice] = 'Post was successfully updated.'
+        flash[:notice] = 'Yeahap was successfully updated.'
         format.html { redirect_to(root_path) }
         format.xml  { head :ok }
       else

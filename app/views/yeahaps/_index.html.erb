@@ -10,9 +10,11 @@
       <% end %>
       <span class="tooltiptext">
         <center>
-          <span class="cursor:pointer" data-toggle="modal" id="<%y.id%>" data-target="editModal">
+          <%= link_to edit_yeahap_path(y.id),  remote: true do%>
+            <span data-toggle="modal", data-target="#editModal">
             <i class="fa fa-edit" aria-hidden="true"></i>
-          </span>
+            </span>
+          <% end %>
           <%= link_to yeahap_path(y.id), method: "delete", remote: true, data: {confirm: "Are You Sure?"} do %>
             <i class="fa fa-remove" aria-hidden="true"></i>
           <% end %>
