@@ -26,5 +26,4 @@ class PagesController < ApplicationController
   def page_params
     params.permit(:page).permit(:url, yeahaps_attributes: [:id, :content, :_destroy])
   end
-
 end

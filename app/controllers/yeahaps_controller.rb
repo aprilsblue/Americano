@@ -16,14 +16,21 @@ class YeahapsController < ApplicationController
       format.xml  { render xml: @yeahps }
     end
   end
-  #create is page#create because nested_attribute
 
-  def yeahap
+  def create
     if user_signed_in?
-      puts session[:session_id]
-      render json: {result: "response_succees", user: current_user.email }
+      page = Page.where(url: params[:url]).take
+      if page.nil?
+        page = Page.new(url: params[:url])
+        page.save
+      end
+
+      yeahap = Yeahap.new(content: params[:content], user_id: current_user.id, page_id: page.id)
+      yeahap.save
+
+      render json: {result: "succees"}
     else
-      render json: {result: "no", user: "none"}
+      render json: {result: "fail"}
     end
   end
 
