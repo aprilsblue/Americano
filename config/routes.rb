@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'my_pages/accept' => 'my_pages#accept', as: :accept
   post 'my_notes/share' => 'my_notes#share', as: :share
   post 'yeahaps/create' => 'yeahaps#create'
+  post 'yeahaps/check' => 'yeahaps#check'
 
   devise_for :users
   resources :yeahaps, except: [:create, :new, :show]
