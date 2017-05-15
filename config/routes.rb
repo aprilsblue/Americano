@@ -6,13 +6,12 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get 'hashtag/:name' => 'posts#hashtag'
-  get 'posts/test' => 'posts#test'
 
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'my_pages/friend' => 'my_pages#friend', as: :friend
   post 'my_pages/accept' => 'my_pages#accept', as: :accept
   post 'my_notes/share' => 'my_notes#share', as: :share
-  post 'posts/test' => 'posts#test'
+  post 'yeahaps/create' => 'yeahaps#create'
 
   devise_for :users
   resources :yeahaps, except: [:create, :new, :show]
