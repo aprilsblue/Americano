@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420163406) do
+ActiveRecord::Schema.define(version: 20170511064340) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20170420163406) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "in_notes", force: :cascade do |t|
+    t.integer  "my_note_id"
+    t.integer  "yeahap_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["my_note_id"], name: "index_in_notes_on_my_note_id"
+    t.index ["yeahap_id"], name: "index_in_notes_on_yeahap_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -56,6 +65,12 @@ ActiveRecord::Schema.define(version: 20170420163406) do
   end
 
   create_table "my_pages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -153,6 +168,16 @@ ActiveRecord::Schema.define(version: 20170420163406) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "yeahaps", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_yeahaps_on_page_id"
+    t.index ["user_id"], name: "index_yeahaps_on_user_id"
   end
 
 end

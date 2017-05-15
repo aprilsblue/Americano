@@ -30,11 +30,11 @@ class PostsController < ApplicationController
 
   def test
     if user_signed_in?
-      @book = Book.find(1)
-      @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
-      @post.save
-
-      render json: {result: "response_succees", user: current_user.id }
+      puts session[:session_id]
+      puts session[:warden]
+      puts current_user.encrypted_password
+      puts current_user.email
+      puts current_user.id
     else
       render json: {result: "no", user: "none"}
     end
