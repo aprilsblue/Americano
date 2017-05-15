@@ -3,6 +3,7 @@ require 'json'
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :test, :check]
   before_action :cors_allow_all, only: [:test, :check]
+  skip_before_filter :verify_authenticity_token, only: [:test]
 
   #index is in Book#show
 
@@ -30,11 +31,7 @@ class PostsController < ApplicationController
 
   def test
     if user_signed_in?
-      puts session[:session_id]
-      puts session[:warden]
-      puts current_user.encrypted_password
-      puts current_user.email
-      puts current_user.id
+      render json: {result: "response_success", user: current_user.email}
     else
       render json: {result: "no", user: "none"}
     end
