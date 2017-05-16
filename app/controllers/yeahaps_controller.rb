@@ -43,11 +43,10 @@ class YeahapsController < ApplicationController
       if yeahap.nil?
         yeahap = Yeahap.new(content: params[:content], user_id: current_user.id, page_id: page.id)
         yeahap.save
+        render json: {result: "succees"}
       else
         render json: {result: "exist"}
       end
-
-      render json: {result: "succees"}
     else
       render json: {result: "fail"}
     end
