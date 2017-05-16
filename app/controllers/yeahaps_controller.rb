@@ -23,7 +23,7 @@ class YeahapsController < ApplicationController
       url = JSON.parse(params[:check_url])
       @check = []
       url.each do |u|
-        if current_user.pages.where(content: u).present?
+        if current_user.pages.where(url: u).present?
           @check << u
         end
       end
@@ -39,8 +39,13 @@ class YeahapsController < ApplicationController
         page.save
       end
 
-      yeahap = Yeahap.new(content: params[:content], user_id: current_user.id, page_id: page.id)
-      yeahap.save
+      yeahap = Yeahap.where(page_id: page.id).take
+      if yeahap.nil?
+        yeahap = Yeahap.new(content: params[:content], user_id: current_user.id, page_id: page.id)
+        yeahap.save
+      else
+        render json: {result: "exist"}
+      end
 
       render json: {result: "succees"}
     else
