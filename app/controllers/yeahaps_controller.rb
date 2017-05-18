@@ -18,6 +18,14 @@ class YeahapsController < ApplicationController
     end
   end
 
+  def userCheck
+    if user_signed_in?
+      render json: {result: "success", user: current_user.email}
+    else
+      render json: {result: "fail"}
+    end
+  end
+
   def check
     if user_signed_in?
       url = JSON.parse(params[:check_url])

@@ -4,5 +4,6 @@ class CreatePages < ActiveRecord::Migration[5.0]
       t.string :url
       t.timestamps
     end
+    add_index :pages, :url
   end
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'my_notes/share' => 'my_notes#share', as: :share
   post 'yeahaps/create' => 'yeahaps#create'
   post 'yeahaps/check' => 'yeahaps#check'
+  post 'yeahaps/userCheck' => 'yeahaps#userCheck'
 
   devise_for :users
   resources :yeahaps, except: [:create, :new, :show]
