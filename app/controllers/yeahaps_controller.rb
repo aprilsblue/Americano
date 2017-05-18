@@ -1,7 +1,7 @@
 class YeahapsController < ApplicationController
   before_action :authenticate_user!
   before_action :cors_allow_all, only: [:yeahap]
-  skip_before_filter :verify_authenticity_token, only: [:create, :check]
+  skip_before_filter :verify_authenticity_token, only: [:create, :check, :userCheck]
 
   def cors_allow_all
     headers['Access-Control-Allow-Origin'] = '*'
