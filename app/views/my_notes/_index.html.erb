@@ -1,23 +1,29 @@
-<ul id="my-note-posts" data-update-url= "<%= sort_my_notes_url %>">
+<% if authority == "read" %>
+  <ul data-update-url= "<%= sort_my_notes_url %>">
+<% else %>
+  <ul id="my-note-posts" data-update-url= "<%= sort_my_notes_url %>">
+<% end %>
   <% my_posts.each do |post_note| %>
     <%= content_tag_for :li, post_note do %>
       <div class="row my-note-post">
         <div class="col-lg-10 offset-lg-1 mynote-content" id="mynote-content-<%= post_note.post_id %>">
           <div class="mynote-tools" id="delete_<%= post_note.post_id %>" >
             <span id="like">
-              <% if post_note.pick_post.user_id == current_user.id %>
-                <%= link_to edit_post_path(post_note.pick_note, page: params[:page]), class: "edit-post" do %>
-                  &nbsp;
-                  <i class="fa fa-edit" aria-hidden="true"></i>
+              <% if authority == "all" %>
+                <% if post_note.pick_post.user_id == current_user.id %>
+                  <%= link_to edit_post_path(post_note.pick_note, page: params[:page]), class: "edit-post" do %>
+                    &nbsp;
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to add_post_path(book: post_note.pick_post.book, page: params[:page], post: post_note.pick_post), class: "edit-post" do %>
+                    &nbsp;
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to add_post_path(book: post_note.pick_post.book, page: params[:page], post: post_note.pick_post), class: "edit-post" do %>
-                  &nbsp;
-                  <i class="fa fa-edit" aria-hidden="true"></i>
+                <%= link_to delete_post_path(my_note_id: my_note, id: post_note.post_id), method: 'POST', remote: true, data: {confirm: "Are You Sure?"} do %>
+                  <i class="fa fa-remove tools-color" aria-hidden="true"></i>
                 <% end %>
-              <% end %>
-              <%= link_to delete_post_path(my_note_id: my_note, id: post_note.post_id), method: 'POST', remote: true, data: {confirm: "Are You Sure?"} do %>
-                <i class="fa fa-remove tools-color" aria-hidden="true"></i>
               <% end %>
             </span>
           </div>

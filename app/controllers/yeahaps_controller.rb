@@ -1,5 +1,14 @@
 class YeahapsController < ApplicationController
   before_action :authenticate_user!
+  before_action :cors_allow_all, only: [:yeahap]
+  skip_before_filter :verify_authenticity_token, only: [:create, :check, :userCheck]
+
+  def cors_allow_all
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
 
   def index
     @yeahaps = Yeahap.where(user_id: current_user.id).all
@@ -8,7 +17,60 @@ class YeahapsController < ApplicationController
       format.xml  { render xml: @yeahps }
     end
   end
-  #create is page#create because nested_attribute
+
+  def userCheck
+    if user_signed_in?
+
+      # current_user가 선택한 pages
+      url = current_user.pages.all.to_a
+
+      if params[:user].nil?
+        render json: {result: "success", user: current_user.email, url: url}
+      else
+        if params[:user] == current_user.email
+          render json: {result: "match", url: url}
+        else
+          render json: {result: "mismatch", user: current_user.email, url: url}
+        end
+      end
+    else
+      render json: {result: "fail"}
+    end
+  end
+
+  def check
+    if user_signed_in?
+      url = JSON.parse(params[:check_url])
+      @check = []
+      url.each do |u|
+        if current_user.pages.where(url: u).present?
+          @check << u
+        end
+      end
+      render json: {result: @check}
+    end
+  end
+
+  def create
+    if user_signed_in?
+      page = Page.where(url: params[:url]).take
+      if page.nil?
+        page = Page.new(url: params[:url])
+        page.save
+      end
+
+      yeahap = Yeahap.where(page_id: page.id).take
+      if yeahap.nil?
+        yeahap = Yeahap.new(content: params[:content], user_id: current_user.id, page_id: page.id)
+        yeahap.save
+        render json: {result: "succees"}
+      else
+        render json: {result: "exist"}
+      end
+    else
+      render json: {result: "fail"}
+    end
+  end
 
   def edit
     @yeahap = Yeahap.find(params[:id])
@@ -48,5 +110,4 @@ class YeahapsController < ApplicationController
   def yeahap_params
     params.require(:yeahap).permit(:content)
   end
-
 end
