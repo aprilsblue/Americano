@@ -4,6 +4,7 @@ class CreateYeahaps < ActiveRecord::Migration[5.0]
       t.string :content
       t.references :user
       t.references :page
+      t.references :yeahapbox
       t.timestamps
     end
   end

@@ -8,14 +8,7 @@ User.create(email: "user6@test.com", password: "123412", password_confirmation: 
 User.create(email: "user7@test.com", password: "123412", password_confirmation: "123412")
 User.create(email: "user8@test.com", password: "123412", password_confirmation: "123412")
 
-MyNote.create!([
-  {title: "첫번째 노트", user_id: "1"},
-  {title: "두번째 노트", user_id: "2"}
-])
 
-UserNote.create([
-  {user_id: "1", my_note_id: "1", authority: "all"}
-])
 
 UserFriend.create([
   {follower_id: 1, followee_id: 3, status: "friend"},
@@ -47,11 +40,6 @@ Yeahap.create([
   {page_id: 2, user_id: 2, content: "hi"},
   {page_id: 3, user_id: 2, content: "hi"},
   {page_id: 4, user_id: 2, content: "hi"}
-])
-
-InNote.create([
-  {my_note_id: 1, yeahap_id: 1},
-  {my_note_id: 2, yeahap_id: 1}
 ])
 
 puts("Seed Success!!")
