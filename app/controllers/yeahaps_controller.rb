@@ -20,7 +20,19 @@ class YeahapsController < ApplicationController
 
   def userCheck
     if user_signed_in?
-      render json: {result: "success", user: current_user.email}
+
+      # current_user가 선택한 pages
+      url = current_user.pages.all.to_a
+
+      if params[:user].nil?
+        render json: {result: "success", user: current_user.email, url: url}
+      else
+        if params[:user] == current_user.email
+          render json: {result: "match", url: url}
+        else
+          render json: {result: "mismatch", user: current_user.email, url: url}
+        end
+      end
     else
       render json: {result: "fail"}
     end
