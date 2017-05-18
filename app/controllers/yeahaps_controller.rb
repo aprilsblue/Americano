@@ -22,7 +22,10 @@ class YeahapsController < ApplicationController
     if user_signed_in?
 
       # current_user가 선택한 pages
-      url = current_user.pages.all.to_a
+      url = []
+      current_user.pages.each do |p|
+        url << p.url
+      end
 
       if params[:user].nil?
         render json: {result: "success", user: current_user.email, url: url}
