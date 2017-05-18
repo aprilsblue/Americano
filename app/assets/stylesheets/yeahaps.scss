@@ -31,3 +31,13 @@
   visibility: visible;
 }
 
+
+
+.ellipsis {
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  word-wrap:normal;
+  width:185px;
+  overflow:hidden;
+}
+
