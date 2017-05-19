@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+  # make basic box after creating user db
   after_create :basic_box
+
   # Include default devise modules. Others available are:
 
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -18,8 +20,18 @@ class User < ApplicationRecord
   has_many :followees, class_name: "User", through: :reverse_user_friends
 
 
+  # create basic box
   def basic_box
     Yeahapbox.create(user_id: self.id)
+  end
+
+  #return user's basic box
+  def pick_basic_box
+    if self.yeahapboxes.first.present?
+      return self.yeahapboxes.first
+    else
+      return self.basic_box
+    end
   end
 
 end

@@ -11,7 +11,10 @@ class PagesController < ApplicationController
       page.save
     end
 
-    yeahap = Yeahap.new(content: params[:page][:yeahaps_attributes].values[0][:content], user_id: current_user.id, page_id: page.id)
+    yeahap = Yeahap.new(yeahapbox_id: current_user.pick_basic_box.id,
+                        content: params[:page][:yeahaps_attributes].values[0][:content],
+                        user_id: current_user.id,
+                        page_id: page.id)
     respond_to do |format|
       if yeahap.save
         flash[:notice] = 'Yeahap! Successfully complete your action!'
