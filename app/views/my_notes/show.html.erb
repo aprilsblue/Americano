@@ -1,9 +1,7 @@
 <main>
-
-<div class="container main mynote">
-  <%= render partial: 'index', locals: { my_posts: @my_posts, my_note: @my_note.id } %>
-</div>
-
+  <div class="container main mynote">
+    <%= render partial: 'index', locals: { my_posts: @my_posts, my_note: @my_note.id, authority: @authority } %>
+  </div>
 </main>
 
 <script>

@@ -12,6 +12,19 @@
 
 ActiveRecord::Schema.define(version: 20170518115933) do
 
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.string   "writer"
+    t.string   "publisher"
+    t.datetime "published_at"
+    t.string   "picture"
+    t.integer  "edition"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -23,7 +36,6 @@ ActiveRecord::Schema.define(version: 20170518115933) do
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
-
   create_table "my_notes", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -41,6 +53,59 @@ ActiveRecord::Schema.define(version: 20170518115933) do
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "post_notes", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "my_note_id"
+    t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["my_note_id"], name: "index_post_notes_on_my_note_id"
+    t.index ["post_id"], name: "index_post_notes_on_post_id"
+  end
+
+  create_table "post_posts", force: :cascade do |t|
+    t.integer  "parent_id"
+    t.integer  "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_post_posts_on_child_id"
+    t.index ["parent_id"], name: "index_post_posts_on_parent_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "content"
+    t.string   "qna"
+    t.integer  "page"
+    t.integer  "chapter"
+    t.integer  "caffeine"
+    t.boolean  "is_private", default: false
+    t.boolean  "is_child",   default: false
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["book_id"], name: "index_posts_on_book_id"
+    t.index ["is_child"], name: "index_posts_on_is_child"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "posts_tags", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+    t.index ["post_id"], name: "index_posts_tags_on_post_id"
+    t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_replies_on_post_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|

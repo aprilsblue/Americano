@@ -1,7 +1,18 @@
+require 'json'
+
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :test, :check]
+  before_action :cors_allow_all, only: [:test, :check]
+  skip_before_filter :verify_authenticity_token, only: [:test]
 
   #index is in Book#show
+
+  def cors_allow_all
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
 
   def new
     @book = Book.find(params[:book_id])
@@ -16,6 +27,25 @@ class PostsController < ApplicationController
       format.html # new.html.erb
       format.xml  { render xml: @post }
     end
+  end
+
+  def test
+    if user_signed_in?
+      render json: {result: "response_success", user: current_user.email}
+    else
+      render json: {result: "no", user: "none"}
+    end
+  end
+
+  def check
+    url = JSON.parse(params[:check_url])
+    @check = []
+    url.each do |u|
+      if Post.where(content: u).present?
+        @check << u
+      end
+    end
+    render json: {result: @check}
   end
 
   def create
@@ -47,7 +77,6 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.is_child = true
     @parent = params[:parent].to_i
-
 
     respond_to do |format|
       if @post.save
@@ -171,5 +200,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, :page, :user_id, :book_id)
   end
 end
-
-
