@@ -37,7 +37,6 @@ class YeahapboxController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def update
