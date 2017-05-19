@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'my_notes/share' => 'my_notes#share', as: :share
 
   devise_for :users
+  resources :yeahapbox, only: [:create, :edit, :update, :destroy]
   resources :yeahaps, except: [:create, :new, :show]
   resources :pages
   resources :my_pages

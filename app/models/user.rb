@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   # create basic box
   def basic_box
-    Yeahapbox.create(user_id: self.id)
+    Yeahapbox.create(user_id: self.id, title: "basic box")
   end
 
   #return user's basic box
