@@ -11,6 +11,7 @@ class YeahapsController < ApplicationController
   end
 
   def index
+    @box = Yeahapbox.where(user_id: current_user.id).all
     @yeahaps = Yeahap.where(user_id: current_user.id).all
     respond_to do |format|
       format.html # index.html.erb

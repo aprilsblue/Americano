@@ -32,14 +32,14 @@ Page.create([
 ])
 
 Yeahap.create([
-  {page_id: 1, user_id: 1, content: "hi"},
-  {page_id: 2, user_id: 1, content: "hi"},
-  {page_id: 3, user_id: 1, content: "hi"},
-  {page_id: 4, user_id: 1, content: "hi"},
-  {page_id: 1, user_id: 2, content: "hi"},
-  {page_id: 2, user_id: 2, content: "hi"},
-  {page_id: 3, user_id: 2, content: "hi"},
-  {page_id: 4, user_id: 2, content: "hi"}
+  {page_id: 1, user_id: 1, content: "hi", yeahapbox_id: 1},
+  {page_id: 2, user_id: 1, content: "hi", yeahapbox_id: 1},
+  {page_id: 3, user_id: 1, content: "hi", yeahapbox_id: 1},
+  {page_id: 4, user_id: 1, content: "hi", yeahapbox_id: 1},
+  {page_id: 1, user_id: 2, content: "hi", yeahapbox_id: 2},
+  {page_id: 2, user_id: 2, content: "hi", yeahapbox_id: 2},
+  {page_id: 3, user_id: 2, content: "hi", yeahapbox_id: 2},
+  {page_id: 4, user_id: 2, content: "hi", yeahapbox_id: 2}
 ])
 
 puts("Seed Success!!")
