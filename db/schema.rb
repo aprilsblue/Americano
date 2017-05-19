@@ -36,6 +36,26 @@ ActiveRecord::Schema.define(version: 20170518115933) do
     t.datetime "updated_at",                   null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
+
+  create_table "in_notes", force: :cascade do |t|
+    t.integer  "my_note_id"
+    t.integer  "yeahap_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["my_note_id"], name: "index_in_notes_on_my_note_id"
+    t.index ["yeahap_id"], name: "index_in_notes_on_yeahap_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.integer  "evaluate",   default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "my_notes", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -124,6 +144,14 @@ ActiveRecord::Schema.define(version: 20170518115933) do
     t.index ["follower_id", "followee_id"], name: "index_user_friends_on_follower_id_and_followee_id", unique: true
   end
 
+  create_table "user_notes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "my_note_id"
+    t.string   "authority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -154,12 +182,10 @@ ActiveRecord::Schema.define(version: 20170518115933) do
     t.string   "content"
     t.integer  "user_id"
     t.integer  "page_id"
-    t.integer  "yeahapbox_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["page_id"], name: "index_yeahaps_on_page_id"
     t.index ["user_id"], name: "index_yeahaps_on_user_id"
-    t.index ["yeahapbox_id"], name: "index_yeahaps_on_yeahapbox_id"
   end
 
 end

@@ -65,7 +65,7 @@ class YeahapsController < ApplicationController
 
       yeahap = Yeahap.where(page_id: page.id).take
       if yeahap.nil?
-        yeahap = Yeahap.new(content: params[:content], user_id: current_user.id, page_id: page.id)
+        yeahap = Yeahap.new(yeahapbox_id: current_user.pick_basic_box.id, content: params[:content], user_id: current_user.id, page_id: page.id)
         yeahap.save
         render json: {result: "succees"}
       else
