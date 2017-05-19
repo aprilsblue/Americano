@@ -1,4 +1,12 @@
 class YeahapboxController < ApplicationController
+
+  def new
+    @box = Yeahapbox.new
+    respond_to do |format|
+      format.js '/yeahaps/new_yeahapbox.js'
+    end
+  end
+
   def create
     @box = Yeahapbox.new(yeahapbox_params)
 

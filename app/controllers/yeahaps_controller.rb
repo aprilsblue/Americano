@@ -2,6 +2,7 @@ class YeahapsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @box = Yeahapbox.where(user_id: current_user.id).all
     @yeahaps = Yeahap.where(user_id: current_user.id).all
     respond_to do |format|
       format.html # index.html.erb
