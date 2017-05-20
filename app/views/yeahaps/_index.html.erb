@@ -1,7 +1,8 @@
 <% box.each do |b| %>
   <div class="row">
-    <%= b.title %>
-    </br>
+    <div class="box-title-wrapper">
+      <span class="box-title"> <%= b.title %></span>
+    </div>
     <% b.yeahaps.each do |y| %>
       <div class="page-block tooltip">
         <%= link_to y.page.url, class: "list-group-item list-group-item-action flex-column align-items-start" do %>

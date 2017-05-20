@@ -1,7 +1,15 @@
 // Place all the styles related to the yeahaps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-//
+
+.box-title-wrapper {
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+.box-title {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 .tooltip {
   z-index: 1;
