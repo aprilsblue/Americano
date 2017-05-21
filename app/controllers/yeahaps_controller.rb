@@ -32,7 +32,7 @@ class YeahapsController < ApplicationController
       f_url = []
       current_user.followees.each do |f|
         f.pages.each do |p|
-          f_url < p.url
+          f_url << p.url
         end
       end
 
