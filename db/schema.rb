@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20170518115933) do
   create_table "user_friends", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followee_id"
-    t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["followee_id", "follower_id"], name: "index_user_friends_on_followee_id_and_follower_id", unique: true

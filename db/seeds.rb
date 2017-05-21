@@ -8,18 +8,6 @@ User.create(email: "user6@test.com", password: "123412", password_confirmation: 
 User.create(email: "user7@test.com", password: "123412", password_confirmation: "123412")
 User.create(email: "user8@test.com", password: "123412", password_confirmation: "123412")
 
-
-
-UserFriend.create([
-  {follower_id: 1, followee_id: 3, status: "friend"},
-  {follower_id: 1, followee_id: 4, status: "request"},
-  {follower_id: 2, followee_id: 1, status: "request"},
-  {follower_id: 4, followee_id: 3, status: "friend"},
-  {follower_id: 7, followee_id: 5, status: "friend"},
-  {follower_id: 6, followee_id: 2, status: "request"},
-  {follower_id: 5, followee_id: 1, status: "request"}
-])
-
 Page.create([
   {url: "http://www.google.com"},
   {url: "http://www.naver.com"},

@@ -1,15 +1,21 @@
 <div class="container">
   <div class="row marginTop30">
-    <div class="col-md-4 offset-md-2">
+    <div class="profile">
       <%= image_tag asset_path("coffee.png"), class: "profile-img" %>
-      <p>이메일 : <%= current_user.email %></p>
-      <p>가입일 : <%= current_user.created_at.strftime("%y-%m-%d") %></p>
+      <div class="profile-content">
+        <p><span class="title">Email</span> &nbsp; <%= current_user.email %></p><br>
+        <p><span class="title">Date</span> &nbsp; <%= current_user.created_at.strftime("%y-%m-%d") %></p><br>
+        <p><span class="title">Yeahaps</span> &nbsp; <%= current_user.yeahaps.count %></p><br>
+        <p><span class="title">Following</span> &nbsp; <span class="following"><%= current_user.followees.count %></span></p><br>
+        <p><span class="title">Followers</span> &nbsp; <%= current_user.followers.count %></p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3 class="title">Your Friends</h3>
+  </div>
+  <div class="row">
+    <div class="following">
       <%= form_tag friend_path, class: 'form-group', method: 'POST', remote: true do %>
-        <%= text_field_tag :email, "", class: 'form-control user-search', placeholder: "Friend's email" %>
-        <%= submit_tag :submit, class: 'btn btn-default btn-submit', disabled: true %>
+        <%= text_field_tag :email, "", class: 'form-control user-search', placeholder: "Email" %>
+        <%= submit_tag "Follow", class: 'btn-search', disabled: true %>
       <% end %>
       <ul class="friends_list">
         <%= render partial: 'list', locals: { followers: @followers, followees: @followees } %>

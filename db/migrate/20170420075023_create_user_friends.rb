@@ -4,7 +4,6 @@ class CreateUserFriends < ActiveRecord::Migration[5.0]
 
       t.integer :follower_id
       t.integer :followee_id
-      t.string  :status
 
       t.timestamps
     end

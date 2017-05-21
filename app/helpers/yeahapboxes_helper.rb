@@ -1,0 +1,2 @@
+module YeahapboxesHelper
+end

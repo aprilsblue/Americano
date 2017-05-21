@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :yeahapboxes
   root 'yeahaps#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -16,8 +17,8 @@ Rails.application.routes.draw do
   post 'yeahaps/userCheck' => 'yeahaps#userCheck'
 
   devise_for :users
-  resources :yeahapbox, only: [:create, :new, :edit, :update, :destroy]
   resources :yeahaps, except: [:create, :new, :show]
+  resources :yeahapboxes, except: [:index, :show]
   resources :pages, only: [:create, :new]
   resources :my_pages
   resources :my_notes do

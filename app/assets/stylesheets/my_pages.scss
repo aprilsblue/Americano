@@ -9,23 +9,64 @@
 .marginRight20 {
   margin-right: 20px;
 }
-.profile-img {
-  width: 250px;
-  height: 250px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
+.profile {
+  .profile-img {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 20px;
+    float: left;
+  }
+  padding: 10px 0;
+  p {
+    display: inline-block;
+  }
+  span.title {
+    color: orange;
+    font-weight: bold;
+  }
+  .profile-content {
+    display: inline-block;
+    padding: 12px;
+  }
 }
 .friend-profile-img {
   margin-right: 10px;
 }
 h3.title {
-  margin-bottom: 20px;
-}
-input.user-search {
   display: inline-block;
-  width: 200px;
 }
-li.friend {
-  margin-bottom: 10px;
+.following {
+  margin-top: 1rem;
+  .form-group {
+    margin: 0;
+  }
+  input.user-search {
+    display: inline-block;
+    width: 200px;
+    height: 1.5rem;
+    padding: 4px 3px;
+    border-bottom: 2px solid orange;
+    margin-right: 10px;
+  }
+  .btn-search {
+    border: 2px solid orange;
+    color: orange;
+    background-color: white;
+    padding: 7px 13px;
+    cursor: pointer;
+  }
+  .btn-search:hover {
+    background-color: orange;
+    color: white;
+  }
+  ul.friends_list {
+    margin: 1rem 0;
+    li.friend {
+      display: inline;
+      margin: 5px 1rem 5px 0;
+    }
+  }
 }

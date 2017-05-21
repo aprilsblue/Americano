@@ -1,7 +1,7 @@
-<% box.each do |b| %>
-  <div class="row">
+<% yeahapbox.each do |b| %>
+  <div class="row yeahapbox-row">
     <div class="box-title-wrapper">
-      <span class="box-title"> <%= b.title %></span>
+      <span class="box-title"> <%= b.title %> </span><span class="box-title-count">( <%= b.yeahaps.count %> )</span>
     </div>
     <% b.yeahaps.each do |y| %>
       <div class="page-block tooltip">
@@ -28,4 +28,3 @@
     <% end %>
   </div>
 <% end %>
-

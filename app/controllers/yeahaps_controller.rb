@@ -11,7 +11,7 @@ class YeahapsController < ApplicationController
   end
 
   def index
-    @box = Yeahapbox.where(user_id: current_user.id).all
+    @yeahapbox = Yeahapbox.where(user_id: current_user.id).all
     @yeahaps = Yeahap.where(user_id: current_user.id).all
     respond_to do |format|
       format.html # index.html.erb
@@ -22,36 +22,33 @@ class YeahapsController < ApplicationController
   def userCheck
     if user_signed_in?
 
-      # current_user가 선택한 pages
+      # current_user's pages
       url = []
       current_user.pages.each do |p|
         url << p.url
       end
 
+      # friends' pages
+      f_url = []
+      current_user.followees.each do |f|
+        f.pages.each do |p|
+          f_url < p.url
+        end
+      end
+
+      f_url = f_url.uniq
+
       if params[:user].nil?
-        render json: {result: "success", user: current_user.email, url: url}
+        render json: {result: "success", user: current_user.email, url: url, f_url: f_url}
       else
         if params[:user] == current_user.email
-          render json: {result: "match", url: url}
+          render json: {result: "match", url: url, f_url: f_url}
         else
-          render json: {result: "mismatch", user: current_user.email, url: url}
+          render json: {result: "mismatch", user: current_user.email, url: url, f_url: f_url}
         end
       end
     else
       render json: {result: "fail"}
-    end
-  end
-
-  def check
-    if user_signed_in?
-      url = JSON.parse(params[:check_url])
-      @check = []
-      url.each do |u|
-        if current_user.pages.where(url: u).present?
-          @check << u
-        end
-      end
-      render json: {result: @check}
     end
   end
 

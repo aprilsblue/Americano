@@ -1,0 +1,8 @@
+<%= form_for yeahapbox, class: "form-group" do |y| %>
+  <%= y.text_field :title, class: "form-control", placeholder: "title", required: true %>
+  <br>
+  <div class="text-center">
+    <%= y.submit "SUBMIT", class: "btn-americano" %>
+    <%= link_to "BACK", root_path, class: "btn-americano" %>
+  </div>
+<% end %>
