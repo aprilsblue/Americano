@@ -1,6 +1,6 @@
 <%= form_for yeahap, class: "form-group" do |y| %>
   <br>
-  <%= y.text_field :content, class: "form-control", placeholder: "content", required: true %>
+  <%= y.text_field :content, class: "form-control edit-yeahap", placeholder: "content", required: true %>
   <div class="text-center">
     <%= y.submit "SUBMIT", class: "btn-americano" %>
     <%= link_to "BACK", root_path, class: "btn-americano" %>

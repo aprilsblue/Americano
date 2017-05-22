@@ -38,14 +38,9 @@
   /* Position the tooltip text - see examples below! */
   position: absolute;
 }
-
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
-
-
 .ellipsis {
   text-overflow:ellipsis;
   white-space:nowrap;
@@ -53,4 +48,6 @@
   width:185px;
   overflow:hidden;
 }
-
+input.edit-yeahap {
+  border-bottom: 2px solid orange;
+}
