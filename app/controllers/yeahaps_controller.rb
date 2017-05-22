@@ -69,7 +69,7 @@ class YeahapsController < ApplicationController
         render json: {result: "exist"}
       end
     else
-      render json: {result: "fail"}
+      render json: {result: "fai"}
     end
   end
 
