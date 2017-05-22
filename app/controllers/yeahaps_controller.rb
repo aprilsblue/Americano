@@ -60,7 +60,7 @@ class YeahapsController < ApplicationController
         page.save
       end
 
-      yeahap = Yeahap.where(page_id: page.id).take
+      yeahap = current_user.yeahaps.where(page_id: page.id).take
       if yeahap.nil?
         yeahap = Yeahap.new(yeahapbox_id: current_user.pick_basic_box.id, content: params[:content], user_id: current_user.id, page_id: page.id)
         yeahap.save
