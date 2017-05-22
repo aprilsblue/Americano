@@ -13,32 +13,37 @@
   </head>
 
   <body>
-    <!--Navbar show page-->
-    <header id="main_header" class="cf">
-      <div class="wrapper_wide">
-        <%= link_to root_path do %>
-          <%= image_tag asset_path("yeahap.png"), style: "height:25px" %>
-        <% end %>
-        <nav>
-          <ul>
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to "+ Yeahap", new_page_path %>
+  <!--Navbar show page-->
+  <header id="main_header" class="cf">
+    <div class="wrapper_wide">
+      <%= link_to root_path do %>
+        <%= image_tag asset_path("yeahap.png"), style: "height:25px" %>
+      <% end %>
+      <nav>
+        <ul>
+          <% if user_signed_in? %>
+            <li class="tooltip-menu">
+              <%= link_to new_yeahapbox_path do %>
+                <i class="fa fa-inbox" aria-hidden="true"></i>
+              <% end %>
+              <span class="tooltiptext-menu">new box</span>
+            </li>
+            <li class="tooltip-menu">
+              <%= link_to my_pages_path do %>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+              <% end %>
+              <span class="tooltiptext-menu">profile</span>
+            </li>
+            <li class="tooltip-menu">
+              <%= link_to destroy_user_session_path, method: "delete" do  %>
+                <i class="fa fa-power-off" aria-hidden="true"></i>
+              <% end %>
+              <span class="tooltiptext-menu">log out</span>
+            </li>
+          <% else %>
+            <li>
+                <%= link_to "Sign In / Sign Up", new_user_session_path %>
               </li>
-              <li>
-                <%= link_to "+ Box", new_yeahapbox_path %>
-              </li>
-              <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-              <li>
-                <%= link_to my_pages_path do %>
-                  <i class="fa fa-user-circle" aria-hidden="true"></i>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "Sign out", destroy_user_session_path, method: "delete"  %>
-              </li>
-            <% else %>
-              <li><%= link_to "Sign In / Sign Up", new_user_session_path %></li>
             <% end %>
           </ul>
         </nav>
