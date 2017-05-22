@@ -172,4 +172,29 @@ div.footer-copyright{
   }
 }
 
+.tooltip-menu {
+  border: transparent;
+}
+.tooltiptext-menu {
+  right: 5%;
+  top: 6%;
+  font-size: 15px;
+}
+
+.tooltip-menu .tooltiptext-menu {
+  visibility: hidden;
+  width: 70px;
+  height: 30px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.tooltip-menu:hover .tooltiptext-menu {
+  visibility: visible;
+}
+
 
