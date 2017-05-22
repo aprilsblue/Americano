@@ -1,7 +1,7 @@
 class YeahapsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :cors_allow_all, only: [:yeahap]
-  skip_before_filter :verify_authenticity_token, only: [:create, :check, :userCheck]
+  before_action :authenticate_user!, except: [:create, :userCheck]
+  before_action :cors_allow_all, only: [:create, :userCheck]
+  skip_before_filter :verify_authenticity_token, only: [:create, :userCheck]
 
   def cors_allow_all
     headers['Access-Control-Allow-Origin'] = '*'
@@ -60,7 +60,7 @@ class YeahapsController < ApplicationController
         page.save
       end
 
-      yeahap = Yeahap.where(page_id: page.id).take
+      yeahap = current_user.yeahaps.where(page_id: page.id).take
       if yeahap.nil?
         yeahap = Yeahap.new(yeahapbox_id: current_user.pick_basic_box.id, content: params[:content], user_id: current_user.id, page_id: page.id)
         yeahap.save
