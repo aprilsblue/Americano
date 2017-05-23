@@ -172,4 +172,39 @@ div.footer-copyright{
   }
 }
 
+.tooltip-menu {
+  display: inline-block;
+  border: transparent;
+  position: relative;
+}
+.tooltiptext-menu {
+  left: -27px;
+  top: 30px;
+  font-size: 15px;
+}
+//.tooltiptext1 {
+  //right: 125px;
+//}
+//.tooltiptext2 {
+  //right: 85px;
+//}
+//.tooltiptext3 {
+  //right: 40px;
+//}
+.tooltip-menu .tooltiptext-menu {
+  visibility: hidden;
+  width: 70px;
+  height: 30px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.tooltip-menu:hover .tooltiptext-menu {
+  visibility: visible;
+}
+
 

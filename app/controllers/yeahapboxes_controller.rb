@@ -5,7 +5,7 @@ class YeahapboxesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render xml: @yeahapbox }
-      #format.js '/yeahaps/new_yeahapbox.js'
+      format.js # new.js.erb
     end
   end
 
