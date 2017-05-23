@@ -3,28 +3,34 @@
     <div class="box-title-wrapper">
       <span class="box-title"> <%= b.title %> </span><span class="box-title-count">( <%= b.yeahaps.count %> )</span>
     </div>
-    <% b.yeahaps.each do |y| %>
-      <div class="page-block tooltip">
-        <%= link_to y.page.url, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-          <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
-          <span><%= y.content %></span>
-          <small class="text-muted ellipsis" >
-            <%= y.page.url %>
-          </small>
-        <% end %>
-        <span class="tooltiptext">
-          <center>
-            <%= link_to edit_yeahap_path(y.id), remote: true do%>
-              <span data-toggle="modal", data-target="#editModal">
-                <i class="fa fa-edit" aria-hidden="true"></i>
-              </span>
+    <ul class="yeahap-ul" id="box_<%= b.id %>">
+      <% b.yeahaps.each do |y| %>
+        <li class="yeahap-li" id="yeahap_<%= y.id  %>">
+          <div class="page-block tooltip">
+            <%= link_to y.page.url, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+              <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
+              <span><%= y.content %></span>
+              <small class="text-muted ellipsis" >
+                <%= y.page.url %>
+              </small>
             <% end %>
-            <%= link_to yeahap_path(y.id), method: "delete", remote: true, data: {confirm: "Are You Sure?"} do %>
-              <i class="fa fa-remove" aria-hidden="true"></i>
-            <% end %>
-          </center>
-        </span>
-      </div>
-    <% end %>
+            <span class="tooltiptext">
+              <center>
+                <%= link_to edit_yeahap_path(y.id), remote: true do%>
+                  <span data-toggle="modal", data-target="#editModal">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                  </span>
+                <% end %>
+                <%= link_to yeahap_path(y.id), method: "delete", remote: true, data: {confirm: "Are You Sure?"} do %>
+                  <i class="fa fa-remove" aria-hidden="true"></i>
+                <% end %>
+              </center>
+            </span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
+
+

@@ -1,6 +1,27 @@
 // Place all the styles related to the yeahaps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//
+//
+
+
+.yeahap-ul{
+  width: 100%;
+  min-height: 100px;
+}
+
+.yeahap-li{
+  float: left;
+}
+
+.yeahap-li-placeholder {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 224.5px;
+  height: 75.5px;
+  background-color: gray;
+}
 
 .box-title-wrapper {
   width: 100%;
