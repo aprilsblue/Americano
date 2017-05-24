@@ -108,10 +108,9 @@ class YeahapsController < ApplicationController
   end
 
 
-  # sort is making numbering within each yeahapas in yeahab box
   def sort
-    box_id = params[:box_id]
-    yeahap_target_id = params[:target_yeahap]
+    box_id = params[:box_id].to_i
+    yeahap_target_id = params[:target_yeahap].to_i
     yeahaps_count = Yeahapbox.find(box_id).yeahaps.count
     yeahaps_order = []
     params[:yeahaps].split("&").each do |y|
@@ -120,6 +119,8 @@ class YeahapsController < ApplicationController
 
     if yeahaps_count < yeahaps_order.count
       Yeahap.find(yeahap_target_id).update( {yeahapbox_id: box_id} )
+    else
+      yeahaps_order = yeahaps_order.drop(yeahap_target_id)
     end
 
     yeahaps_order.each_with_index do |id, index|
