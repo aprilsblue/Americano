@@ -107,8 +107,41 @@ class YeahapsController < ApplicationController
     end
   end
 
+
+  def sort
+    box_id = params[:box_id].to_i
+    yeahap_target_id = params[:target_yeahap].to_i
+    yeahaps_count = Yeahapbox.find(box_id).yeahaps.count
+    yeahaps_order = []
+    params[:yeahaps].split("&").each do |y|
+      yeahaps_order << y.split("=")[1]
+    end
+    @box_id = box_id
+    @yeahaps_count = yeahaps_count
+
+    if yeahaps_count < yeahaps_order.count
+      Yeahap.find(yeahap_target_id).update( {yeahapbox_id: box_id} )
+      @yeahaps_count += 1
+    else
+      if yeahaps_count == yeahaps_order.count
+      else
+        @yeahaps_count -= 1
+      end
+      yeahaps_order = yeahaps_order.drop(yeahap_target_id)
+    end
+
+    yeahaps_order.each_with_index do |id, index|
+      Yeahap.find(id).update( {position: index + 1} )
+    end
+
+    render "yeahaps/update_count.js.erb", format: :js
+  end
+
+
   private
   def yeahap_params
     params.require(:yeahap).permit(:content)
   end
+
 end
+
