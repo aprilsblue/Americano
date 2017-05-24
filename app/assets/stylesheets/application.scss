@@ -173,14 +173,24 @@ div.footer-copyright{
 }
 
 .tooltip-menu {
+  display: inline-block;
   border: transparent;
+  position: relative;
 }
 .tooltiptext-menu {
-  right: 5%;
-  top: 6%;
+  left: -27px;
+  top: 30px;
   font-size: 15px;
 }
-
+//.tooltiptext1 {
+  //right: 125px;
+//}
+//.tooltiptext2 {
+  //right: 85px;
+//}
+//.tooltiptext3 {
+  //right: 40px;
+//}
 .tooltip-menu .tooltiptext-menu {
   visibility: hidden;
   width: 70px;
