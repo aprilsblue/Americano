@@ -1,7 +1,7 @@
 <% yeahapbox.each do |b| %>
   <div class="row yeahapbox-row">
     <div class="box-title-wrapper">
-      <span class="box-title"> <%= b.title %> </span><span class="box-title-count">( <%= b.yeahaps.count %> )</span>
+      <span class="box-title"> <%= b.title %> </span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
     </div>
     <ul class="yeahap-ul" id="box_<%= b.id %>" data-update-url=<%= yeahaps_sort_path %>>
       <% b.yeahaps.order("position").each do |y| %>

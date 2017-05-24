@@ -1,3 +1,2 @@
-console.log(<%= @count_increase %>);
-console.log("real db count: " + <%= @yeahaps_count %>);
-console.log("view count: " + <%= @yeahaps_order %>);
+$("#box_count_"+<%= @box_id %>).text("( <%= @yeahaps_count %> )");
+
