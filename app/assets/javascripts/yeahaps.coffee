@@ -26,6 +26,7 @@ document.addEventListener "turbolinks:load", ->
       connectWith: ".yeahap-ul"
       placeholder: "yeahap-li-placeholder"
       start: ->
+        console.log("????????")
         $("#main_flash_message").text("drag and drop to sort your yeahaps")
         $("#main_flash_message").css("display", "inline")
       update: (event, ui) ->
@@ -34,7 +35,7 @@ document.addEventListener "turbolinks:load", ->
         $("#main_flash_message").hide()
       helper: (event, ui) ->
         $clone =  $(ui).clone()
-        $clone .css('position','absolute')
+        $clone.css('position','absolute')
         return $clone.get(0)
     return
   return
