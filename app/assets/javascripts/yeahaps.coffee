@@ -26,7 +26,6 @@ document.addEventListener "turbolinks:load", ->
       connectWith: ".yeahap-ul"
       placeholder: "yeahap-li-placeholder"
       start: ->
-        console.log("????????")
         $("#main_flash_message").text("drag and drop to sort your yeahaps")
         $("#main_flash_message").css("display", "inline")
       update: (event, ui) ->
