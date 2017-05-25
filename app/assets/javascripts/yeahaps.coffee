@@ -4,13 +4,12 @@
 document.addEventListener "turbolinks:load", ->
   $(document).on "click", ".title-counter", (event) ->
     child = $(this).children("span.box-title")
-    cursorPosition = child.prop("selectionStart")
-    console.log(cursorPosition)
     inner_text = child.text()
-    console.log(inner_text)
     box_id = child.attr("id")
-    $(this).prepend("<input class='title-edit-input' value='" + inner_text + "'/>")
-    $('.title-edit-input').focus()
+    $(this).prepend("<input class='title-edit-input'/>")
+    focus_input = $('.title-edit-input')
+    focus_input.focus()
+    focus_input.val(inner_text)
     child.remove()
     $('html').one('click', (e) ->
       edit_text = $('.title-edit-input').val()
