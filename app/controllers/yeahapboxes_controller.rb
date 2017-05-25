@@ -36,11 +36,8 @@ class YeahapboxesController < ApplicationController
   end
 
   def edit
-    @box = Yeahapbox.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    puts "hi edit controller " + params[:box_id]
+    render nothing: true
   end
 
   def update
