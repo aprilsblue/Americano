@@ -70,3 +70,16 @@ input.edit-yeahap {
   border-bottom: 2px solid orange;
   padding-bottom: 0;
 }
+div.title-counter {
+  display: inline-block;
+}
+.box-title {
+  margin-right: 0.5rem;
+}
+input.title-edit-input {
+  outline: 3px solid orange;
+  position: relative;
+  left: 2px;
+  margin-right: 0.5rem;
+  width: 150px;
+}
