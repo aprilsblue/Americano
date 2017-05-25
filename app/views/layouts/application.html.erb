@@ -13,44 +13,49 @@
   </head>
 
   <body>
-  <!--Navbar show page-->
-  <header id="main_header" class="cf">
-    <div class="wrapper_wide">
-      <%= link_to root_path do %>
-        <%= image_tag asset_path("yeahap.png"), style: "height:25px" %>
-      <% end %>
-      <nav>
-        <ul>
-          <% if user_signed_in? %>
-            <li class="tooltip-menu">
-              <%= link_to new_yeahapbox_path, remote: true do %>
-                <i class="fa fa-inbox"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
+    <!--Navbar show page-->
+    <header id="main_header" class="cf">
+      <div class="wrapper_wide">
+        <%= link_to root_path do %>
+          <%= image_tag asset_path("yeahap.png"), style: "height:25px" %>
+        <% end %>
+        <nav>
+          <ul>
+            <% if user_signed_in? %>
+              <% unless params[:controller] == "my_pages" %>
+                <li class="tooltip-menu">
+                  <%= link_to new_yeahapbox_path, remote: true do %>
+                    <i class="fa fa-inbox"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
+                  <% end %>
+                  <span class="tooltiptext-menu tooltiptext1">new box</span>
+                </li>
+                <li class="tooltip-menu">
+                  <%= link_to my_pages_path do %>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                  <% end %>
+                  <span class="tooltiptext-menu tooltiptext2">profile</span>
+                </li>
               <% end %>
-              <span class="tooltiptext-menu tooltiptext1">new box</span>
-            </li>
-            <li class="tooltip-menu">
-              <%= link_to my_pages_path do %>
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-              <% end %>
-              <span class="tooltiptext-menu tooltiptext2">profile</span>
-            </li>
-            <li class="tooltip-menu">
-              <%= link_to destroy_user_session_path, method: "delete" do  %>
-                <i class="fa fa-power-off" aria-hidden="true"></i>
-              <% end %>
-              <span class="tooltiptext-menu tooltiptext3">log out</span>
-            </li>
-          <% else %>
-            <li>
-                <%= link_to "Sign In / Sign Up", new_user_session_path %>
+              <li class="tooltip-menu">
+                <%= link_to destroy_user_session_path, method: "delete" do  %>
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                <% end %>
+                <span class="tooltiptext-menu tooltiptext3">log out</span>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to new_user_session_path do %>
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                <% end %>
               </li>
             <% end %>
           </ul>
         </nav>
       </div>
     </header>
-  <!--/.Navbar-->
-    <%= yield %>
+    <!--/.Navbar-->
+
+  <%= yield %>
 
   </body>
 </html>
