@@ -1,38 +1,42 @@
-<% yeahapbox.each do |b| %>
-  <div class="row yeahapbox-row">
-    <div class="box-title-wrapper">
-      <div class="title-counter">
-        <span class="box-title" id="title_<%= b.id %>" ><%=b.title%></span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
-      </div>
-    </div>
-    <ul class="yeahap-ul" id="box_<%= b.id %>" data-update-url=<%= yeahaps_sort_path %>>
-      <% b.yeahaps.order("position").each do |y| %>
-        <%= content_tag_for :li, y, class: 'yeahap-li' do %>
-          <div class="page-block tooltip">
-            <%= link_to y.page.url, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-              <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
-              <span><%= y.content %></span>
-              <small class="text-muted ellipsis" >
-                <%= y.page.url %>
-              </small>
-            <% end %>
-            <span class="tooltiptext">
-              <center>
-                <%= link_to edit_yeahap_path(y.id), remote: true do%>
-                  <span data-toggle="modal", data-target="#modal">
-                    <i class="fa fa-edit" aria-hidden="true"></i>
-                  </span>
-                <% end %>
-                <%= link_to yeahap_path(y.id), method: "delete", remote: true, data: {confirm: "Are You Sure?"} do %>
-                  <i class="fa fa-remove" aria-hidden="true"></i>
-                <% end %>
-              </center>
-            </span>
+<ul class = "box-ul">
+  <% yeahapbox.each do |b| %>
+    <%= content_tag_for :li, b, class: 'box-li' do %>
+      <div class="row yeahapbox-row">
+        <div class="box-title-wrapper">
+          <div class="title-counter">
+            <span class="box-title" id="title_<%= b.id %>" ><%=b.title%></span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
           </div>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+        </div>
+        <ul class="yeahap-ul" id="box_<%= b.id %>" data-update-url=<%= yeahaps_sort_path %>>
+          <% b.yeahaps.order("position").each do |y| %>
+            <%= content_tag_for :li, y, class: 'yeahap-li' do %>
+              <div class="page-block tooltip">
+                <%= link_to y.page.url, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+                  <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
+                  <span><%= y.content %></span>
+                  <small class="text-muted ellipsis" >
+                    <%= y.page.url %>
+                  </small>
+                <% end %>
+                <span class="tooltiptext">
+                  <center>
+                    <%= link_to edit_yeahap_path(y.id), remote: true do%>
+                      <span data-toggle="modal", data-target="#modal">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                      </span>
+                    <% end %>
+                    <%= link_to yeahap_path(y.id), method: "delete", remote: true, data: {confirm: "Are You Sure?"} do %>
+                      <i class="fa fa-remove" aria-hidden="true"></i>
+                    <% end %>
+                  </center>
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
 
 
