@@ -27,8 +27,7 @@ class YeahapboxesController < ApplicationController
 
   def destroy
     @box = Yeahapbox.find(params[:id])
-    @box = Yeahapbox.destroy
-
+    @box.destroy
     respond_to do |format|
       flash[:notice] = 'Yeahap Box was successfully deleted.'
       format.html { redirect_to root_path }
@@ -38,6 +37,12 @@ class YeahapboxesController < ApplicationController
   def update
     @box = Yeahapbox.find(params[:box_id]).update(title: params[:box_title])
     render nothing: true
+  end
+
+  def sort
+    params[:yeahapbox].each_with_index do |id, index|
+      Yeahapbox.find(id).update( {position: index + 1} )
+    end
   end
 
   private

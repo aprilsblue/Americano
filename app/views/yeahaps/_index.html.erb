@@ -1,11 +1,17 @@
-<ul class = "box-ul">
-  <% yeahapbox.each do |b| %>
+<ul class="box-ul">
+  <% yeahapbox.order("position").each do |b| %>
     <%= content_tag_for :li, b, class: 'box-li' do %>
       <div class="row yeahapbox-row">
         <div class="box-title-wrapper">
+          <span class ="handler box-toolbar">
+            <i class="fa fa-sort handler" aria-hidden="true"></i>
+          </span>
           <div class="title-counter">
             <span class="box-title" id="title_<%= b.id %>" ><%=b.title%></span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
           </div>
+          <span class="delete-box box-toolbar" id="delete_<%= b.id %>">
+            <i class="fa fa-trash trash" aria-hidden="true"></i>
+          </span>
         </div>
         <ul class="yeahap-ul" id="box_<%= b.id %>" data-update-url=<%= yeahaps_sort_path %>>
           <% b.yeahaps.order("position").each do |y| %>
