@@ -37,4 +37,14 @@ class MyPagesController < ApplicationController
       format.xml  { render xml: @my_pages }
     end
   end
+
+  def destroy
+    @friend = UserFriend.where(follower_id: current_user.id, followee_id: params[:id]).take
+    @friend.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(my_pages_url) }
+      format.xml  { head :ok }
+    end
+  end
 end
