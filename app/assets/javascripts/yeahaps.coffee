@@ -2,6 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #document.addEventListener "turbolinks:load", ->
+$(document).on "click", ".delete-box", ->
+  box_id = this.id.split("_")[1]
+  box_count = $("#box_count_" + box_id).text().split(" ")[1]
+  if box_count != '0'
+    alert("Please, make empty the box to remove it")
+  else if confirm("Are you sure?")
+    $.post("yeahapboxes/destroy", {id: box_id})
+  return
 
 $(document).on "click", ".title-counter", (event) ->
   child = $(this).children("span.box-title")

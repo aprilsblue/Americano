@@ -27,8 +27,7 @@ class YeahapboxesController < ApplicationController
 
   def destroy
     @box = Yeahapbox.find(params[:id])
-    @box = Yeahapbox.destroy
-
+    @box.destroy
     respond_to do |format|
       flash[:notice] = 'Yeahap Box was successfully deleted.'
       format.html { redirect_to root_path }
