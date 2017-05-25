@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523175451) do
+ActiveRecord::Schema.define(version: 20170525075404) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -90,9 +90,11 @@ ActiveRecord::Schema.define(version: 20170523175451) do
     t.integer  "user_id"
     t.integer  "page_id"
     t.integer  "yeahapbox_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "position",     default: 0
+    t.boolean  "is_public",    default: true
+    t.string   "favicon_url",  default: "default"
     t.index ["page_id"], name: "index_yeahaps_on_page_id"
     t.index ["user_id"], name: "index_yeahaps_on_user_id"
     t.index ["yeahapbox_id"], name: "index_yeahaps_on_yeahapbox_id"
