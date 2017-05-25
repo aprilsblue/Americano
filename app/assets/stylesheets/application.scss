@@ -207,4 +207,16 @@ div.footer-copyright{
   visibility: visible;
 }
 
+#main_flash_message {
+  display: none;
+  width: 300px;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+  font-size: 15px;
+}
 
+// a link inherit!!
+a { color: inherit; } 

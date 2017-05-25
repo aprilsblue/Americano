@@ -19,6 +19,9 @@
       <%= link_to root_path do %>
         <%= image_tag asset_path("yeahap.png"), style: "height:25px" %>
       <% end %>
+      <div id="main_flash_message" class="badge badge-primary">
+        message
+      </div>
       <nav>
         <ul>
           <% if user_signed_in? %>
