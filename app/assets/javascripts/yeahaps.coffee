@@ -6,7 +6,8 @@ document.addEventListener "turbolinks:load", ->
     child = $(this).children("span.box-title")
     inner_text = child.text()
     box_id = child.attr("id")
-    $(this).prepend("<input class='title-edit-input'/>")
+    class_name = "title-edit-input"
+    $(this).prepend("<input class='title-edit-input' onkeydown='if(event.keyCode == 13) this.click();'/>")
     focus_input = $('.title-edit-input')
     focus_input.focus()
     focus_input.val(inner_text)
