@@ -206,6 +206,19 @@ div.footer-copyright{
 .tooltip-menu:hover .tooltiptext-menu {
   visibility: visible;
 }
-.orange {
-  color: orange;
+
+#main_flash_message {
+  display: none;
+  width: 300px;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+  font-size: 15px;
+  background-color: orange;
+  color: white;
 }
+
+// a link inherit!!
+a { color: inherit; } 

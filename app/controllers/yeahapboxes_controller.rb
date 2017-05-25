@@ -35,27 +35,9 @@ class YeahapboxesController < ApplicationController
     end
   end
 
-  def edit
-    @box = Yeahapbox.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   def update
-    @box = Yeahapbox.find(params[:id])
-
-    respond_to do |format|
-      if @box.update(title: yeahapbox_params[:title])
-        flash[:notice] = 'Yeahapbox was successfully updated.'
-        format.html { redirect_to(root_path) }
-        format.xml  { head :ok }
-      else
-        format.html { render action: 'edit' }
-        format.xml  { render xml: @post.errors, status: :unprocessable_entity }
-      end
-    end
+    @box = Yeahapbox.find(params[:box_id]).update(title: params[:box_title])
+    render nothing: true
   end
 
   private
