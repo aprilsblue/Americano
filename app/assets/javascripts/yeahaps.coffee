@@ -6,7 +6,8 @@ document.addEventListener "turbolinks:load", ->
     child = $(this).children("span.box-title")
     inner_text = child.text()
     box_id = child.attr("id")
-    $(this).prepend("<input class='title-edit-input'/>")
+    class_name = "title-edit-input"
+    $(this).prepend("<input class='title-edit-input' onkeydown='if(event.keyCode == 13) this.click();'/>")
     focus_input = $('.title-edit-input')
     focus_input.focus()
     focus_input.val(inner_text)
@@ -25,6 +26,7 @@ document.addEventListener "turbolinks:load", ->
       connectWith: ".yeahap-ul"
       placeholder: "yeahap-li-placeholder"
       start: ->
+        console.log("????????")
         $("#main_flash_message").text("drag and drop to sort your yeahaps")
         $("#main_flash_message").css("display", "inline")
       update: (event, ui) ->
@@ -33,7 +35,7 @@ document.addEventListener "turbolinks:load", ->
         $("#main_flash_message").hide()
       helper: (event, ui) ->
         $clone =  $(ui).clone()
-        $clone .css('position','absolute')
+        $clone.css('position','absolute')
         return $clone.get(0)
     return
   return
