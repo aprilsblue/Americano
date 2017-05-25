@@ -1,7 +1,21 @@
 // Place all the styles related to the yeahaps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.box-title-wrapper:hover .box-toolbar {
+  visibility: visible;
+}
+
+.box-toolbar {
+  visibility: hidden;
+}
+
+.handler {
+  cursor: move;
+}
+
 .yeahap-ul{
+  margin-left: 15px;
   width: 100%;
   min-height: 100px;
 }
