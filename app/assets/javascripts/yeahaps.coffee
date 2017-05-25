@@ -4,8 +4,11 @@
 document.addEventListener "turbolinks:load", ->
   $(document).on "click", ".title-counter", (event) ->
     child = $(this).children("span.box-title")
+    cursorPosition = child.prop("selectionStart")
+    console.log(cursorPosition)
     inner_text = child.text()
-    box_id = child.id
+    console.log(inner_text)
+    box_id = child.attr("id")
     $(this).prepend("<input class='title-edit-input' value='" + inner_text + "'/>")
     $('.title-edit-input').focus()
     child.remove()
@@ -13,7 +16,7 @@ document.addEventListener "turbolinks:load", ->
       edit_text = $('.title-edit-input').val()
       $('.title-edit-input').parent("div").prepend("<span class='box-title' id=" + box_id + ">" + edit_text +  "</span>")
       $('.title-edit-input').remove()
-      #$.post('yeahapboxes/edit', {box_id: this.id.split("_")[1]})
+      $.post('yeahapboxes/update', {box_id: box_id.split("_")[1], box_title: edit_text})
     )
     event.stopPropagation()
     return
@@ -29,5 +32,9 @@ document.addEventListener "turbolinks:load", ->
         $.post($(this).data('update-url'),{target_yeahap: $(ui.item).attr("id").split('_')[1], yeahaps: $(this).sortable('serialize'), box_id: this.id.split("_")[1] })
       stop: ->
         $("#main_flash_message").hide()
+      helper: (event, ui) ->
+        $clone =  $(ui).clone()
+        $clone .css('position','absolute')
+        return $clone.get(0)
     return
   return

@@ -2,7 +2,7 @@
   <div class="row yeahapbox-row">
     <div class="box-title-wrapper">
       <div class="title-counter">
-        <span class="box-title" id="title_<%= b.id %>" > <%= b.title %> </span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
+        <span class="box-title" id="title_<%= b.id %>" ><%=b.title%></span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
       </div>
     </div>
     <ul class="yeahap-ul" id="box_<%= b.id %>" data-update-url=<%= yeahaps_sort_path %>>

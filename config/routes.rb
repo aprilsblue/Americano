@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'yeahaps/check' => 'yeahaps#check'
   post 'yeahaps/userCheck' => 'yeahaps#userCheck'
   post 'yeahaps/sort' => 'yeahaps#sort'
-  post 'yeahapboxes/edit' => 'yeahapboxes#edit'
+  post 'yeahapboxes/update' => 'yeahapboxes#update'
 
   devise_for :users
   resources :yeahaps, except: [:create, :new, :show]
