@@ -36,5 +36,22 @@ document.addEventListener "turbolinks:load", ->
         $clone =  $(ui).clone()
         $clone.css('position','absolute')
         return $clone.get(0)
+
+    $('ul.box-ul').sortable
+      axis: 'y'
+      handle: '.handler'
+      placeholder: "box-li-placeholder"
+      start: ->
+        $("#main_flash_message").text("drag and drop to sort your boxs")
+        $("#main_flash_message").css("display", "inline")
+      update: ->
+        $.post('yeahapboxes/sort', $(this).sortable('serialize'))
+      stop: ->
+        $("#main_flash_message").hide()
+      helper: (event, ui) ->
+        $clone =  $(ui).clone()
+        $clone.css('position','absolute')
+        return $clone.get(0)
+
     return
   return

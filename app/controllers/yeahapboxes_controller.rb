@@ -40,6 +40,12 @@ class YeahapboxesController < ApplicationController
     render nothing: true
   end
 
+  def sort
+    params[:yeahapbox].each_with_index do |id, index|
+      Yeahapbox.find(id).update( {position: index + 1} )
+    end
+  end
+
   private
   def yeahapbox_params
     params.require(:yeahapbox).permit(:user_id, :title)

@@ -1,8 +1,11 @@
-<ul class = "box-ul">
-  <% yeahapbox.each do |b| %>
+<ul class="box-ul">
+  <% yeahapbox.order("position").each do |b| %>
     <%= content_tag_for :li, b, class: 'box-li' do %>
       <div class="row yeahapbox-row">
         <div class="box-title-wrapper">
+          <div class="handler">
+            [drag]
+          </div>
           <div class="title-counter">
             <span class="box-title" id="title_<%= b.id %>" ><%=b.title%></span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.count %> )</span>
           </div>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'yeahaps/userCheck' => 'yeahaps#userCheck'
   post 'yeahaps/sort' => 'yeahaps#sort'
   post 'yeahapboxes/update' => 'yeahapboxes#update'
+  post 'yeahapboxes/sort' => 'yeahapboxes#sort'
 
   delete 'my_pages/destroy/:id' => 'my_pages#destroy', as: :destroy_followee
 
