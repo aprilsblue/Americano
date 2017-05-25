@@ -5,15 +5,10 @@
 #
 document.addEventListener "turbolinks:load", ->
 
-  jQuery ->
-    $('ul.yeahap-ul').sortable
-      connectWith: ".yeahap-ul"
-      placeholder: "yeahap-li-placeholder"
-      update: (event, ui) ->
-        $.post($(this).data('update-url'),{target_yeahap: $(ui.item).attr("id").split('_')[1], yeahaps: $(this).sortable('serialize'), box_id: this.id.split("_")[1] })
-    return
+  $('ul.yeahap-ul').sortable
+    connectWith: ".yeahap-ul"
+    placeholder: "yeahap-li-placeholder"
+    update: (event, ui) ->
+      $.post($(this).data('update-url'),{target_yeahap: $(ui.item).attr("id").split('_')[1], yeahaps: $(this).sortable('serialize'), box_id: this.id.split("_")[1] })
 
   return
-
-
-
