@@ -17,12 +17,14 @@ Rails.application.routes.draw do
   post 'yeahaps/userCheck' => 'yeahaps#userCheck'
   post 'yeahaps/sort' => 'yeahaps#sort'
   post 'yeahapboxes/update' => 'yeahapboxes#update'
+  post 'yeahapboxes/sort' => 'yeahapboxes#sort'
+  post 'yeahapboxes/destroy' => 'yeahapboxes#destroy'
 
   delete 'my_pages/destroy/:id' => 'my_pages#destroy', as: :destroy_followee
 
   devise_for :users
   resources :yeahaps, except: [:create, :new, :show]
-  resources :yeahapboxes, except: [:index, :edit, :show]
+  resources :yeahapboxes, except: [:destroy, :index, :edit, :show]
   resources :pages, only: [:create, :new]
   resources :my_pages
   resources :my_notes do

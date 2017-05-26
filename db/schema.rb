@@ -104,8 +104,9 @@ ActiveRecord::Schema.define(version: 20170525170449) do
   create_table "yeahapboxes", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "position",   default: 0
     t.index ["user_id"], name: "index_yeahapboxes_on_user_id"
   end
 

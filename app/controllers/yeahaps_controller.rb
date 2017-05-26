@@ -119,6 +119,7 @@ class YeahapsController < ApplicationController
     params[:yeahaps].split("&").each do |y|
       yeahaps_order << y.split("=")[1]
     end
+
     @box_id = box_id
     @yeahaps_count = yeahaps_count
 
@@ -129,8 +130,8 @@ class YeahapsController < ApplicationController
       if yeahaps_count == yeahaps_order.count
       else
         @yeahaps_count -= 1
+        yeahaps_order = yeahaps_order.drop(yeahap_target_id)
       end
-      yeahaps_order = yeahaps_order.drop(yeahap_target_id)
     end
 
     yeahaps_order.each_with_index do |id, index|
