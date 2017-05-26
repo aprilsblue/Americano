@@ -1,9 +1,13 @@
 <div class="container">
-  <%= render partial: 'index', locals: { notices: @notices } %>
-  <% if admin_signed_in? %>
-    <div class="text-center btn-wrapper">
-      <%= link_to "New", new_notice_path, class: "btn-yeahap-link" %>
-      <%= link_to "Home", root_path, class: "btn-yeahap-cancel" %>
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <%= render partial: 'index', locals: { notices: @notices } %>
+      <% if admin_signed_in? %>
+        <div class="text-center btn-wrapper">
+          <%= link_to "New", new_notice_path, class: "btn-yeahap-link" %>
+          <%= link_to "Home", root_path, class: "btn-yeahap-cancel" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

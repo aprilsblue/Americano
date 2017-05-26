@@ -24,13 +24,15 @@
         <nav>
           <ul>
             <% if user_signed_in? %>
-              <% unless params[:controller] == "my_pages" %>
+              <% unless params[:controller] == "my_pages" || params[:controller] == "notices" %>
                 <li class="tooltip-menu">
                   <%= link_to new_yeahapbox_path, remote: true do %>
                     <i class="fa fa-inbox"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
                   <% end %>
                   <span class="tooltiptext-menu">new box</span>
                 </li>
+              <% end %>
+              <% unless params[:controller] == "my_pages" %>
                 <li class="tooltip-menu">
                   <%= link_to my_pages_path do %>
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
