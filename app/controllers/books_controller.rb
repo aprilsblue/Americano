@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [ :landing, :index ]
+  before_action :authenticate_any!, except: [ :landing, :index ]
 
   def about
     render layout: false
@@ -10,9 +10,7 @@ class BooksController < ApplicationController
 
     if user_signed_in?
       session[:current_user_id] = current_user.id
-      puts "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
       puts session[:current_user_id]
-      puts "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"
     end
 
     respond_to do |format|

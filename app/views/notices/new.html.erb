@@ -1,0 +1,10 @@
+<div class="container">
+  <%= form_for @notice, html: {class: "md-form"} do |f| %>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_area :content, class: "notice-textarea" %>
+    <div class="text-center btn-wrapper">
+      <%= f.submit :submit, class: "btn-yeahap-link" %>
+      <%= link_to "back", :back, class: "btn-yeahap-cancel" %>
+    </div>
+  <% end %>
+</div>

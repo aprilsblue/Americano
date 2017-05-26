@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   root 'yeahaps#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
   resources :my_notes do
     collection { post :sort }
   end
+  resources :notices
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

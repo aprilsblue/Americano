@@ -1,7 +1,7 @@
 require 'json'
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :test, :check]
+  before_action :authenticate_any!, except: [:show, :test, :check]
   before_action :cors_allow_all, only: [:test, :check]
   skip_before_filter :verify_authenticity_token, only: [:test]
 

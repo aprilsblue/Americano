@@ -1,0 +1,85 @@
+// Place all the styles related to the notices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.table-notice {
+  border: 1px solid orange;
+  thead {
+    th {
+      text-align: center;
+      background-color: orange;
+      color: white;
+    }
+  }
+  tbody {
+    tr {
+      td {
+        text-align: center;
+      }
+    }
+  }
+}
+.btn-yeahap-link {
+  display: inline-block;
+  height: 40px;
+  width: 80px;
+  line-height: 44px;
+  color: white;
+  background-color: orange;
+}
+.btn-yeahap-link:hover {
+  line-height: 40px;
+  color: orange;
+  background-color: white;
+  border: 2px solid orange;
+}
+input.btn-yeahap-link {
+  display: inline-block;
+  height: 40px;
+  width: 80px;
+  line-height: 40px;
+  color: white;
+  background-color: orange;
+  border: none;
+}
+input.btn-yeahap-link:hover {
+  line-height: 36px;
+  color: orange;
+  background-color: white;
+  border: 2px solid orange;
+}
+.btn-yeahap-cancel {
+  display: inline-block;
+  height: 40px;
+  width: 80px;
+  line-height: 40px;
+  color: orange;
+  background-color: white;
+  border: 2px solid orange;
+}
+.btn-yeahap-cancel:hover {
+  line-height: 44px;
+  color: white;
+  background-color: orange;
+  border: none;
+}
+.btn-wrapper {
+  margin: 1rem;
+  a {
+    display: inline-block;
+  }
+}
+.notice-textarea {
+  border: 1px solid orange;
+  height: 300px;
+  padding: 10px;
+}
+.yeahap-hr {
+  border-color: orange;
+}
+.notice-date {
+  margin-right: 1rem;
+  color: #aaa;
+}
+.notice-content {
+  margin-bottom: 3rem;
+}

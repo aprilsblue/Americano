@@ -1,5 +1,5 @@
 class YeahapsController < ApplicationController
-  before_action :authenticate_user!, except: [:create, :userCheck]
+  before_action :authenticate_any!, except: [:create, :userCheck]
   before_action :cors_allow_all, only: [:create, :userCheck]
   skip_before_filter :verify_authenticity_token, only: [:create, :userCheck]
 
@@ -11,11 +11,14 @@ class YeahapsController < ApplicationController
   end
 
   def index
-    @yeahapbox = Yeahapbox.where(user_id: current_user.id).all
-    @yeahaps = Yeahap.where(user_id: current_user.id).all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render xml: @yeahps }
+    if admin_signed_in?
+    else
+      @yeahapbox = Yeahapbox.where(user_id: current_user.id).all
+      @yeahaps = Yeahap.where(user_id: current_user.id).all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render xml: @yeahps }
+      end
     end
   end
 

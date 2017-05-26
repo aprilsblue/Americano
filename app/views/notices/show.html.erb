@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row marginBottom50">
+    <div class="col-lg-10 offset-lg-1">
+      <h1><%= @notice.title %></h1>
+      <hr class="yeahap-hr">
+      <p class="text-right notice-date"><%= @notice.created_at.strftime("%y-%m-%d") %></p>
+      <div class="notice-content">
+        <%= simple_format(@notice.content) %>
+      </div>
+      <div class="text-center btn-wrapper">
+        <%= link_to "Back", :back, class: "btn-yeahap-link" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <%= render partial: 'index', locals: { notices: @notices } %>
+    </div>
+  </div>
+</div>

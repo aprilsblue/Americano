@@ -1,22 +1,27 @@
-<div class="container">
-  <%= render partial: 'index', locals: { yeahapbox: @yeahapbox } %>
-</div>
+<% if admin_signed_in? %>
+  <div class="container text-center">
+    <h2 >Admin Page</h2>
+  </div>
+<% else %>
+  <div class="container">
+    <%= render partial: 'index', locals: { yeahapbox: @yeahapbox } %>
+  </div>
 
-<!--edit Modal -->
-<div class="modal fade scrap-modal" id="modal" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title"><b>Description</b></h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <center>
-          <div class="edit-form">
-          </div>
-        </center>
+  <!--edit Modal -->
+  <div class="modal fade scrap-modal" id="modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><b>Description</b></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <center>
+            <div class="edit-form">
+            </div>
+          </center>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
+<% end %>
