@@ -1,3 +1,5 @@
+@import "variables";
+
 .user-view-size{
   width: 300px;
 }
@@ -11,14 +13,14 @@
   margin: auto;
 }
 .btn-yeahap {
-  background-color: orange;
+  background-color: $main_color;
   color: white;
   padding: 13px 115px;
   border: none;
   margin: 1rem 0;
 }
 .btn-yeahap2 {
-  background-color: orange;
+  background-color: $main_color;
   color: white;
   padding: 13px 10px;
   border: none;
@@ -27,6 +29,6 @@
 
 .md-form {
   input {
-    border-bottom: 1px solid orange;
+    border-bottom: 1px solid $main_color;
   }
 }
