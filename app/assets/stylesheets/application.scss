@@ -216,8 +216,9 @@ div.footer-copyright{
   left: 0;
   right: 0;
   font-size: 15px;
-  background-color: orange;
+  background-color: $main_color;
   color: white;
+  z-index: 100;
 }
 
 // a link inherit!!
