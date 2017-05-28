@@ -30,9 +30,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # mailer setting 
+  # mailer setting
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     :address => "email-smtp.us-west-2.amazonaws.com",
     :port => 587,
