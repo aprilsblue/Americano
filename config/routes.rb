@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
   root 'yeahaps#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -22,7 +21,9 @@ Rails.application.routes.draw do
 
   delete 'my_pages/destroy/:id' => 'my_pages#destroy', as: :destroy_followee
 
-  devise_for :users
+  devise_for :admins, path: '/yeahapadmin'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   resources :yeahaps, except: [:create, :new, :show]
   resources :yeahapboxes, except: [:destroy, :index, :edit, :show]
   resources :pages, only: [:create, :new]

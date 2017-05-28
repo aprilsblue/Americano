@@ -21,6 +21,9 @@
 
     <div class="actions text-center">
       <%= f.submit "Log in", class: "btn-yeahap" %>
+      <%= link_to user_facebook_omniauth_authorize_path do %>
+        <%= image_tag asset_path("facebook-login-button2.png"), class: "facebook-login-button" %>
+      <% end %>
     </div>
   <% end %>
 
