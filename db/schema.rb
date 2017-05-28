@@ -95,6 +95,10 @@ ActiveRecord::Schema.define(version: 20170525174659) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -118,7 +122,7 @@ ActiveRecord::Schema.define(version: 20170525174659) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "position",     default: 0
-    t.boolean  "is_public",    default: true
+    t.boolean  "is_public",    default: false
     t.string   "favicon_url",  default: "default"
     t.index ["page_id"], name: "index_yeahaps_on_page_id"
     t.index ["user_id"], name: "index_yeahaps_on_user_id"

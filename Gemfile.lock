@@ -243,6 +243,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    mysql2 (0.4.5)
     nested_form (0.3.2)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
@@ -374,6 +375,7 @@ DEPENDENCIES
   jquery-turbolinks
   listen (~> 3.0.5)
   mini_magick
+  mysql2
   non-stupid-digest-assets
   puma (~> 3.0)
   rails (~> 5.0.1)
