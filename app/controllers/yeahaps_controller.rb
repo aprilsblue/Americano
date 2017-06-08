@@ -1,7 +1,7 @@
 class YeahapsController < ApplicationController
-  before_action :authenticate_any!, except: [:create, :userCheck]
-  before_action :cors_allow_all, only: [:create, :userCheck]
-  skip_before_filter :verify_authenticity_token, only: [:create, :userCheck]
+  before_action :authenticate_any!, except: [:create, :exportBookmark, :userCheck]
+  before_action :cors_allow_all, only: [:create, :exportBookmark, :userCheck]
+  skip_before_filter :verify_authenticity_token, only: [:create, :exportBookmark, :userCheck]
 
   def cors_allow_all
     headers['Access-Control-Allow-Origin'] = '*'
@@ -72,7 +72,44 @@ class YeahapsController < ApplicationController
         render json: {result: "exist"}
       end
     else
-      render json: {result: "fai"}
+      render json: {result: "fail"}
+    end
+  end
+
+  def create_helper(bookmark, directories)
+    data = bookmark.split("|&D&|")
+    box_title = directories[data[2].to_s]
+    box_id = Yeahapbox.where(user_id: current_user.id, title: box_title).first.id
+
+    page = Page.where(url: data[0]).take
+    if page.nil?
+      page = Page.new(url: data[0])
+      page.save
+    end
+    yeahap = current_user.yeahaps.where(page_id: page.id).take
+    if yeahap.nil?
+      yeahap = Yeahap.new(yeahapbox_id: box_id, content: data[1], user_id: current_user.id, page_id: page.id)
+      yeahap.save
+    end
+  end
+
+  def exportBookmark
+    if user_signed_in?
+      render json: {result: "succees"}
+      bookmarks = JSON.parse(params[:bookmarks])
+      directories = JSON.parse(params[:directory])
+
+      #make yeahapbox
+      directories.each do |key, value|
+        Yeahapbox.create(user_id: current_user.id, title: value)
+      end
+
+      bookmarks.each do |bookmark|
+        create_helper(bookmark, directories)
+      end
+
+    else
+      render json: {result: "fail"}
     end
   end
 
