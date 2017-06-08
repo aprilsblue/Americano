@@ -19,7 +19,7 @@
               <div class="page-block tooltip">
                 <%= link_to "http://#{y.page.url}", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
                   <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
-                  <span><%= y.content %></span>
+                  <span class="ellipsis"><%= y.content == "" ? "no title" : y.content %></span>
                   <small class="text-muted ellipsis" >
                     <%= y.page.url %>
                   </small>
