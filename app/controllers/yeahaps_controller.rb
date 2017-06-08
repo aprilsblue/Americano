@@ -81,9 +81,9 @@ class YeahapsController < ApplicationController
     box_title = directories[data[2].to_s]
     box_id = Yeahapbox.where(user_id: current_user.id, title: box_title).first.id
 
-    page = Page.where(url: data[0]).take
+    page = Page.where(url: data[0].split("://")[1]).take
     if page.nil?
-      page = Page.new(url: data[0])
+      page = Page.new(url: data[0].split("://")[1])
       page.save
     end
     yeahap = current_user.yeahaps.where(page_id: page.id).take
