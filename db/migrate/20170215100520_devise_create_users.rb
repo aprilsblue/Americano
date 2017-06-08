@@ -3,6 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
+      t.string :name,               default: ""
       t.string :encrypted_password, null: false, default: ""
       t.integer :caffeine
 
@@ -25,6 +26,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.datetime :confirmed_at
       t.datetime :confirmation_sent_at
       t.string   :unconfirmed_email # Only if using reconfirmable
+
+      ## auth
+      t.string :provider
+      t.string :uid
+      t.string :image
 
       ## Lockable
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts

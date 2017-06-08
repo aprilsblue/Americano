@@ -15,18 +15,22 @@
 .btn-yeahap {
   background-color: $main_color;
   color: white;
-  padding: 13px 115px;
+  width: 260px;
+  padding: 11px 0;
   border: none;
   margin: 1rem 0;
 }
 .btn-yeahap2 {
   background-color: $main_color;
   color: white;
-  padding: 13px 10px;
+  padding: 11px 10px;
   border: none;
   margin: 1rem 0;
 }
-
+.facebook-login-button {
+  width: 260px;
+  height: 40px;
+}
 .md-form {
   input {
     border-bottom: 1px solid $main_color;
