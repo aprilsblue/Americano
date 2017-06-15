@@ -18,11 +18,12 @@
             <%= content_tag_for :li, y, class: 'yeahap-li' do %>
               <div class="page-block tooltip">
                 <%= link_to "http://#{y.page.url}", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-                  <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
-                  <span><%= y.content %></span>
+                  <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%> <span><%= y.content %></span>
+                  <!--
                   <small class="text-muted ellipsis" >
-                    <%= y.page.url %>
+                    <%#= y.page.url %>
                   </small>
+                  -->
                 <% end %>
                 <span class="tooltiptext">
                   <center>

@@ -25,7 +25,7 @@ production:
   adapter: mysql2
   database: yeahap
   username: admin
-  host: yeahap.caaytpdn8rwl.ap-northeast-2.rds.amazonaws.com
+  host: yeahap-aurora-cluster.cluster-caaytpdn8rwl.ap-northeast-2.rds.amazonaws.com
   password: <%= ENV['RDS_ADMIN_PASSWORD'] %>
   port: 3306
   pool: 5
