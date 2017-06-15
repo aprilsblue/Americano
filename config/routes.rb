@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'my_pages/accept' => 'my_pages#accept', as: :accept
   post 'my_notes/share' => 'my_notes#share', as: :share
   post 'yeahaps/create' => 'yeahaps#create'
+  post 'yeahaps/exportBookmark' => "yeahaps#exportBookmark"
   post 'yeahaps/check' => 'yeahaps#check'
   post 'yeahaps/userCheck' => 'yeahaps#userCheck'
   post 'yeahaps/sort' => 'yeahaps#sort'
