@@ -99,7 +99,7 @@ class YeahapsController < ApplicationController
       bookmarks = JSON.parse(params[:bookmarks])
       directories = JSON.parse(params[:directory])
 
-      #make yeahapbox
+      # make yeahapbox
       directories.each do |key, value|
         Yeahapbox.create(user_id: current_user.id, title: value)
       end
@@ -107,7 +107,6 @@ class YeahapsController < ApplicationController
       bookmarks.each do |bookmark|
         create_helper(bookmark, directories)
       end
-
     else
       render json: {result: "fail"}
     end
