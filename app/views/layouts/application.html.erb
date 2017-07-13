@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
@@ -23,13 +26,25 @@
         </div>
         <nav>
           <ul>
-            <% if user_signed_in? %>
+           <% if user_signed_in? %>
               <% unless params[:controller] == "my_pages" || params[:controller] == "notices" %>
                 <li class="tooltip-menu">
                   <%= link_to new_yeahapbox_path, remote: true do %>
                     <i class="fa fa-inbox"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
                   <% end %>
-                  <span class="tooltiptext-menu">new box</span>
+                  <span class="tooltiptext-menu">New Box</span>
+                </li>
+                <li class="tooltip-menu">
+                  <%= link_to new_yeahapbox_path, remote: true do %>
+                    <i class="fa fa-file"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
+                  <% end %>
+                  <span class="tooltiptext-menu">Import</span>
+                </li>
+                <li class="tooltip-menu">
+                  <%= link_to new_yeahapbox_path, remote: true do %>
+                    <i class="fa fa-save"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
+                  <% end %>
+                  <span class="tooltiptext-menu">Export</span>
                 </li>
               <% end %>
               <% unless params[:controller] == "my_pages" %>
@@ -37,33 +52,33 @@
                   <%= link_to my_pages_path do %>
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                   <% end %>
-                  <span class="tooltiptext-menu">profile</span>
+                  <span class="tooltiptext-menu">Profile</span>
                 </li>
               <% end %>
               <li class="tooltip-menu">
                 <%= link_to notices_path do  %>
                   <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <% end %>
-                <span class="tooltiptext-menu">notice</span>
+                <span class="tooltiptext-menu">Notice</span>
               </li>
               <li class="tooltip-menu">
                 <%= link_to destroy_user_session_path, method: "delete" do  %>
                   <i class="fa fa-power-off" aria-hidden="true"></i>
                 <% end %>
-                <span class="tooltiptext-menu">log out</span>
+                <span class="tooltiptext-menu">Log Out</span>
               </li>
             <% elsif admin_signed_in? %>
               <li class="tooltip-menu">
                 <%= link_to notices_path do  %>
                   <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <% end %>
-                <span class="tooltiptext-menu">notice</span>
+                <span class="tooltiptext-menu">Notice</span>
               </li>
               <li class="tooltip-menu">
                 <%= link_to destroy_admin_session_path, method: "delete" do  %>
                   <i class="fa fa-power-off" aria-hidden="true"></i>
                 <% end %>
-                <span class="tooltiptext-menu">log out</span>
+                <span class="tooltiptext-menu">Log Out</span>
               </li>
             <% else %>
               <li>
