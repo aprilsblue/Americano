@@ -2,6 +2,9 @@
   <li class="friend">
     <%= image_tag asset_path("coffee.png"), class: "friend-profile-img" %>
     <span class="marginRight20"><%= f.email %></span>
+    <%= link_to followee_page_path(f.id) do  %>
+      <i class="fa fa-home orange-text"></i>
+    <% end %>
     <%= link_to destroy_followee_path(f.id), method: "DELETE", data: {confirm: "Are You Sure?"} do %>
       <i class="fa fa-close orange-text"></i>
     <% end %>

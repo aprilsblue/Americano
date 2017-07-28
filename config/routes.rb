@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get 'hashtag/:name' => 'posts#hashtag'
+  get 'yeahaps/:id/change_private' => 'yeahaps#change_private', as: :change_private
+  get 'yeahaps/index/:followee_id' => 'yeahaps#followee', as: :followee_page
 
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'my_pages/friend' => 'my_pages#friend', as: :friend

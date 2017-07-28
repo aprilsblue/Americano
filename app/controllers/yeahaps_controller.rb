@@ -22,6 +22,19 @@ class YeahapsController < ApplicationController
     end
   end
 
+  def followee
+    followee = User.find(params[:followee_id])
+
+    if UserFriend.find_by(follower_id: current_user.id, followee_id: followee.id).present?
+      @yeahapbox = Yeahapbox.where(user_id: followee.id).all
+      respond_to do |format|
+        format.html
+      end
+    else
+      redirect_to(root_path)
+    end
+  end
+
   def userCheck
     if user_signed_in?
 
@@ -135,6 +148,18 @@ class YeahapsController < ApplicationController
     end
   end
 
+  def change_private
+    @yeahap = Yeahap.find(params[:id])
+
+    respond_to do |format|
+      if @yeahap.update(is_public: @yeahap.is_public ? false : true )
+        format.html { redirect_to(root_path) }
+      else
+        format.html { render action: 'index' }
+      end
+    end
+  end
+
   def destroy
     @yeahap = Yeahap.find(params[:id])
     @yeahap.destroy
@@ -176,7 +201,6 @@ class YeahapsController < ApplicationController
 
     render "yeahaps/update_count.js.erb", format: :js
   end
-
 
   private
   def yeahap_params

@@ -63,4 +63,3 @@ jQuery ->
       return $clone.get(0)
 
   return
-  #return

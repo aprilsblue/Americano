@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712131737) do
+ActiveRecord::Schema.define(version: 20170725085923) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20170712131737) do
     t.string   "content"
     t.string   "favicon_url",  default: "default"
     t.integer  "position",     default: 0
-    t.boolean  "is_public",    default: false
+    t.boolean  "is_public",    default: true
     t.integer  "user_id"
     t.integer  "page_id"
     t.integer  "yeahapbox_id"
