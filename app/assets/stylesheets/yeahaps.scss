@@ -91,11 +91,11 @@
 }
 
 .tooltip .tooltiptext {
-  top: 35%;
-  left: 82%;
+  top: -23%;
+  left: 84%;
   visibility: hidden;
   width: 90px;
-  height: 120px;
+  height: 90px;
   background-color: black;
   color: #fff;
   text-align: left;
@@ -103,7 +103,7 @@
   border-radius: 6px;
   opacity: 0.5;
   a {
-    line-height: 2;
+    line-height: 1;
   }
   a:hover {
     color: orange;
@@ -112,9 +112,7 @@
   /* Position the tooltip text - see examples below! */
   position: absolute;
 }
-.menu-btn:hover .tooltiptext {
-  visibility: visible;
-}
+
 .ellipsis {
   text-overflow:ellipsis;
   white-space:nowrap;

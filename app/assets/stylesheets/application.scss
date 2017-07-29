@@ -203,7 +203,13 @@ div.footer-copyright{
   /* Position the tooltip text - see examples below! */
   position: absolute;
 }
-.tooltip-menu:hover .tooltiptext-menu {
+
+.tooltip:hover > span.tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-menu:hover > .tooltiptext-menu {
   visibility: visible;
 }
 
