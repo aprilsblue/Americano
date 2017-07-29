@@ -23,8 +23,14 @@
   min-height: 100px;
 }
 
-.yeahap-li{
- float: left;
+.yeahap-li {
+  float: left;
+  div {
+    a {
+      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+  }
 }
 
 .private {
@@ -72,7 +78,6 @@
   z-index: 1;
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
 .menu-btn {

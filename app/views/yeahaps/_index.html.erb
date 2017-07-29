@@ -32,8 +32,8 @@
                   <i class="fa fa-caret-down"></i>
                 </span>
                 <span class="tooltiptext">
-                  <%= link_to edit_yeahap_path(y.id), remote: true do%>
-                    <span data-toggle="modal", data-target="#modal">
+                  <%= link_to edit_yeahap_path(y.id), remote: true do %>
+                    <span data-toggle="modal" data-target="#modal">
                       <i class="fa fa-edit" aria-hidden="true"></i>  EDIT
                     </span>
                   <% end %><br />
@@ -44,8 +44,10 @@
                       <i class="fa fa-users"></i> PUBLIC
                     <% end %>
                   <% end %><br />
-                  <%= link_to "" do %>
-                    <i class="fa fa-unsorted"></i> &nbsp; MOVE
+                  <%= link_to yeahap_move_form_path(y.id), remote: true do %>
+                    <span data-toggle="modal" data-target="#modal">
+                      <i class="fa fa-unsorted"></i> &nbsp; MOVE
+                    </span>
                   <% end %><br />
                   <%= link_to yeahap_path(y.id), method: "delete", remote: true, data: {confirm: "Are You Sure?"} do %>
                     <i class="fa fa-remove" aria-hidden="true"></i> &nbsp;DELETE

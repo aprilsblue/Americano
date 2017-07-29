@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'hashtag/:name' => 'posts#hashtag'
   get 'yeahaps/:id/change_private' => 'yeahaps#change_private', as: :change_private
   get 'yeahaps/index/:followee_id' => 'yeahaps#followee', as: :followee_page
+  get 'yeahaps/move_form/:id' => 'yeahaps#move_form', as: :yeahap_move_form
 
   post 'my_notes/:my_note_id/delete_post/:id' => 'my_notes#delete_post', as: :delete_post
   post 'my_pages/friend' => 'my_pages#friend', as: :friend
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   post 'yeahaps/check' => 'yeahaps#check'
   post 'yeahaps/userCheck' => 'yeahaps#userCheck'
   post 'yeahaps/sort' => 'yeahaps#sort'
+  post 'yeahaps/move/:id' => 'yeahaps#move', as: :yeahap_move
   post 'yeahapboxes/update' => 'yeahapboxes#update'
   post 'yeahapboxes/sort' => 'yeahapboxes#sort'
   post 'yeahapboxes/destroy' => 'yeahapboxes#destroy'

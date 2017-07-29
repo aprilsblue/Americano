@@ -27,6 +27,7 @@ class YeahapsController < ApplicationController
 
     if UserFriend.find_by(follower_id: current_user.id, followee_id: followee.id).present?
       @yeahapbox = Yeahapbox.where(user_id: followee.id).all
+      @followee = followee.email
       respond_to do |format|
         format.html
       end
@@ -171,6 +172,25 @@ class YeahapsController < ApplicationController
     end
   end
 
+  def move_form
+    @yeahapbox = current_user.yeahapboxes.all
+    @id = params[:id]
+  end
+
+  def move
+    @yeahap = Yeahap.find(params[:id])
+    @yeahapbox = Yeahapbox.find(params[:yeahapbox])
+
+    if @yeahapbox.yeahaps.present?
+      position = @yeahapbox.yeahaps.order(:position).last.position + 1
+    else
+      position = 1
+    end
+
+    if @yeahap.update(yeahapbox_id: params[:yeahapbox], position: position + 1)
+      redirect_to root_path
+    end
+  end
 
   def sort
     box_id = params[:box_id].to_i
@@ -208,4 +228,3 @@ class YeahapsController < ApplicationController
   end
 
 end
-
