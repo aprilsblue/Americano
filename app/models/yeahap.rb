@@ -31,7 +31,7 @@ class Yeahap < ApplicationRecord
     recent = []
     recent_count = 5
 
-    all.reverse.each do |y|
+    all.where(is_public: 1).reverse.each do |y|
       if recent.count < recent_count
         if !User.find(current_user_id).yeahaps.where(page_id: y.page_id).present?
           User.find(current_user_id).followees.all.each do |f|
