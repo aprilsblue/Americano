@@ -15,6 +15,10 @@ class YeahapsController < ApplicationController
     else
       @yeahapbox = Yeahapbox.where(user_id: current_user.id).all
       @yeahaps = Yeahap.where(user_id: current_user.id).all
+      @recents = Yeahap.followee_yeahaps(current_user.id)
+
+      puts @recents
+
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render xml: @yeahps }
@@ -220,6 +224,14 @@ class YeahapsController < ApplicationController
     end
 
     render "yeahaps/update_count.js.erb", format: :js
+  end
+
+  def getItem
+    @yeahap = Yeahap.new(yeahapbox_id: current_user.pick_basic_box.id, content: params[:content], user_id: current_user.id, page_id: params[:page_id])
+
+    if @yeahap.save
+      redirect_to root_path
+    end
   end
 
   private

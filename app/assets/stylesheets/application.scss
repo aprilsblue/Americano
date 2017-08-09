@@ -21,6 +21,10 @@
  */
 @import 'variables';
 
+.main-color {
+  color: $main_color;
+}
+
 div.navbar {
   width: 100%;
 }
@@ -204,9 +208,8 @@ div.footer-copyright{
   position: absolute;
 }
 
-.tooltip:hover > span.tooltiptext {
+.menu-btn:hover > .tooltiptext {
   visibility: visible;
-  opacity: 1;
 }
 
 .tooltip-menu:hover > .tooltiptext-menu {

@@ -1,0 +1,40 @@
+<ul class="box-ul recent-ul">
+  <li class="yeahapbox box-li">
+    <div class="row">
+      <div class="box-title-wrapper">
+        <div class="title-counter">
+          <span class="box-title main-color">NEW Yeahaps</span>
+        </div>
+      </div>
+      <ul class="yeahap-ul">
+        <% yeahaps.each do |y| %>
+          <li class="yeahap yeahap-li" id="yeahap_<%= y.id %>">
+            <div class="page-block tooltip">
+              <span class="list-group-item">
+                <span class="ellipsis"><%= y.yeahapbox.title %></span><br />
+                <small class="ellipsis"><%= y.user.email %></small>
+              </span>
+              <%= link_to "http://#{y.page.url}", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+                <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
+                <span class="ellipsis"><%= y.content == "" ? "no title" : y.content %></span>
+                <small class="text-muted ellipsis" >
+                  <%= y.page.url %>
+                </small>
+              <% end %>
+              <span class="menu-btn">
+                <i class="fa fa-caret-down"></i>
+                <span class="tooltiptext">
+                  <%= link_to getItem_path(content: y.content, page_id: y.page_id), method: "POST" do %>
+                    <span>
+                      <i class="fa fa-edit" aria-hidden="true"></i> Yeahap
+                    </span>
+                  <% end %>
+                </span>
+              </span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </li>
+</ul>

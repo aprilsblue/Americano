@@ -4,9 +4,10 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
 
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable :validatable, :confirmable,
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+         :recoverable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:facebook]
 
   # Yeahap & pages

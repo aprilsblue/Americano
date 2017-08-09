@@ -95,7 +95,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def show
     @post = Post.find(params[:id])
     @my_notes = current_user.my_notes.all.to_a

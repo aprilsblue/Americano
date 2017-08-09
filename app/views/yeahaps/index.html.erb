@@ -4,6 +4,7 @@
   </div>
 <% else %>
   <div class="container">
+    <%= render partial: 'recent', locals: { yeahaps: @recents } %>
     <%= render partial: 'index', locals: { yeahapbox: @yeahapbox } %>
   </div>
 
