@@ -91,6 +91,15 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.box-title-wrapper:hover .box-toolbar {
+ visibility: visible;
+}
+
+.box-toolbar {
+ visibility: hidden;
+}
+
 .box-title-count {
   font-size: 15px;
   color: #aaa;
