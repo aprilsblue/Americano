@@ -5464,6 +5464,7 @@ button.close {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   outline: 0;
+  border: 10px solid orange;
 }
 
 .modal-backdrop {
@@ -5497,7 +5498,7 @@ button.close {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 15px;
+  padding: 15px 15px 0 15px;
   /*border-bottom: 1px solid #eceeef;*/
 }
 
@@ -5512,7 +5513,7 @@ button.close {
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
 }
 
 .modal-footer {
@@ -5551,7 +5552,7 @@ button.close {
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 500px;
-    margin: 30px auto;
+    margin: auto;
   }
   .modal-sm {
     max-width: 300px;

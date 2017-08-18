@@ -2,24 +2,11 @@
   <li class="friend">
     <%= image_tag asset_path("coffee.png"), class: "friend-profile-img" %>
     <span class="marginRight20"><%= f.email %></span>
-    <% if UserFriend.where(follower_id: current_user.id, followee_id: f.id).take.status == "request" %>
-      <span class="light-green-text">Request</span>
-    <% else %>
-      <span class="indigo-text">Friend</span>
+    <%= link_to followee_page_path(f.id) do  %>
+      <i class="fa fa-home orange-text"></i>
     <% end %>
-  </li>
-<% end %>
-
-<% followers.each do |f| %>
-  <li class="friend">
-    <%= image_tag asset_path("coffee.png"), class: "friend-profile-img" %>
-    <span class="marginRight20"><%= f.email %></span>
-    <% if UserFriend.where(followee_id: current_user.id, follower_id: f.id).take.status == "request" %>
-      <%= link_to accept_path(follower: f.id), method: "POST" do %>
-        <span class="light-green-text">Accept</span>
-      <% end %>
-    <% else %>
-      <span class="indigo-text">Friend</span>
+    <%= link_to destroy_followee_path(f.id), method: "DELETE", data: {confirm: "Are You Sure?"} do %>
+      <i class="fa fa-close orange-text"></i>
     <% end %>
   </li>
 <% end %>

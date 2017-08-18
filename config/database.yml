@@ -22,4 +22,11 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: mysql2
+  database: yeahap
+  username: admin
+  host: yeahap-aurora-cluster.cluster-caaytpdn8rwl.ap-northeast-2.rds.amazonaws.com
+  password: <%= ENV['RDS_ADMIN_PASSWORD'] %>
+  port: 3306
+  pool: 5
+  timeout: 5000

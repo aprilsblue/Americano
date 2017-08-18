@@ -1,15 +1,19 @@
 <main>
-<div class="container user-view-size">
+<div class="container user-view-size card-block sign-in">
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
+    <div class="field md-form">
       <%= f.email_field :email, autofocus: true %>
+      <%= f.label :email %><br />
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
+    <div class="field md-form">
       <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.label :password %><br />
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -19,11 +23,18 @@
       </div>
     <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
+    <div class="actions text-center">
+      <%= f.submit "Log in", class: "btn-yeahap" %>
+      <%= link_to user_facebook_omniauth_authorize_path do %>
+        <%= image_tag asset_path("facebook-login-button2.png"), class: "facebook-login-button" %>
+      <% end %>
     </div>
   <% end %>
 
-  <%= render "users/shared/links" %>
+  <div class="modal-footer">
+    <div class="options">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
 </div>
 </main>

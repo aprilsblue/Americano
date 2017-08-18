@@ -1,9 +1,18 @@
 require 'json'
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :test, :check]
+  before_action :authenticate_any!, except: [:show, :test, :check]
+  before_action :cors_allow_all, only: [:test, :check]
+  skip_before_filter :verify_authenticity_token, only: [:test]
 
   #index is in Book#show
+
+  def cors_allow_all
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
 
   def new
     @book = Book.find(params[:book_id])
@@ -21,24 +30,14 @@ class PostsController < ApplicationController
   end
 
   def test
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-
-    @book = Book.find(1)
-    @post = @book.posts.new(user_id: 1, page: 1, content: params[:current_url])
-    @post.save
-
-    render json: {result: "response_succees"}
+    if user_signed_in?
+      render json: {result: "response_success", user: current_user.email}
+    else
+      render json: {result: "no", user: "none"}
+    end
   end
 
   def check
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-
     url = JSON.parse(params[:check_url])
     @check = []
     url.each do |u|
@@ -79,7 +78,6 @@ class PostsController < ApplicationController
     @post.is_child = true
     @parent = params[:parent].to_i
 
-
     respond_to do |format|
       if @post.save
         if Post.find(@parent).parents.present?
@@ -96,7 +94,6 @@ class PostsController < ApplicationController
       end
     end
   end
-
 
   def show
     @post = Post.find(params[:id])

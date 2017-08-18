@@ -1,8 +1,7 @@
 class MyPagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_any!
 
   def index
-    @followers = current_user.followers.all
     @followees = current_user.followees.all
 
     respond_to do |format|
@@ -16,22 +15,22 @@ class MyPagesController < ApplicationController
     user.present? ? @is_present = true : @is_present = false
 
     if @is_present
-      if UserFriend.find_by(follower_id: current_user.id, followee_id: user.id).present? || UserFriend.find_by(followee_id: current_user.id, follower_id: user.id).present?
+      if UserFriend.find_by(follower_id: current_user.id, followee_id: user.id).present?
         @message = "Already exists"
       else
-        newFriend = UserFriend.new(follower_id: current_user.id, followee_id: user.id, status: "request")
+        newFriend = UserFriend.new(follower_id: current_user.id, followee_id: user.id)
         if newFriend.save
-          @message = "Request is sent"
+          @message = "Success!!"
         else
           puts newFriend.errors.full_messages
         end
       end
     else
-      @message = "That is not exist"
+      @message = "It is not existed"
     end
 
-    @followers = current_user.followers.all
     @followees = current_user.followees.all
+    @count = @followees.count
 
     respond_to do |format|
       format.js   #friend.js.erb
@@ -39,13 +38,13 @@ class MyPagesController < ApplicationController
     end
   end
 
-  def accept
-    @friendship = UserFriend.where(follower_id: params[:follower].to_i, followee_id: current_user.id).take
-    @friendship.update(status: "friend")
+  def destroy
+    @friend = UserFriend.where(follower_id: current_user.id, followee_id: params[:id]).take
+    @friend.destroy
 
     respond_to do |format|
-      format.html { redirect_to my_pages_path }
-      format.xml  { render xml: @my_pages }
+      format.html { redirect_to(my_pages_url) }
+      format.xml  { head :ok }
     end
   end
 end

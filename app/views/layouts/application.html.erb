@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html class="no-js">
   <head>
-    <title>Americano</title>
+    <title>Yeahap!</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,30 +18,88 @@
     <!--Navbar show page-->
     <header id="main_header" class="cf">
       <div class="wrapper_wide">
-        <%= link_to "Americano", books_path, id: "logo" %>
+        <%= link_to root_path do %>
+          <%= image_tag asset_path("yeahap.png"), style: "height:25px" %>
+        <% end %>
+        <div id="main_flash_message" class="badge badge-primary">
+          message
+        </div>
         <nav>
           <ul>
-            <% if user_signed_in? %>
-              <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-              <li>
-                <%= link_to my_pages_path do %>
-                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+           <% if user_signed_in? %>
+             <% if params[:action] == "followee" %>
+               <li>
+                 <span><strong class="whois"><%= @followee %></strong>'s Yeahaps</span>
+               </li>
+             <% end %>
+             <% unless params[:controller] == "my_pages" || params[:controller] == "notices" || params[:action] == "followee" %>
+                <li class="tooltip-menu">
+                  <%= link_to new_yeahapbox_path, remote: true do %>
+                    <i class="fa fa-inbox"  data-toggle="modal" data-target="#modal" aria-hidden="true"></i>
+                  <% end %>
+                  <span class="tooltiptext-menu">New Box</span>
+                </li>
+                <li class="tooltip-menu">
+                  <%#= link_to "" do %>
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                  <%# end %>
+                  <span class="tooltiptext-menu">Import</span>
+                </li>
+                <li class="tooltip-menu">
+                  <%#= link_to "" do %>
+                    <i class="fa fa-save" aria-hidden="true"></i>
+                  <%# end %>
+                  <span class="tooltiptext-menu">Export</span>
+                </li>
+              <% end %>
+              <% unless params[:controller] == "my_pages" %>
+                <li class="tooltip-menu">
+                  <%= link_to my_pages_path do %>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                  <% end %>
+                  <span class="tooltiptext-menu">Profile</span>
+                </li>
+              <% end %>
+              <li class="tooltip-menu">
+                <%= link_to notices_path do  %>
+                  <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <% end %>
+                <span class="tooltiptext-menu">Notice</span>
               </li>
-              <li>
-                <%= link_to "My Note", my_notes_path %>
+              <li class="tooltip-menu">
+                <%= link_to destroy_user_session_path, method: "delete" do  %>
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                <% end %>
+                <span class="tooltiptext-menu">Log Out</span>
               </li>
-              <li>
-                <%= link_to "Sign out", destroy_user_session_path, method: "delete"  %>
+            <% elsif admin_signed_in? %>
+              <li class="tooltip-menu">
+                <%= link_to notices_path do  %>
+                  <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                <% end %>
+                <span class="tooltiptext-menu">Notice</span>
+              </li>
+              <li class="tooltip-menu">
+                <%= link_to destroy_admin_session_path, method: "delete" do  %>
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                <% end %>
+                <span class="tooltiptext-menu">Log Out</span>
               </li>
             <% else %>
-              <li><%= link_to "Sign In / Sign Up", new_user_session_path %></li>
+              <li>
+                <%= link_to new_user_session_path do %>
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </nav>
       </div>
     </header>
-  <!--/.Navbar-->
+    <!--/.Navbar-->
+
+    <div id="fb-root"></div>
+
     <%= yield %>
 
   </body>

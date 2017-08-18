@@ -1,6 +1,7 @@
 if(<%= @is_present %> == true) {
   $('ul.friends_list').html(
-    "<%= escape_javascript (render partial: 'my_pages/list.html.erb', locals: { followers: @followers, followees: @followees }) %>"
+    "<%= escape_javascript (render partial: 'my_pages/list.html.erb', locals: { followees: @followees }) %>"
   );
+  $('span.following').text(<%= @count %>);
 }
 $('input#email').val("<%= @message %>");

@@ -4,9 +4,9 @@
 document.addEventListener "turbolinks:load", ->
   $('input#email').on 'input', ->
     if $('input#email').val() != ""
-      $('input.btn-submit').removeAttr('disabled')
+      $('input.btn-search').removeAttr('disabled')
     else
-      $('input.btn-submit').attr('disabled', 'true')
+      $('input.btn-search').attr('disabled', 'true')
       return
     return
   return

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [ :landing, :index ]
+  before_action :authenticate_any!, except: [ :landing, :index ]
 
   def about
     render layout: false
@@ -7,6 +7,11 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all.paginate(page: params[:page])
+
+    if user_signed_in?
+      session[:current_user_id] = current_user.id
+      puts session[:current_user_id]
+    end
 
     respond_to do |format|
       format.html # index.html.erb

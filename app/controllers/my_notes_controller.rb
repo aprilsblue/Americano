@@ -1,4 +1,6 @@
 class MyNotesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @my_notes = current_user.my_notes.all.reverse
     @my_friends = current_user.followers.where(user_friends: {status: "friend"}).all + current_user.followees.where(user_friends: {status: "friend"}).all
@@ -85,22 +87,6 @@ class MyNotesController < ApplicationController
     respond_to do |format|
       format.js
       format.xml  { head :ok }
-    end
-  end
-
-  def share
-    @my_note = UserNote.new(user_id: params[:friend].to_i, my_note_id: params[:note].to_i, authority: "read")
-
-    respond_to do |format|
-      if @my_note.save
-        flash[:notice] = 'MyNote was successfully created.'
-        format.html { redirect_to my_notes_path }
-        format.xml  { render xml: @my_note, status: :created, location: @my_note }
-      else
-        format.html { render action: 'new' }
-        format.xml  { render xml: @my_note.errors, status: :unprocessable_entity }
-        puts(@my_note.errors.full_messages)
-      end
     end
   end
 

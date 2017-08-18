@@ -1,0 +1,27 @@
+<table class="table table-hover table-notice">
+  <colspan>
+    <col style="width:15%"/>
+    <col style="width:60%"/>
+    <col style="width:25%"/>
+  </colspan>
+  <thead>
+    <th>No</th>
+    <th>Title</th>
+    <th>Date</th>
+  </thead>
+  <tbody>
+    <% if notices.empty? %>
+      <tr>
+        <td colspan="3" class="text-center">No Data</td>
+      </tr>
+    <% else %>
+      <% notices.each do |n| %>
+        <tr onclick="location.href='/notices/' + <%= n.id %>">
+          <td><%= n.id %></td>
+          <td><%= n.title %></td>
+          <td><%= n.created_at.strftime("%y-%m-%d") %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

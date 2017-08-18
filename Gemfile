@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'seed_dump'
+gem 'mailgun_rails'
+gem 'omniauth-facebook'
 gem 'record_tag_helper', '~> 1.0' # for record_tag_helper = content_tag_helper(rails 4)
 gem 'seed_dump'
 gem 'rails_admin'
@@ -62,3 +65,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'mysql2'
+end

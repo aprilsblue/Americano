@@ -52,7 +52,7 @@ div.post-card {
 .btn-americano {
   border: none;
   background-color: white;
-  color: $light_dark;
+  color: orange;
   margin: 0px 5px;
 }
 
@@ -151,10 +151,6 @@ div.tooltip {
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover > .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
 
 .text-grey{
   color: $light_dark;
@@ -168,5 +164,5 @@ div.tooltip {
 .scrap-modal{
   top: 35vh;
   margin: auto;
-  width: 50vh;
+  width: 400px;
 }

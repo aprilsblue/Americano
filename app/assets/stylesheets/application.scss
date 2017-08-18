@@ -21,6 +21,10 @@
  */
 @import 'variables';
 
+.main-color {
+  color: $main_color;
+}
+
 div.navbar {
   width: 100%;
 }
@@ -172,4 +176,63 @@ div.footer-copyright{
   }
 }
 
+.tooltip-menu {
+  display: inline-block;
+  border: transparent;
+  position: relative;
+}
+.tooltiptext-menu {
+  left: -27px;
+  top: 30px;
+  font-size: 15px;
+}
+//.tooltiptext1 {
+  //right: 125px;
+//}
+//.tooltiptext2 {
+  //right: 85px;
+//}
+//.tooltiptext3 {
+  //right: 40px;
+//}
+.tooltip-menu .tooltiptext-menu {
+  visibility: hidden;
+  width: 70px;
+  height: 30px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
 
+.menu-btn:hover > .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip-menu:hover > .tooltiptext-menu {
+  visibility: visible;
+}
+
+#main_flash_message {
+  display: none;
+  width: 300px;
+  position: fixed;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+  font-size: 15px;
+  background-color: $main_color;
+  color: white;
+  z-index: 100;
+}
+
+// a link inherit!!
+a { color: inherit; } 
+
+.whois {
+  color: orange;
+}

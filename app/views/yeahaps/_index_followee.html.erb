@@ -1,0 +1,30 @@
+<ul class="box-ul">
+  <% yeahapbox.order("position").each do |b| %>
+    <%= content_tag_for :li, b, class: 'box-li' do %>
+      <div class="row yeahapbox-row">
+        <div class="box-title-wrapper">
+          <div class="title-counter">
+            <span class="box-title" id="title_<%= b.id %>" ><%=b.title%></span><span class="box-title-count" id="box_count_<%= b.id %>">( <%= b.yeahaps.public_true.all.count %> )</span>
+          </div>
+        </div>
+        <ul class="yeahap-ul" id="box_<%= b.id %>" data-update-url=<%= yeahaps_sort_path %>>
+          <% b.yeahaps.order("position").each do |y| %>
+            <% if y.is_public? %>
+              <li class="yeahap yeahap-li" id="yeahap_<%= y.id %>">
+                <div class="page-block">
+                  <%= link_to "http://#{y.page.url}", class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+                    <%= image_tag "https://www.google.com/s2/favicons?domain=#{y.page.url}", onerror: "this.src='#{asset_path("favicon.ico")}'"%>
+                    <span class="ellipsis"><%= y.content == "" ? "no title" : y.content %></span>
+                    <small class="text-muted ellipsis" >
+                      <%= y.page.url %>
+                    </small>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,4 @@
+<%= form_tag yeahap_move_path(id), method: "POST" do %>
+  <%= select_tag :yeahapbox, options_from_collection_for_select(yeahapbox, :id, :title), {class: "form-control"} %>
+  <%= submit_tag "SUBMIT", class: "btn-americano" %>
+<% end %>
